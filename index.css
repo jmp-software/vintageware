@@ -1,47 +1,131 @@
- body {
-       display: flex;
-       flex-direction: column;
-       min-height: 100vh;
-       margin: 0;
-       background-color: black;
-       color: white;
-       font-family: "Press Start 2P", system-ui;
-}
-       
-header {
-        text-align: center; 
-}
-       
-main {
-      flex: 1; 
+/*
+body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background-color: black;
+        color: white;
+        font-family: "Press Start 2P", system-ui;
+ }
+        
+ header {
+         text-align: center; 
+ }
+        
+ main {
+       flex: 1; 
+       text-align: center;
+ }
+        
+ h1 {
+     font-size: 22px; 
+ }
+        
+ img {
+      max-width: 45%; 
+      height: auto; 
+ }
+ 
+ nav {
+      margin: 40px auto; 
       text-align: center;
+ }
+ 
+ nav ul {
+         list-style: none; 
+         padding: 0; 
+ }
+ 
+ nav li {
+         display: inline; 
+         margin: 0 15px; 
+ }
+ 
+ footer {
+         text-align: center;
+         padding: 5px;
+ }
+
+ */
+
+ body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: "Press Start 2P", system-ui;
 }
-       
+
+header {
+    text-align: center; 
+}
+
+main {
+    flex: 1; 
+    text-align: center;
+}
+
 h1 {
     font-size: 22px; 
 }
-       
+
 img {
-     max-width: 45%; 
-     height: auto; 
+    max-width: 45%; 
+    height: auto; 
 }
 
 nav {
-     margin: 40px auto; 
-     text-align: center;
+    margin: 40px auto; 
+    text-align: center;
 }
 
 nav ul {
-        list-style: none; /* Remove bullets from the list */
-        padding: 0; /* Remove default padding */
+    list-style: none; 
+    padding: 0; 
 }
 
 nav li {
-        display: inline; /* Display list items in a row */
-        margin: 0 15px; /* Add spacing between items */
+    display: inline; 
+    margin: 0 15px; 
 }
 
 footer {
-        text-align: center;
-        padding: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 18px; 
+    }
+
+    img {
+        max-width: 80%; 
+    }
+
+    nav li {
+        display: block; 
+        margin: 10px 0;
+    }
+
+    nav {
+        margin: 20px auto; 
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 16px;
+    }
+
+    img {
+        max-width: 90%; 
+    }
+
+    nav li {
+        margin: 5px 0; 
+    }
 }
