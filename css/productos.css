@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+}
+
+header {
+    text-align: center; 
+}
+
+main {
+    flex: 1; 
+    text-align: center;
+}
+
+h1 {
+    font-size: 22px; 
+}
+
+img {
+    max-width: 45%; 
+    height: auto; 
+}
+
+nav {
+    margin: 40px auto; 
+    text-align: center;
+}
+
+nav ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+nav li {
+    display: inline; 
+    margin: 0 15px; 
+}
+
+footer {
+    text-align: center;
+    padding: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(1, 1fr); 
+    gap: 10px; 
+    width: 80vw; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.grid-item {
+    display: flex;
+    flex-direction: column; /* Stack image and subtitle */
+    justify-content: flex-end; /* Align items to the bottom */
+    align-items: center; /* Center items horizontally */
+    height: 200px; /* Set a fixed height for consistency */
+    overflow: hidden; /* Hide overflow */
+}
+.grid-item img {
+    max-width: 100%; /* Make image responsive */
+    max-height: 80%; /* Limit the height to fit well */
+    display: block; /* Remove space below images */
+}
+.subtitle {
+    background: rgba(225, 0, 255, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+    padding: 5px; /* Padding for better appearance */
+    margin-top: 5px; /* Space between image and subtitle */
+}
