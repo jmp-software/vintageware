@@ -1,0 +1,7 @@
+<modifica código>
+
+<desde terminal>
+1) $ git add .
+2) $ git commit -m "Acá pongo en qué consiste la actualización"
+3) $ git push origin main o $ git push (previo a este paso tres iría "$ git pull" si estás laburando de forma colaborativa)
+
