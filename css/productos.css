@@ -57,22 +57,22 @@ footer {
 }
 .grid-item {
     display: flex;
-    flex-direction: column; /* Stack image and subtitle */
-    justify-content: flex-end; /* Align items to the bottom */
-    align-items: center; /* Center items horizontally */
-    height: 200px; /* Set a fixed height for consistency */
-    overflow: hidden; /* Hide overflow */
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: center;
+    height: 200px; 
+    overflow: hidden;
 }
 .grid-item img {
-    max-width: 100%; /* Make image responsive */
-    max-height: 80%; /* Limit the height to fit well */
-    display: block; /* Remove space below images */
+    max-width: 100%; 
+    max-height: 80%; 
+    display: block; 
 }
 .subtitle {
-    background: rgba(225, 0, 255, 0.7); /* Semi-transparent background */
-    color: white; /* Text color */
-    width: 100%; /* Full width */
-    text-align: center; /* Center text */
-    padding: 5px; /* Padding for better appearance */
-    margin-top: 5px; /* Space between image and subtitle */
+    background: rgba(225, 0, 255, 0.7); 
+    color: white;
+    width: 100%; 
+    text-align: center; 
+    padding: 5px; 
+    margin-top: 5px;
 }
