@@ -20,7 +20,30 @@ body {
         
  h1 {
      font-size: 22px; 
- }
+ }    <main>
+        <section>
+          <h1>PRODUCTOS</h1>
+        </section>
+        <div class="grid-container">
+             <div class="grid">
+                  <div class="grid-item">
+                       <img src="../assets/photos/photo-1.jpg" alt="Photo 1">
+                       <div class="subtitle">Windows 3.11</div>
+                  </div>
+                  <div class="grid-item">
+                       <img src="../assets/photos/photo-2.jpg" alt="Photo 2">
+                       <div class="subtitle">Norton Commander</div>
+                  </div>
+                  <div class="grid-item">
+                       <img src="../assets/photos/photo-3.jpg" alt="Photo 3">
+                       <div class="subtitle">Logo programming language</div>
+                  </div>
+                  <div class="grid-item">
+                       <img src="../assets/photos/photo-4.jpg" alt="Photo 4">
+                       <div class="subtitle">Paint Shop Pro 3.11</div>
+                   </div>
+             </div>
+        </div>
         
  img {
       max-width: 45%; 
@@ -182,25 +205,43 @@ footer {
 }
 
 .grid-item {
+   
     display: flex;
     flex-direction: column; 
-    justify-content: flex-end; 
+    /*justify-content:flex-start*/
+    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    height: 12.5rem; 
+    height: 14em; 
     overflow: hidden;
 }
 
 .grid-item img {
     max-width: 100%; 
     max-height: 80%; 
-    display: block; 
+    display:grid; 
 }
+
+.grid-item:hover {
+    border: 2px solid rgba(122, 255, 255, 1); /* Change border color and width as needed */
+}
+
 
 .subtitle {
     background: rgba(225, 0, 255, 1); 
     color: white;
-    width: 100%; 
+    width: 100%;
     text-align: center; 
     padding: 0.3125rem; 
     margin-top: 0.3125rem; 
+    box-sizing: content-box; 
+    
+    display: flex; 
+    align-items: center; 
+  
+    justify-content: flex-start;
+    justify-content: center; 
+
+    height: 3em; 
 }
+
