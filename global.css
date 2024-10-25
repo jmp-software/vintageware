@@ -95,7 +95,6 @@ nav {
 }
 
 
-
 nav ul {
     list-style: none; 
     padding: 0; 
@@ -104,9 +103,33 @@ nav ul {
     justify-content: center; 
 }
 
+
 nav li {
     margin: 0 2rem; 
 }
+
+
+nav ul {
+    list-style-type: none; 
+    padding: 0; 
+    display: flex; 
+}
+
+nav li a {
+    display: block; /* Make the link fill the entire list item */
+    padding: 1em 2em; /* Add padding for a button-like appearance */
+    background-color: magenta; /* Background color of the button */
+    border: 2px solid cyan; /* Border color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    border-radius: 5px; /* Optional: rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav li a:hover {
+    background-color: rgba(255, 0, 255, 0.5); /* Change background on hover */
+}
+
 
 footer {
     text-align: center;
