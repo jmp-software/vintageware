@@ -79,6 +79,11 @@ h1 {
     font-size: 1.5rem; 
 }
 
+section {
+    display: flex;
+    
+}   
+
 img {
     max-width: 45%; 
     height: auto; 
@@ -104,14 +109,9 @@ nav li {
 footer {
     text-align: center;
     padding: 0.5rem; 
-    margin-top: auto; 
 }
 
 @media (max-width: 48em) {
-   
-    h1 {
-        font-size: 1rem; 
-    }
 
     img {
         max-width: 80%; 
@@ -132,10 +132,6 @@ footer {
 }
 
 @media (max-width: 30em) { 
-
-    h1 {
-        font-size: 0.7rem; 
-    }
 
     img {
         max-width: 90%; 
