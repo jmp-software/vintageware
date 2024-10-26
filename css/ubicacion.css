@@ -154,13 +154,13 @@ footer {
 */
 
 .map-container {
-    width: 90vw; /* Full width of the viewport */
-    height: 62.5vh; /* 500px is approximately 62.5% of a 800px tall viewport */
+    width: 50vw;
+    height: 39vh;
     overflow: hidden;
 }
 
 iframe {
-    width: 100%; 
+    width: 120%; 
     height: 100%;
     border: 0;
 }
