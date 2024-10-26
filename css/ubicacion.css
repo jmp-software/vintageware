@@ -156,10 +156,13 @@ footer {
 .map-container {
     width: 80vw;
     height: 39vh;
+    text-align: center;
     overflow: hidden;
 }
 
 iframe {
+   /* display: inline-block; */
+    margin: auto auto; 
     width: 120%; 
     height: 100%;
     border: 0;
