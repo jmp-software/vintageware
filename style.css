@@ -228,8 +228,8 @@ nav li a:hover {
 
 /* Define la caja para el grid "global" */
 .grid-container {
-    /*width: auto; 
-    height: auto;*/ 
+    width: auto; 
+    height: auto; 
     max-width: 80vw;
     padding: 1rem 1rem; 
     background-color: rgba(255, 0, 255, 0.4);
