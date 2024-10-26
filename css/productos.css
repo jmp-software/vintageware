@@ -194,23 +194,36 @@ footer {
     margin: 0 auto; 
 }
 */
+/* Animación cuando posa el puntero sobre el item del menú */
+@keyframes recuadroiTitilante {
+    0% { outline: 0.2rem solid rgba(122, 255, 255, 1); }
+    50% { outline: 0.2rem solid rgba(122, 255, 255, 0.5); }
+    100% { outline: 0.2rem solid rgba(122, 255, 255, 1); }
+
+}
+
+
+.grid-item:hover {
+    animation: recuadroiTitilante 0.65s infinite;
+    /*outline: 0.2rem solid rgba(122, 255, 255, 1);*/
+    transform: scale(1.05); 
+}
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(17.4511rem, 1fr));
-    gap: 2vw; 
+    row-gap: 4vw; 
+    column-gap: 1vw; 
     width: 80vw; 
     max-width: 77rem; 
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 
 .grid-item {
-   
     display: flex;
     flex-direction: column; 
     /*justify-content:flex-start*/
     justify-content: space-between;
-    justify-content: flex-start;
     align-items: center;
     height: 14em; 
     overflow: hidden;
@@ -241,7 +254,4 @@ footer {
     height: 3em; 
 }
 
-.grid-item:hover {
-    border: 0.2rem solid rgba(122, 255, 255, 1); 
-}
 

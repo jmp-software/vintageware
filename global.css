@@ -152,16 +152,15 @@ nav li a {
     text-decoration: none;
     border-radius: 0.5rem; 
     transition: background-color 0.3s ease; 
-    width: 10rem; /* Set a fixed width */
-    text-align: center; /* Center the text */
+    width: 10rem; 
+    text-align: center; 
 }
-
 
 
 /* Cuando posa el mouse sobre algún botón del menú pruncipal */ 
 nav li a:hover {
-    animation: colorCycle 1s infinite;
-    /*background-color: rgba(255, 0, 255, 0.5); */
+    animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
+     /*background-color: rgba(255, 0, 255, 0.5); */
 }
 
 /* Animación cuando posa el puntero sobre el item del menú */
@@ -181,7 +180,7 @@ nav li a:hover {
     }
 }
 
-/* Delat para animaciones */
+/* Delay para animaciones */
 .delay-1 {
     animation-delay: 0s;
 }

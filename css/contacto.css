@@ -1,7 +1,6 @@
 .grid {
-    grid-template-columns: repeat(auto-fill, minmax(5.4511rem, 1fr));
     display: grid;
-   
+    grid-template-columns: repeat(auto-fill, minmax(5.4511rem, 1fr));
     column-gap: 1vw; 
     width: 80vw; 
     max-width: 34rem; 
@@ -44,7 +43,6 @@
     width: 120%;
     height: 70%;
 }
-
 
 
 /*
