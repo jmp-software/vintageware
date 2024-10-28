@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Vintageware</title>
+    
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="../style.css"> 
+    
+    <link rel="stylesheet" href="../css/pago.css"> 
+
+</head>
+<body style="background-color: black; color: white;">
+    <header>
+        <img src="../assets/art/header.png" alt="Header Image">
+        <!--
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../pages/productos.html">Productos</a></li>
+                <li><a href="../pages/contacto.html">Contacto</a></li>
+                <li><a href="../pages/ubicacion.html">Ubicación</a></li>
+            </ul>
+        </nav>
+        -->
+    </header>
+
+    <main>
+        <section>
+            <h1>Norton Commander (MS-DOS) $45.000</h1>
+        </section>
+        
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="grid-container">
+                   <div class="grid">
+                         <div class="grid-item-payment">
+                              <input type="hidden" name="product" id="product" value="">
+                         </div>           
+                       
+                         <div class="grid-item-payment" id="product-name" >
+                            <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
+                         </div>
+                        
+                         <div class="grid-item-payment">
+                              <label for="name">Nombre completo</label>
+                              <input type="text" name="name" required>
+                         </div>
+                   
+                         <div class="grid-item-payment">
+                              <label for="apellidos">Apellidos</label>
+                              <input type="text" name="suername" required>
+                         </div>
+
+                         <div class="grid-item-payment">
+                              <label for="email">Correo-e</label>
+                              <input type="email" name="el" required>
+                         </div>
+                   
+                         <div class="grid-item-payment">
+                              <label for="numero-tarjeta">Nº de tarjeta</label>
+                              <input type="number" name="card-number" required>
+                         </div>
+                         
+                   </div>
+              </div>
+              <div class="payment-buttons">
+              <nav>
+                   <ul>
+                       <li class="grid-item-payment-button">
+                           <button type="submit" class="payment-button">REALIZAR PAGO</button>
+                       </li>
+                       <li class="grid-item-payment-button">
+                           <a href="../pages/productos.html" class="exit-button">VOLVER</a>
+                       </li>
+                   </ul>
+               </nav>
+               </div>
+        </form>
+    </main>
+        <!--
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            document.getElementById('product-name').textContent = product;
+            document.getElementById('product').value = product;
+        </script>
+        -->
+        
+</body>
+
+<footer>
+    <p class="footer">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
+</footer>
+</html>
