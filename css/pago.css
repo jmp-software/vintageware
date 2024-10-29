@@ -179,7 +179,8 @@ nav ul {
 */
 
 .payment-buttons {
-    margin: 0;
+    display:block;
+    margin-bottom: -3rem;
     padding: 0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 1);/
 } 
