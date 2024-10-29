@@ -15,7 +15,7 @@ body {
 header {
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
     text-align: center; 
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000; 
 }
 
 main {
@@ -37,20 +37,6 @@ h1 {
 }
 
 /* Intento de "biselado" */
-/*
-h1::after {
-    content: '';
-    position: absolute;
-    top: -.01rem;
-    bottom: -.01rem;
-    left: -.0275rem; 
-    right: -.0275rem;
-    border-radius: 0px; 
-    z-index: -1;
-    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 1); 
-    
-}
-*/
 h1::after {
     content: '';
     position: absolute;
@@ -63,31 +49,6 @@ h1::after {
     box-shadow: 0 0 4px  rgba(0, 0, 0, 1); 
 }
 
-
-/*
-border: 5px solid #ccc;
-padding: 20px;
-background-color: #fff; 
-border-radius: 10px; 
-box-shadow: 
-    5px 5px 0 #aaa, 
-    -5px -5px 0 #fff;
-*/    
-    
-/* Subtítulo si hay textyo */
-/*
-h2 {
-    text-shadow: -3px 3px 2px rgba(0, 0, 0, 0.7); 
-    line-height: 1.5;
-    max-width: 40rem; 
-    display: flexbox;
-    flex-grow: 1;
-    font-size: 1rem; 
-    text-align: center;
-  
-}
-*/
-
 /* Contenido de cada página */
 section {
     display: flex;
@@ -95,17 +56,11 @@ section {
     align-content: center;
 }   
 
-.product-payment-photo {
-    align-content: center;
-     max-height: 12rem;
-}
-
 /* Tamaño de imagenes global (afecta a la imagen del logo y eslogan) */
 img {
     max-width: 45%; 
     height: auto; 
 }
-
 
 /* Posiciona el menú principal */
 nav {
@@ -124,21 +79,6 @@ nav ul {
     display: flex; 
 }
 
-/* Le da formato a cada botón de la lista del menú principal */ 
-/*
-nav li a {
-    margin: 0 2rem;     
-    animation: sizeChange .5s infinite;
-    display: block; 
-    padding: 1em 2em;
-    background-color: #ff00ff; 
-    border: 2px solid rgb(0, 255, 255); 
-    color: white;
-    text-decoration: none;
-    border-radius: 0.5rem; 
-    transition: background-color 0.3s ease; 
-}
-*/
 nav li a {
     margin: 1rem 1rem;     
     animation: sizeChange .5s infinite;
@@ -170,7 +110,6 @@ nav li a::after{
 /* Cuando posa el mouse sobre algún botón del menú pruncipal */ 
 nav li a:hover {
     animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
-     /*background-color: rgba(255, 0, 255, 0.5); */
 }
 
 /* Animación cuando posa el puntero sobre el item del menú */
@@ -194,6 +133,7 @@ nav li a:hover {
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px;
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto; 
@@ -201,6 +141,7 @@ nav li a:hover {
     border: 1px solid #888;
     width: 80%; 
 }
+
 .close {
     color: #aaa;
     float: right;
@@ -219,7 +160,6 @@ p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-
 /* Animación de cambio de tamaño constante de los item del menú*/
 @keyframes sizeChange {
     0%, 100% {
@@ -234,15 +174,16 @@ p {
 .delay-1 {
     animation-delay: 0s;
 }
+
 .delay-2 {
     animation-delay: 1s;
 }
+
 .delay-3 {
     animation-delay: 2;
 }
 
 /* Resolución para celu 1 */
-
 @media (max-width: 48em) {
 
     img {
@@ -263,10 +204,7 @@ p {
     }
 }
 
-
-
 /* Resolución para celu 2 */
-
 @media (max-width: 30em) { 
 
     img {
@@ -278,7 +216,6 @@ p {
     }
 }
 
-
 /* Define la caja para el grid "global" */
 .grid-container {
     width: auto; 
@@ -287,18 +224,7 @@ p {
     padding: 1rem 1rem; 
     background-color: rgba(255, 0, 255, .5);
     border: 2px solid rgba(0, 255, 255, .76); 
-    /*border-radius: 0.5rem; */
     text-align: center;
-}
-
-#product-payment-photo {
-    margin-bottom: 1rem;
-    text-align: center;
-    padding: -1rem -2rem;
-}
-
-#product-payment-photo p {
-    margin-bottom: 0rem;
 }
 
 /* Para texto de "derechos de autor" */
