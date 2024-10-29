@@ -1,5 +1,5 @@
 /*
-.payment-button {
+.p-button {
     background-color: #4CAF50;
     color: white; 
     border: none; 
@@ -10,12 +10,12 @@
     transition: background-color 0.3s ease; 
 }
 
-.payment-button:hover {
+.p-button:hover {
     background-color: #45a049; 
 }
 */
 /*
-.grid-container-payment {
+.grid-container-p {
     width: 100%; 
     height: auto; 
     max-width: 70vw;
@@ -28,7 +28,7 @@
 }
 
 
-.grid-item-payment {
+.grid-item-p {
     font-size: 1.5rem;
     display: block;         
     margin-left: -.25rem;
@@ -40,7 +40,7 @@
 }
 */
 
-.grid-item-payment label {
+.grid-item-p label {
     font-size: 1.25rem;
     display: flex;         
     margin-bottom: .25rem;
@@ -50,7 +50,7 @@
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }
 
-.grid-item-payment input {
+.grid-item-p input {
     font-size: 1.25rem;
     display: flexbox;         
     margin-bottom: .75rem;
@@ -61,7 +61,7 @@
     text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4); 
 }
 
-.grid-item-payment label.amount {
+.grid-item-p label.amount {
     font-size: 1.45rem;
     display: flex;         
     margin-bottom: .25rem;
@@ -74,7 +74,7 @@
 
 
 /*
-.grid-item-payment-button {
+.grid-item-p-button {
     font-size: 1.5rem;
     display: flex;         
     margin-bottom: 1rem;
@@ -82,7 +82,7 @@
     align-items:center;    
 
 }
-.payment-button {
+.p-button {
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
     margin: 1rem 1rem;     
@@ -101,7 +101,7 @@
     text-align: center; 
 }
 
-.payment-button::after{
+.p-button::after{
     content: '';
     position: absolute;
     top: 0px;
@@ -114,7 +114,7 @@
 }
 
 
-.payment-button:hover {
+.p-button:hover {
     animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
      
 }
@@ -169,7 +169,7 @@ nav ul {
 }
 */    
 /*
-.grid-item-payment-button {
+.grid-item-p-button {
     font-size: 1.5rem;
     margin-bottom: 1rem;         
     display: flex;               
@@ -178,7 +178,7 @@ nav ul {
 }
 */
 
-.payment-buttons {
+.p-buttons {
     display:flex;
     margin-bottom: -4rem;
     margin-top: -3rem;
@@ -190,7 +190,7 @@ nav {
     padding: 0;
 }
 
-.payment-button,
+.p-button,
 .exit-button {
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
@@ -209,7 +209,7 @@ nav {
     text-align: auto;  
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
-.payment-button{
+.p-button{
     margin-bottom: -1.65rem;
     margin-left: 2rem;
     margin-right: 2rem;
@@ -222,7 +222,7 @@ nav {
     
 }
 
-.payment-button::after,
+.p-button::after,
 .exit-button::after {
     content: '';
     position: absolute;
@@ -234,7 +234,7 @@ nav {
     box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
 
-.payment-button:hover,
+.p-button:hover,
 .exit-button:hover {
     animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
 }
@@ -247,7 +247,7 @@ nav {
 }
 
 /*
-div.payment-buttons {
+div.p-buttons {
     paddin: 0rem;
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
     text-align: center; 
@@ -264,6 +264,15 @@ input:invalid {
     border-color: red;
 }
 */
+
+div a img {
+    max-height: 11.4rem;
+
+}
+#product-p-photo {
+margin-bottom: .25rem;
+
+}
 
 input {
     /* Avoid using display: none; or visibility: hidden; */
@@ -283,7 +292,6 @@ input:focus:invalid {
     rgba(255, 255, 255,1); 
 }
 */
-
 
 input:not(focus):invalid {
     color: rgba(255, 0, 0,.9); 

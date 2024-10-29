@@ -33,65 +33,69 @@
     </header>
 
     <main>
-        <div class="grid-container" id="product-payment-photo">
+        <div class="grid-container" id="product-p-photo">
             <a href="../assets/photos/photo-2.jpg" target="_blank">
-                <img class="product-payment-photo" src="../assets/photos/photo-2.jpg" alt="Photo 2">
+                <img class="product-p-photo" src="../assets/photos/photo-2.jpg" alt="Photo 2">
             </a>
             <p>The Norton Commander (MS-DOS) $32.000</p>    
        </div>
         
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-              <div class="grid-container">
+       <form action="https://formspree.io/f/xldegyly" method="POST">
+       <div class="grid-container" id="product-p-form">
                    <div class="grid">
-                        <div class="grid-item-payment">
-                             <input type="hidden" name="product" id="product" value="">
-                        </div>           
+                         <div class="grid-item-p">
+                              <input type="hidden" name="product" id="product" value="The Norton Commander (MS-DOS)">
+                         </div>  
                        
-                        <div class="grid-item-payment" id="product-name" >
-                             <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
-                        </div>
+                         <div class="grid-item-p">
+                            <input type="hidden" name="valor" id="product" value="32.000">
+                         </div>           
+              
+                         <div class="grid-item-p" id="product-name" >
+                            <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
+                         </div>
                         
-                        <div class="grid-item-payment">
-                            <label for="name">Nombres</label>
-                            <input type="text" name="name" required
-                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
-                            placeholder="Juan Alejandro">
-                       </div>
-                
-                       <div class="grid-item-payment">
-                            <label for="apellidos">Apellidos</label>
-                            <input type="text" name="surname" required
-                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
-                            placeholder="Perez García">
-                       </div>
+                         <div class="grid-item-p">
+                              <label for="name">Nombres</label>
+                              <input type="text" name="name" required
+                              pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                              placeholder="Juan Alejandro">
+                         </div>
+                   
+                         <div class="grid-item-p">
+                              <label for="surname">Apellidos</label>
+                              <input type="text" name="surname" required
+                              pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                              placeholder="Perez García">
+                         </div>
 
-                       <div class="grid-item-payment">
-                            <label for="email">Correo-e</label>
-                            <input type="email" name="email" required
-                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                            placeholder="usuario@ejemplo.com.ar">
-                       </div>
-                    
-                       <div class="grid-item-payment">
-                            <label for="numero-tarjeta">Nº de tarjeta</label>
-                            <input type="text" name="card-number" required
-                            pattern="(\d{4}-){3}\d{4}" 
-                            placeholder="9999-9999-9999-9999">
-                        </div>
+                         <div class="grid-item-p">
+                              <label for="email">Correo-e</label>
+                              <input type="email" name="email" required
+                              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                              placeholder="usuario@ejemplo.com.ar">
+                         </div>
+                       
+                         <div class="grid-item-p">
+                              <label for="numero2">Nº de tarjeta</label>
+                              <input type="text" name="number2" required
+                              pattern="(\d{4}-){3}\d{4}" 
+                              placeholder="9999-9999-9999-9999">
+                         </div>
                    </div>
               </div>
-              <div class="payment-buttons">
+              <div class="p-buttons">
               <nav>
                    <ul>
-                       <li class="grid-item-payment-button">
-                           <button type="submit" class="payment-button">REALIZAR PAGO</button>
+                       <li class="grid-item-p-button">
+                           <button type="submit" class="p-button">REALIZAR PAGO</button>
                        </li>
-                       <li class="grid-item-payment-button">
+                       <li class="grid-item-p-button">
                            <a href="../pages/productos.html" class="exit-button">VOLVER</a>
                        </li>
                    </ul>
                </nav>
-               </div>
+        </div>
         </form>
     </main>
         <!--
