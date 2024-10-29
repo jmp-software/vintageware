@@ -52,25 +52,32 @@
                          </div>
                         
                          <div class="grid-item-payment">
-                              <label for="name">Nombre completo</label>
-                              <input type="text" name="name" required>
-                         </div>
-                   
-                         <div class="grid-item-payment">
-                              <label for="apellidos">Apellidos</label>
-                              <input type="text" name="suername" required>
-                         </div>
+                            <label for="name">Nombres</label>
+                            <input type="text" name="name" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                            placeholder="Juan Alejandro">
+                       </div>
+                 
+                       <div class="grid-item-payment">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" name="surname" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                            placeholder="Perez García">
+                       </div>
 
-                         <div class="grid-item-payment">
-                              <label for="email">Correo-e</label>
-                              <input type="email" name="el" required>
-                         </div>
-                   
-                         <div class="grid-item-payment">
-                              <label for="numero-tarjeta">Nº de tarjeta</label>
-                              <input type="number" name="card-number" required>
-                         </div>
-                         
+                       <div class="grid-item-payment">
+                            <label for="email">Correo-e</label>
+                            <input type="email" name="email" required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            placeholder="usuario@ejemplo.com.ar">
+                       </div>
+                     
+                       <div class="grid-item-payment">
+                            <label for="numero-tarjeta">Nº de tarjeta</label>
+                            <input type="text" name="card-number" required
+                            pattern="(\d{4}-){3}\d{4}" 
+                            placeholder="9999-9999-9999-9999">
+                       </div>
                    </div>
               </div>
               <div class="payment-buttons">

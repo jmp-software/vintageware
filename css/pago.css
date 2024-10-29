@@ -222,7 +222,6 @@ nav {
     
 }
 
-
 .payment-button::after,
 .exit-button::after {
     content: '';
@@ -255,3 +254,38 @@ div.payment-buttons {
     z-index: 1000; 
 }
 */
+
+/*
+input:valid {
+    border-color:green;  
+}
+
+input:invalid {
+    border-color: red;
+}
+*/
+
+input {
+    /* Avoid using display: none; or visibility: hidden; */
+    
+}
+
+input:focus:valid {
+    background-color: rgba(255, 255, 255,1); 
+}
+
+input:not(focus):valid {
+    background-color: rgba(255, 255, 255,1); 
+}
+
+/*
+input:focus:invalid {
+    rgba(255, 255, 255,1); 
+}
+*/
+
+
+input:not(focus):invalid {
+    color: rgba(255, 0, 0,.9); 
+    
+}

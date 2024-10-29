@@ -43,34 +43,41 @@
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
               <div class="grid-container">
                    <div class="grid">
-                         <div class="grid-item-payment">
-                              <input type="hidden" name="product" id="product" value="">
-                         </div>           
+                        <div class="grid-item-payment">
+                             <input type="hidden" name="product" id="product" value="">
+                        </div>           
                        
-                         <div class="grid-item-payment" id="product-name" >
-                            <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
-                         </div>
+                        <div class="grid-item-payment" id="product-name" >
+                             <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
+                        </div>
                         
-                         <div class="grid-item-payment">
-                              <label for="name">Nombre completo</label>
-                              <input type="text" name="name" required>
-                         </div>
-                   
-                         <div class="grid-item-payment">
-                              <label for="apellidos">Apellidos</label>
-                              <input type="text" name="suername" required>
-                         </div>
+                        <div class="grid-item-payment">
+                            <label for="name">Nombres</label>
+                            <input type="text" name="name" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                            placeholder="Juan Alejandro">
+                       </div>
+                
+                       <div class="grid-item-payment">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" name="surname" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                            placeholder="Perez García">
+                       </div>
 
-                         <div class="grid-item-payment">
-                              <label for="email">Correo-e</label>
-                              <input type="email" name="el" required>
-                         </div>
-                   
-                         <div class="grid-item-payment">
-                              <label for="numero-tarjeta">Nº de tarjeta</label>
-                              <input type="number" name="card-number" required>
-                         </div>
-                         
+                       <div class="grid-item-payment">
+                            <label for="email">Correo-e</label>
+                            <input type="email" name="email" required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            placeholder="usuario@ejemplo.com.ar">
+                       </div>
+                    
+                       <div class="grid-item-payment">
+                            <label for="numero-tarjeta">Nº de tarjeta</label>
+                            <input type="text" name="card-number" required
+                            pattern="(\d{4}-){3}\d{4}" 
+                            placeholder="9999-9999-9999-9999">
+                        </div>
                    </div>
               </div>
               <div class="payment-buttons">
