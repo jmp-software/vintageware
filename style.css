@@ -32,7 +32,7 @@ h1 {
     background-color: rgba(255, 0, 255, 0.5);
     border: 4px solid rgba(0, 255, 255, 0.75); 
     padding: 1em;
-    position: relative; /* Necesario para el posicionamiento del pseudo-elemento */
+    position: relative;
     font-size: 1.5rem; 
 }
 
@@ -299,12 +299,9 @@ p {
 
 #product-payment-photo p {
     margin-bottom: 0rem;
-
 }
 
 /* Para texto de "derechos de autor" */
 footer {
-    margin-top: 0rem; 
-    margin-bottom: 0rem; 
     text-align: center;
 }

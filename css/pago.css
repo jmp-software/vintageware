@@ -187,12 +187,11 @@ nav ul {
 } 
 
 nav {
-     padding: 0;
+    padding: 0;
 }
 
 .payment-button,
 .exit-button {
-    
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
     margin: 1rem;               
@@ -208,9 +207,6 @@ nav {
     width: 15rem; 
     text-align: auto;  
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    /*margin-top: -1.75rem;
-    margin-bottom: -1rem;*/
-   
 }
 
 .exit-button {
@@ -227,10 +223,8 @@ nav {
     bottom: 0;
     left: 0; 
     right: 0;
-    
     border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 1);/
-  
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
 
 .payment-button:hover,

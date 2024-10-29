@@ -40,8 +40,8 @@
             <p>Windows 3.11 (MS-DOS 6.22) $35.000</p>    
        </div>
        
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"></form>
-        <div class="grid-container">
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="grid-container" id="product-payment-form">
                    <div class="grid">
                          <div class="grid-item-payment">
                               <input type="hidden" name="product" id="product" value="">
@@ -87,15 +87,6 @@
                </div>
         </form>
     </main>
-        <!--
-        <script>
-            const urlParams = new URLSearchParams(window.location.search);
-            const product = urlParams.get('product');
-            document.getElementById('product-name').textContent = product;
-            document.getElementById('product').value = product;
-        </script>
-        -->
-        
 </body>
 
 <footer>
