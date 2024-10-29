@@ -179,19 +179,20 @@ nav ul {
 */
 
 .payment-buttons {
-    display:block;
-    margin-bottom: -3rem;
-    padding: 0;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 1);/
+    display:flex;
+    margin-bottom: -4rem;
+    margin-top: -3rem;
+    line-gap-override: -20rem;  
+    /*box-shadow: 0 0 4px rgba(0, 0, 0, 1);*/
 } 
 
 nav {
-    margin: 0;
-    padding: 0;
+     padding: 0;
 }
 
 .payment-button,
 .exit-button {
+    
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
     margin: 1rem;               
@@ -204,22 +205,31 @@ nav {
     text-decoration: none;
     border-radius: 0.5rem;
     transition: background-color 0.3s ease; 
-    width: 17rem; 
-    text-align: center; 
+    width: 15rem; 
+    text-align: auto;  
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    /*margin-top: -1.75rem;
+    margin-bottom: -1rem;*/
+   
 }
+
+.exit-button {
+    width: 13.5rem; 
+    margin-bottom: -1rem;
+}
+
 
 .payment-button::after,
 .exit-button::after {
-    
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0; 
     right: 0;
+    
     border-radius: 0.5rem;
-    z-index: 1;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);/
   
 }
 
@@ -235,9 +245,11 @@ nav {
     100% { background-color: rgba(255, 0, 255, 1); }
 }
 
+/*
 div.payment-buttons {
     paddin: 0rem;
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
     text-align: center; 
     z-index: 1000; 
 }
+*/
