@@ -1,5 +1,6 @@
 body {
-    grid-template-areas;
+    /*terminar esto de "grid-template-areas" y entregar de una vez*/
+    /*grid-template-areas;*/
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -9,8 +10,7 @@ body {
     font-family: "Press Start 2P", system-ui;
     gap: 1rem; 
     padding: 0rem; 
-    overflow-y: scroll;
-    overflow-x: auto;  
+    margin-bottom: 0rem;
 }
 
 header {
@@ -25,6 +25,7 @@ main {
     flex-direction: column; 
     align-items: center; 
     text-align: center;
+    margin-bottom: 0rem;
 }
 
 /* Título de la página (inicio, producto, contacto y ubicación) */
@@ -258,5 +259,6 @@ p {
 
 /* Para texto de "derechos de autor" */
 footer {
-    text-align: center;
+    text-align: center;    
+   
 }
