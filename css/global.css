@@ -30,8 +30,8 @@ main {
 /* Título de la página (inicio, producto, contacto y ubicación) */
 h1 {
     text-shadow: -4px 4px 2px rgba(0, 0, 0, 0.7); 
-    background-color: rgba(255, 0, 255, 0.5);
-    border: 4px solid rgba(0, 255, 255, 0.75); 
+    background-color: rgba(122, 0, 122, 1);
+    border: 4px solid rgba(0, 122, 122, 1); 
     padding: 1em;
     position: relative;
     font-size: 1.5rem; 
@@ -84,7 +84,7 @@ nav {
     background-image: url('../assets/art/nav.jpg'); 
     background-size: cover; 
     background-position: center 0%; 
-    opacity: 0.95;
+    opacity: 1;
     z-index: 0; 
 }
 
@@ -107,15 +107,15 @@ nav li a {
     animation: sizeChange .5s infinite;
     display: block; 
     padding: 1em 2em;
-    background-color: #ff00ff; 
-    border: 2px solid rgb(0, 255, 255); 
+    background-color: rgb(165, 0, 165); 
+    border: 2px solid rgb(0, 165, 165); 
     color: white;
     text-decoration: none;
     border-radius: 0.5rem;
     transition: background-color 0.3s ease; 
     width: 10rem; 
     text-align: center; 
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+    box-shadow: 0 0 1rem rgba(255, 255, 255, .55);
   
 }
 
@@ -139,9 +139,9 @@ nav li a:hover {
 
 /* Animación cuando posa el puntero sobre el item del menú */
 @keyframes colorCycle {
-    0% { background-color: rgba(255, 0, 255,1); }
+    0% { background-color: rgba(165, 0, 165,1); }
     50% { background-color: rgba(55, 0, 55,1); }
-    100% { background-color: rgba(255, 0, 255,1); }
+    100% { background-color: rgba(165, 0, 165,1); }
 }
 
  /* Estilos para modal (la "form" para simular venta) */
@@ -248,8 +248,8 @@ p {
     height: auto; 
     max-width: 100vw;
     padding: 1rem 1rem; 
-    background-color: rgba(255, 0, 255, .5);
-    border: 2px solid rgba(0, 255, 255, .76); 
+    background-color: rgba(122, 0, 122, 1);
+    border: 4px solid rgba(0, 122, 122, 1); 
     text-align: center;
 }
 

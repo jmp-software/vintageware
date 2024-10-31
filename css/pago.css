@@ -51,8 +51,8 @@ nav {
     animation: sizeChange .5s infinite;
     display: block;            
     padding: .5rem;
-    background-color: #ff00ff; 
-    border: 4px solid rgb(0, 255, 255); 
+    background-color: rgb(165, 0, 165); 
+    border: 4px solid rgb(0, 165, 165); 
     color: white;
     text-decoration: none;
     border-radius: 0.5rem;
@@ -93,9 +93,9 @@ nav {
 
 /* Animación cuando posa el puntero sobre el item del menú */
 @keyframes colorCycle {
-    0% { background-color: rgba(255, 0, 255, 1); }
-    50% { background-color: rgba(255, 0, 255, .25); }
-    100% { background-color: rgba(255, 0, 255, 1); }
+    0% { background-color: rgba(165, 0, 165, 1); }
+    50% { background-color: rgba(55, 0, 55, 1); }
+    100% { background-color: rgba(165, 0, 165, 1); }
 }
 
 div a img {
