@@ -26,6 +26,8 @@
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="../pages/productos.html">Productos</a></li>
                 <li><a href="../pages/contacto.html">Contacto</a></li>
+                <li><a href="../pages/reseñas.html">Reseñas</a></li>
+                <li><a href="../pages/redes.html">Redes</a></li>
                 <li><a href="../pages/ubicacion.html">Ubicación</a></li>
             </ul>
         </nav>
@@ -35,40 +37,57 @@
         <section>
             <h1>CONTACTO</h1>
         </section>
-        <div class="grid-container">
-            <div class="grid">
-                <div class="grid-item">
-                    <a href="https://discord.com/login?redirect_to=%2Fchannels%2F1277650289356177448%2F1277650289356177450" target="_blank">  
-                        <img src="../assets/art/discord.png" alt="Discord">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="https://www.youtube.com/watch?v=Ry8sVXrNPQQ&list=PLtObQyXTcyeH2hrFD9zZ7jv89UtTSsZ2H" target="_blank">  
-                        <img src="../assets/art/youtube.png" alt="YouTube">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="https://www.instagram.com/agenciadehabilidades" target="_blank">    
-                        <img src="../assets/art/instagram.png" alt="Instagram">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="https://www.facebook.com/codoacodooficial" target="_blank">  
-                        <img src="../assets/art/facebook.png" alt="Facebook">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="https://twitter.com/educacionba?lang=es" target="_blank">  
-                        <img src="../assets/art/twitter.png" alt="Twitter">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="https://agenciadeaprendizaje.bue.edu.ar/" target="_blank">  
-                        <img src="../assets/art/web.png" alt="web">
-                    </a>
-                </div>
+        <form action="https://formspree.io/f/meoqaeaz" method="POST">
+            <div class="grid-container" id="product-p-form">
+                       <div class="grid">
+                            <div class="grid-item-p">
+                                 <input type="hidden" name="usuario" id="usuario" value="Mensaje nuevo">
+                            </div>           
+                           
+                            <div class="grid-item-p" id="product-name" >
+                               <label for="amount" class="amount">¡INGRESÁ TUS DATOS Y ESCRIBINOS!</label>
+                            </div>
+                            
+                            <div class="grid-item-p">
+                                 <label for="name">Nombres</label>
+                                 <input type="text" name="name" required
+                                 pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                                 placeholder="Juan Alejandro">
+                            </div>
+                       
+                            <div class="grid-item-p">
+                                 <label for="surname">Apellidos</label>
+                                 <input type="text" name="surname" required
+                                 pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+$" 
+                                 placeholder="Perez García">
+                            </div>
+    
+                            <div class="grid-item-p">
+                                 <label for="email">Correo-e</label>
+                                 <input type="email" name="email" required
+                                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                 placeholder="usuario@ejemplo.com.ar">
+                            </div>
+                           
+                            <div class="grid-item-p">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea name="mensaje" required rows="4" placeholder="Hola, ..."></textarea>
+                            </div>
+                       </div>
+                  </div>
+                  <div class="p-buttons">
+                  <nav class="message-buttons">
+                       <ul>
+                           <li class="grid-item-p-button">
+                               <button type="submit" class="p-button">ENVIAR</button>
+                           </li>
+                           <li class="grid-item-p-button">
+                               <a href="contacto.html" class="exit-button">BORRAR</a>
+                           </li>
+                       </ul>
+                   </nav>
             </div>
-        </div>
+        </form>
     </main>
 
 </body>

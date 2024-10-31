@@ -53,6 +53,7 @@ h1::after {
 /* Contenido de cada página */
 section {
     margin 0rem;
+    margin-top: -1rem;
     display: flex;
     flex-direction: column; 
     align-content: center;

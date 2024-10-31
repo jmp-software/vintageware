@@ -1,30 +1,141 @@
-.grid {
-    display:  grid;
-    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
-    column-gap: 2.3vw; 
-    width: 80vw; 
-    max-width: 50rem; 
-    margin: auto auto; 
-    justify-items: center; 
-    justify-content: center;
+.grid-item-p label {
+    font-size: 1.25rem;
+    display: flex;         
+    margin-bottom: .25rem;
+    justify-content: left; 
+    align-items: center;  
+    width: auto;
+    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }
 
-.grid-item {
-    display: flex;
-    flex-direction: column; 
+.grid-item-p input  {
+    font-size: 1.25rem;
+    display: flexbox;         
+    margin-bottom: .75rem;
     justify-content: center; 
-    align-items: center; 
-    height: 10rem; 
-    overflow: hidden;
- }
-
-
-.grid-item img {
-    max-width: 120%; 
-    display:grid;
-    align-items: center; 
+    align-items: center;
+    width: 99%;
+    font-family: "Press Start 2P", system-ui;
+    text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4); 
 }
 
-.grid-item:hover {
-    transform: scale(1.1); 
+textarea {
+
+    font-size: 1.25rem;
+    display: flexbox;         
+    margin-bottom: .75rem;
+    justify-content: center; 
+    align-items: center;
+    width: 99%;
+    font-family: "Press Start 2P", system-ui;
+    text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4); 
+
+}
+
+.grid-item-p label.amount {
+    font-size: 1.45rem;
+    display: flex;         
+    margin-bottom: .25rem;
+    padding: 1rem;
+    justify-content: center; 
+    align-items: center;  
+    width: auto;
+    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
+}               
+
+.p-buttons {
+    display:flex;
+    margin-bottom: -4rem;
+    margin-top: -3rem;
+    line-gap-override: -20rem;  
+} 
+
+
+.message-buttons {
+    margin: 2rem auto; 
+    padding: 0;
+}
+
+.p-button,
+.exit-button {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1rem;
+    margin: 0.5rem;   
+    margin-top: 1.65rem;               
+    animation: sizeChange .5s infinite;
+    display: block;            
+    padding: .5rem;
+    background-color: #ff00ff; 
+    border: 4px solid rgb(0, 255, 255); 
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease; 
+    width: 15rem; 
+    text-align: auto;  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+.p-button{
+    margin-bottom: -1.65rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+   
+.exit-button {
+    width: 13.5rem; 
+    margin-left: 2rem;
+    margin-right: 2rem;
+    
+}
+
+.p-button::after,
+.exit-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+}
+
+.p-button:hover,
+.exit-button:hover {
+    animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
+}
+
+/* Animación cuando posa el puntero sobre el item del menú */
+/*
+@keyframes colorCycle {
+    0% { background-color: rgba(255, 0, 255, 1); }
+    50% { background-color: rgba(255, 0, 255, .25); }
+    100% { background-color: rgba(255, 0, 255, 1); }
+}
+*/
+div a img {
+    max-height: 11.4rem;
+
+}
+
+#product-p-photo {
+margin-bottom: .25rem;
+
+}
+
+input:focus:valid {
+    background-color: rgba(255, 255, 255,1); 
+}
+
+input:not(focus):valid {
+    background-color: rgba(255, 255, 255,1); 
+}
+
+input:not(focus):invalid {
+    color: rgba(255, 0, 0,.9); 
+    
+}
+
+.nombre-producto {
+    margin-bottom: 0rem;
 }
