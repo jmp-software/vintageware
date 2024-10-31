@@ -115,8 +115,11 @@ nav li a {
     transition: background-color 0.3s ease; 
     width: 10rem; 
     text-align: center; 
-    box-shadow: 0 0 1rem rgba(255, 255, 255, .55);
-  
+   
+}
+
+nav.main-menu li a {
+    box-shadow: 0 0 1rem rgba(255, 255, 255, .65);
 }
 
 /* Intento de "biselado" para los boteones del menú principal */

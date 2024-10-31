@@ -1,28 +1,30 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17.4511rem, 1fr));
-    row-gap: 10vw; 
-    column-gap: 0.5vw; 
+    row-gap: 3vw; 
+    column-gap: 3vw;  
     /*width: 80vw; */
     max-width: 90vw; 
-    margin: 10 5;
+    /*margin: 10 5;*/
+    height: fit-content;
 }
 
 .grid-item {
-    margin-bottom: 0px;
+    padding: 1rem;
+    border: 2px solid rgb(0, 165, 165); 
     text-decoration: none;
     display: flex;
     flex-direction: column; 
-    justify-content: centet;
+    justify-content: center;
     align-items: center;
-    height: 17em; 
+    height:100%
     overflow: hidden;
 }
 
 .grid-item img {
     display:grid; 
     max-width: 100%; 
-    max-height: 50%; 
+    max-height: 10rem;
 }
 
 .subtitle {

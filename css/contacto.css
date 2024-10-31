@@ -8,6 +8,23 @@
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }
 
+nav li a {
+    .button-erase {
+    margin: 1rem 1rem;     
+    animation: sizeChange .5s infinite;
+    display: block; 
+    padding: 1em 2em;
+    background-color: rgb(165, 0, 165); 
+    border: 2px solid rgb(0, 165, 165); 
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease; 
+    width: 10rem; 
+    text-align: center; 
+   }
+}
+
 .grid-item-p input  {
     font-size: 1.25rem;
     display: flexbox;         
