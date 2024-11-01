@@ -1,8 +1,8 @@
 .grid {
     display: grid;
-    /*grid: auto-flow;*/
+    grid: auto-flow;
     grid-template-columns:  repeat(auto-fit, minmax(17.4511rem, auto))  ;
-    grid-template-rows: auto auto;
+    /*grid-template-rows: auto auto;*/
     row-gap: 3vw; 
     column-gap: 3vw;  
     /*width: 80vw; */
@@ -26,9 +26,8 @@
 .grid-container {
 
     justify-content: center;
-    justify-itens: center;
+    justify-items: center;
     align-items: center;
-
 }
 
 .grid-item {
@@ -38,10 +37,10 @@
     display: flex;
     flex-direction: column; 
     justify-content: center;
-    justify-itens: center;
+    justify-items: center;
     align-items: center;
     overflow: hidden;
-   
+    margin: 0;
 }
 
 .grid-item img {
