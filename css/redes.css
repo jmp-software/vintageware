@@ -1,5 +1,6 @@
 .grid {
-    display:  grid;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
     column-gap: 2.3vw; 
     width: 80vw; 
@@ -12,6 +13,7 @@
 .grid-item {
     display: flex;
     flex-direction: column; 
+    flex: 1 0 20;
     justify-content: center; 
     align-items: center; 
     height: 10rem; 
@@ -20,9 +22,8 @@
 
 
 .grid-item img {
-    max-width: 120%; 
-    display:grid;
-    align-items: center; 
+    max-width: 100%; 
+   align-items: center; 
 }
 
 .grid-item:hover {
