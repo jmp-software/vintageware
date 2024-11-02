@@ -75,9 +75,9 @@ nav {
     
 }
 */
-.p-button::after,
-.exit-button::after,
-.erase-button::after {
+
+/*
+.p-button::after, .exit-button::after, {
     content: '';
     position: absolute;
     top: 0;
@@ -87,6 +87,18 @@ nav {
     border-radius: 0.5rem;
     box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
+
+.erase-button input {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+}
+*/
 
 .p-button:hover,
 .exit-button:hover,
