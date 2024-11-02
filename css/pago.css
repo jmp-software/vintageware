@@ -45,10 +45,10 @@ nav {
 .p-button,
 .exit-button,
 .erase-button
-{
+{   display: flex;
+    margin: 1.65rem;               
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
-    margin-top: 1.65rem;               
     animation: sizeChange .5s infinite;
     display: block;            
     padding: .5rem;
@@ -71,26 +71,16 @@ nav {
     margin-bottom: -1rem;
 }
 
-{
-      margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-
 .p-button {
-
     width: 14rem; 
 }
 .erase-button {
-
     width: 14rem; 
 }
 
 .exit-button {
-
     width: 12.35rem; 
 }
-
 
 /*
 .exit-button {
