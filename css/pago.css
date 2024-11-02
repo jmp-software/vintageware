@@ -31,7 +31,7 @@
 }               
 
 .p-buttons {
-    display:flex;
+    display:block;
     margin-bottom: -4rem;
     margin-top: -3rem;
     line-gap-override: -20rem;  
@@ -44,7 +44,8 @@ nav {
 
 .p-button,
 .exit-button,
-.erase-button {
+.erase-button
+{
     font-family: "Press Start 2P", system-ui;
     font-size: 1rem;
     margin: 0.5rem;   
@@ -58,16 +59,39 @@ nav {
     text-decoration: none;
     border-radius: 0.5rem;
     transition: background-color 0.3s ease; 
-    width: 15rem; 
     text-align: auto;  
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
-.p-button .exit-button .erase-button {
-    margin-bottom: -1.65rem;
+
+.p-button{
+    margin-bottom: -1rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
-   /*
+
+.exit-button, .erase-button{
+    margin-bottom: 0rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+
+.p-button {
+
+    width: 14rem; 
+}
+.erase-button {
+
+    width: 14rem; 
+}
+
+.exit-button {
+
+    width: 12.35rem; 
+}
+
+
+/*
 .exit-button {
     width: 13.5rem; 
     margin-left: 2rem;
@@ -77,7 +101,7 @@ nav {
 */
 
 /*
-.p-button::after, .exit-button::after, {
+.p-button::after, .exit-button::after, .erase-button::after {
     content: '';
     position: absolute;
     top: 0;
@@ -87,7 +111,9 @@ nav {
     border-radius: 0.5rem;
     box-shadow: 0 0 8px rgba(0, 0, 0, 1);
 }
+*/
 
+/*
 .erase-button input {
     content: '';
     position: absolute;
