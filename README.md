@@ -1,4 +1,4 @@
-# vintageware
+# vintageware (proyecto final)
 
 <div style="text-align: center;">
     <img src="https://github.com/jmp-software/vintageware/blob/proyecto-final/assets/art/header_readme.png" alt="Image" style="width: 50%;" />
