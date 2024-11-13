@@ -1,4 +1,4 @@
-# vintageware
+# vintageware (pre-entrega)
 
 <div style="text-align: center;">
     <img src="https://github.com/jmp-software/vintageware/blob/pre-entrega/assets/art/header_readme.png" alt="Image" style="width: 50%;" />
