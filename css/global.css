@@ -11,7 +11,7 @@
 body {
     /*terminar esto de "grid-template-areas" y entregar de una vez*/
     /*grid-template-areas;*/
-   font-family: 'Arcade Rounded Extended', regular;
+   font-family: 'Arcade Rounded Extended';
        display: flex;
     flex-direction: column;
     min-height: 100vh;
