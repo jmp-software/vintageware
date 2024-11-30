@@ -5,6 +5,7 @@
     justify-content: left; 
     align-items: center;  
     width: auto;
+    /*font-family:  "Arcade Rounded Extended";*/
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }
 
@@ -15,8 +16,8 @@
     justify-content: center; 
     align-items: center;
     width: 99%;
-    font-family: "Press Start 2P", system-ui;
-    text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4); 
+     /*font-family:  "Writing";*/
+     text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4); 
 }
 
 .grid-item-p label.amount {
@@ -27,10 +28,17 @@
     justify-content: center; 
     align-items: center;  
     width: auto;
+    font-family:  "Arcade Rounded Extended";
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }               
 
+.grid-item-p-button {
+    font-family:  "Arcade Rounded Extended";      
+}               
+
+
 .p-buttons {
+    font-family:  "Arcade Rounded Extended";
     display:block;
     margin-bottom: -4rem;
     margin-top: -3rem;
@@ -47,7 +55,7 @@ nav {
 .erase-button
 {   display: flex;
     margin: 1.65rem;               
-    font-family: "Press Start 2P", system-ui;
+    font-family:  "Arcade Rounded Extended";
     font-size: 1rem;
     animation: sizeChange .5s infinite;
     display: block;            
@@ -63,22 +71,27 @@ nav {
 }
 
 .p-button, .exit-button, .erase-button{
+    font-family:  "Arcade Rounded Extended";
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
-.p-button, .erase-button {
+.p-button, .erase-button {    font-family:  "Writing";
+    font-family:  "Arcade Rounded Extended";
     margin-bottom: -1rem;
 }
 
 .p-button {
+    font-family:  "Arcade Rounded Extended";
     width: 14rem; 
 }
 .erase-button {
+    font-family:  "Arcade Rounded Extended";
     width: 14rem; 
 }
 
 .exit-button {
+    font-family:  "Arcade Rounded Extended";
     width: 12.35rem; 
 }
 
