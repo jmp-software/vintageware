@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="../css/global.css"> 
  
     <link rel="stylesheet" href="../css/productos.css"> 
-    
-    <script src="../js/productos.js"></script>
-
 </head>
 
 <body style="background-color: black; color: white;">
@@ -38,46 +35,15 @@
             <h1>PRODUCTOS</h1>
         </section>
         <div class="flex-container">
-            <div class="flex-cards">
-                <a href="#" onclick="passData('Microsoft Windows 3.1','MS-DOS 6.22','disquetes de 3½','30.250','../assets/photos/photo-1.jpg')">
-                    <div class="card-item">
-                        <img src="../assets/photos/photo-1.jpg" alt="Photo 1">
-                        <h2 class="subtitle">Windows 3.1</h2>
-                        <p class="subtitle2">$30.250</p>
-                        <p class="subtitle3">¡COMPRAR!</p>  
-                    </div>
-                </a>
-                <a href="#" onclick="passData('Commander Keen 4','MS-DOS','disquetes de 3½','88.000','../assets/photos/photo-2.png')">
-                    <div class="card-item">
-                        <img src="../assets/photos/photo-2.png" alt="Photo 2">
-                        <h2 class="subtitle">Commander Keen 4</h2>
-                        <p class="subtitle2">$88.000</p>
-                        <p class="subtitle3">¡COMPRAR!</p>  
-                    </div>
-                </a>
-                <a href="#" onclick="passData('Logo Programming Language','Commodore 64','Cartucho','56.500','../assets/photos/photo-3.jpg')">
-                    <div class="card-item">
-                        <img src="../assets/photos/photo-3.jpg" alt="Photo 3">
-                        <h2 class="subtitle">Commodore Logo Programming Language</h2>
-                        <p class="subtitle2">$56.500</p>
-                        <p class="subtitle3">¡COMPRAR!</p>  
-                    </div>
-                </a>
-                <a href="#" onclick="passData('Paint Shop Pro','Windows 3.1 o superior','disquetes de 3½','63.650','../assets/photos/photo-4.jpg')">
-                    <div class="card-item">
-                        <img src="../assets/photos/photo-4.jpg" alt="Photo 4">
-                        <h2 class="subtitle">Paint Shop Pro</h2>
-                        <p class="subtitle2">$63.650</p>
-                        <p class="subtitle3">¡COMPRAR!</p>   
-                    </div>
-                </a>
-            </div>
+            <div class="flex-cards" id="product-cards"></div>
         </div>
     </main>
     
     <footer>
         <p class="footer-text">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
     </footer>
+    
+    <script src="../js/productos.js"></script>
 
 </body>
 </html>
