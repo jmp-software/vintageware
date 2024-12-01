@@ -41,6 +41,7 @@
     /*overflow: hidden;*/
     margin: 0.5rem;
     max-width: 25rem;
+    min-width: 20vw;
 }
 
 .grid-item img {
@@ -48,7 +49,7 @@
     max-width: 100%; 
     max-height: 10rem;
 }
-
+/*
 h2 {
     display: flex;
     background: rgba(225, 0, 255, 1); 
@@ -68,6 +69,33 @@ h2 {
     padding-top: .25rem;
     overflow: hidden;
  }
+ */
+
+ /*
+ .subtitle {
+    background: rgba(225, 0, 255, 1); 
+}
+*/
+
+h2 {
+    display: flex;
+    background: rgba(225, 0, 255, 1); 
+    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
+    color: white;
+    width: 100%;
+    line-height: 1.25;
+    min-height: 4rem;
+    flex-direction: column; 
+    text-align: center;                         
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
+    font-size: 1rem;
+    padding-bottom: .25rem;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    padding-top: .25rem;
+}
 
 .subtitle3 {
     margin:0px;
@@ -75,6 +103,7 @@ h2 {
     max-width: 25rem;
     text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7); 
 }
+
 /*
 .subtitle2 .subtitle3 {
     display:flex; 
