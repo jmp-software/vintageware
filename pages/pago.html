@@ -36,20 +36,38 @@
             <a class="foto-enlace" href="" target="_blank">
                 <img class="product-p-photo" src="" alt="Photo">
             </a>
-            <p class="nombre-producto"></p>    
-       </div>
+            <div class="items-container" id="product-descripción">
+                <div class="item-descripcion">
+                    <label  class="nombre-producto"  id="nombre-label"></label >    
+                </div>
+                <div class="item-descripcion">
+                    <label class="sistema-producto"  id="sistema-label"></label >    
+                </div>
+                <div class="item-descripcion">
+                    <label class="formato-producto"  id="formato-label"></label >    
+                </div>
+               <div class="item-descripcion">
+                <label class="precio-producto" id="precio-label"></label >   
+           </div>
+            </div>
+        </div>
        
         <form action="https://formspree.io/f/xldegyly" method="POST"  id="form">
         <div class="grid-container" id="product-p-form">
                    <div class="grid">
-                    <div class="grid-item-p">
-                        <input type="hidden" name="product" id="producto" value="">
-                   </div>           
-                       
+      
+                      <div class="grid-item-p">
+                          <input type="hidden" name="product" id="producto" value="">
+                       </div>           
+
                         <div class="grid-item-p">
                              <input type="hidden" name="value" id="valor" value="">
                         </div>           
-             
+                                  
+                        <div class="grid-item-p">
+                            <input type="hidden" name="format" id="formato" value="">
+                         </div>           
+                       
                         <div class="grid-item-p" id="product-name" >
                            <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
                         </div>
@@ -76,7 +94,7 @@
                         </div>
                        
                         <div class="grid-item-p">
-                             <label for="numero2">Nº de tarjeta</label>
+                            <label for="numero2">Nº de tarjeta</label>
                              <input type="text" name="number2" required
                              pattern="(\d{4}-){3}\d{4}" 
                              placeholder="9999-9999-9999-9999">
