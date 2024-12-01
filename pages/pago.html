@@ -33,25 +33,25 @@
 
     <main>
         <div class="grid-container" id="product-p-photo">
-            <a href="../assets/photos/photo-3.jpg" target="_blank">
-                <img class="product-p-photo" src="../assets/photos/photo-3.jpg" alt="Photo 3">
+            <a class="foto-enlace" href="" target="_blank">
+                <img class="product-p-photo" src="" alt="Photo">
             </a>
-            <p class="nombre-producto">Commodore Logo Programming Language (Commodore 64) $56.500</p>    
+            <p class="nombre-producto"></p>    
        </div>
-
-       <form action="https://formspree.io/f/xldegyly" method="POST" id="form">
-       <div class="grid-container" id="product-p-form">
+       
+        <form action="https://formspree.io/f/xldegyly" method="POST"  id="form">
+        <div class="grid-container" id="product-p-form">
                    <div class="grid">
-                        <div class="grid-item-p">
-                             <input type="hidden" name="product" id="product" value="Logo programming language (C64) ">
-                        </div>
- 
-                        <div class="grid-item-p">
-                             <input type="hidden" name="valor" id="product" value="56.500">
-                        </div>                 
+                    <div class="grid-item-p">
+                        <input type="hidden" name="product" id="producto" value="">
+                   </div>           
                        
+                        <div class="grid-item-p">
+                             <input type="hidden" name="value" id="valor" value="">
+                        </div>           
+             
                         <div class="grid-item-p" id="product-name" >
-                             <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
+                           <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
                         </div>
                         
                         <div class="grid-item-p">
@@ -85,26 +85,29 @@
               </div>
               <div class="p-buttons">
                 <nav>
-                     <ul>
-                        <li class="grid-item-p-button">
-                            <button type="submit" class="p-button">PAGAR</button>
-                        </li>
-                        <li class="grid-item-p-button">
-                            <input class="erase-button" type="reset" value="BORRAR">   
-                        </li>
-                        <li class="grid-item-p-button">
-                            <a class="exit-button" href="../pages/productos.html#target-section">VOLVER</a>
-                        </li>
-                     </ul>
+                   <ul>
+                      <li class="grid-item-p-button">
+                          <button type="submit" class="p-button">PAGAR</button>
+                      </li>
+                      <li class="grid-item-p-button">
+                          <input class="erase-button" type="reset" value="BORRAR">   
+                      </li>
+                      <li class="grid-item-p-button">
+                          <a class="exit-button" href="../pages/productos.html#target-section">VOLVER</a>
+                      </li>
+                   </ul>
                 </nav>
-                </div>
+           </div>
+            </div>
         </form>
     </main>
 
     <footer>
         <p class="footer-text">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
     </footer>
-    <script src="../js/pago.js" defer></script>
- 
+    
+    <script src="../js/pago.js" async></script>
 </body>
-</html>
+ </html>
+
+
