@@ -72,7 +72,7 @@ a, a:visited, a:hover, a:active {
     border: 4px solid rgba(0, 122, 122, 1)  !important; 
     text-align: center !important;
     height: auto !important;
-    max-width: 80vw; 
+    /*max-width: 90vw !important; */
     height: fit-content !important; 
     width: fit-content !important; 
     
