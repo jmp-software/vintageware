@@ -1,5 +1,5 @@
 // Cheqquea si la página desde donde lo llama es "index.html"
-if (window.location.pathname.includes('index.html')) {
+if (window.location.pathname.includes('./index.html')) {
     // Incluye el menú desde './pages/menú.html' para "index.html"
     fetch('./pages/menu-1.html')  
     .then(response => response.text())
