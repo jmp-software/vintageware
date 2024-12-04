@@ -50,6 +50,7 @@ h1 {
 }
 
 /* Intento de "biselado" */
+/*
 h1::after {
     content: '' !important;  
     position: absolute !important;  
@@ -61,6 +62,7 @@ h1::after {
     z-index: 1 !important;  
     box-shadow: 0 0 4px  rgba(50, 0, 50, 1) !important;  
 }
+*/
 
 
 /* Contenido de cada página */

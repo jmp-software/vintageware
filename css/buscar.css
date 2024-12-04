@@ -21,9 +21,9 @@
     /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);*/
 }
 #results {
- 
-    font-size: 1.25em;
-
+     font-size: 1.25em;
+     text-shadow: -4px 4px 2px rgba(0, 0, 0, 0.7) !important;
+     line-height: 2.25rem;
 }
 .volver:hover {
     animation: sizeChange 0.5s infinite, colorCycle 1s infinite;

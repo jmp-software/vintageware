@@ -2,7 +2,7 @@
 .bienvenida1 {
     font-size: 1.3rem; 
     text-shadow: -3px 3px 2px rgba(0, 0, 0, 0.7); 
-    line-height: 1.5;
+    line-height: 1.5em;
     max-width: 40rem; 
     overflow: hidden; 
     margin: 0; 
@@ -11,7 +11,7 @@
 /* Texto de bienvenida 2 */
 .bienvenida2 {
     position: relative;
-    line-height: 1;
+    line-height: 1em;
     max-width: 40rem; 
     overflow: hidden; 
     margin: 0; 
@@ -21,7 +21,7 @@
 /* Texto de bienvenida 3*/
 .bienvenida3 {
     text-shadow: -3px 3px 2px rgba(0, 0, 0, 0.7); 
-    line-height: 1.5;
+    line-height: 1.5em;
     max-width: 40rem; 
     overflow: hidden; 
     margin: 0; 
