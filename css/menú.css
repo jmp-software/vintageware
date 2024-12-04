@@ -123,7 +123,7 @@
     }
 
     .nav-item {
-        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        border-bottom: 0.1rem dashed rgba(60, 5, 59, 1);
         justify-content: center;
         width: 100%; 
     }
@@ -135,7 +135,7 @@
     }
 
     .navbar-nav .nav-item:first-child {
-        border-top: 0.11rem dashed black;
+        border-top: 0.11rem dashed  rgba(60, 5, 59, 1);
     }
 
     .form-inline-custom{
@@ -160,7 +160,7 @@
     }
 
     .nav-item {
-        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        border-bottom: 0.1rem dashed  rgba(60, 5, 59, 1);
         display: flex; 
         justify-content: center;
         width: 100%; 
@@ -173,7 +173,7 @@
     }
 
     .navbar-nav .nav-item:first-child {
-        border-top: 0.11rem dashed black;
+        border-top: 0.11rem dashed  rgba(60, 5, 59, 1);
     }
 
     .form-inline-custom{
@@ -198,7 +198,7 @@
     }
 
     .nav-item {
-        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        border-bottom: 0.1rem dashed  rgba(60, 5, 59, 1);
         display: flex; 
         justify-content: center;
         width: 100%; 
@@ -211,7 +211,7 @@
     }
 
     .navbar-nav .nav-item:first-child {
-        border-top: 0.11rem dashed black;
+        border-top: 0.11rem dashed  rgba(60, 5, 59, 1);
     }
 
     .form-inline-custom{
@@ -224,7 +224,7 @@
 @media (min-width: 916px) and (max-width: 1379px) {
     .navbar-brand {
 
-        border-right: 0.11rem dashed black;
+        border-right: 0.11rem dashed  rgba(60, 5, 59, 1);
         padding-right:1rem;
         padding-top:5rem;
         padding-bottom:5rem;
@@ -272,7 +272,7 @@
     
     .navbar-brand {
 
-        border-right: 0.12em dashed black !important;
+        border-right: 0.12em dashed  rgba(60, 5, 59, 1) !important;
         padding-right:1rem !important;
          font-size: 150% !important;
 
