@@ -42,9 +42,12 @@ async function searchInPages() {
     // Si se encontraron resultados
     if (resultCount > 0) {
         const resultLabel = document.createElement('span');
-        resultLabel.textContent = `${resultCount} coincidencias para "${query }".`;
+        if (resultCount == 1) {
+            resultLabel.textContent = `${resultCount} coincidencia para "${query }".`;
+        } else {
+            resultLabel.textContent = `${resultCount} coincidencias para "${query }".`;
+        }
         resultsDiv.insertBefore(resultLabel, resultsDiv.firstChild);
-
            
     } else {
         // Si no encuentra nada
