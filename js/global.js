@@ -1,5 +1,5 @@
 // Chequea si viene de la página index.html
-if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html' {
+if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html') {
      // Incluye el menú de '/pages/menu-1.html' para "index.html"
     fetch('./pages/menu-1.html')  
     .then(response => response.text())
