@@ -2,7 +2,7 @@
 
 if (window.location.pathname == '/index.html') {
     // Include the menu from '/pages/menu-1.html' for "index.html"
-    fetch('/pages/menu-1.html')  
+    fetch('./pages/menu-1.html')  
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
@@ -10,7 +10,7 @@ if (window.location.pathname == '/index.html') {
     .catch(error => console.error('Error fetching menu:', error));
 } else {
     // Include the menu from '/pages/menu-2.html' for the rest of the pages
-    fetch('/pages/menu-2.html')
+    fetch('./menu-2.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
