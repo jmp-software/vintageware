@@ -9,6 +9,7 @@ if (window.location.pathname == '/index.html') {
     })
     .catch(error => console.error('Error fetching menu:', error));
 } else {
+    /*
     // Include the menu from '/pages/menu-2.html' for the rest of the pages
     fetch('./pages/menu-2.html')
     .then(response => response.text())
@@ -16,6 +17,7 @@ if (window.location.pathname == '/index.html') {
         document.getElementById('navbar-placeholder').innerHTML = data;
     })
     .catch(error => console.error('Error fetching menu:', error));
+    */
 }
 
 console.log(`Esto es el path: ${window.location.pathname}`)
