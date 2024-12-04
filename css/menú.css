@@ -284,6 +284,10 @@
     .navbar-custom{
         display: flex !important;  
         align-items: left !important; 
+        /*
+        border-top: 0.15em  solid  rgb(10, 122, 122) !important; 
+        border-bottom: 0.15em  solid  rgb(10, 122, 122) !important; 
+        */
      }
 }
 

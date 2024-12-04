@@ -331,6 +331,7 @@ p {
 
 /* Para texto de "derechos de autor" */
 footer {
+    padding-top: 1rem;
     text-align: center;
    
 }
