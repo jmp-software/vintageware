@@ -280,11 +280,9 @@
         font-size: 150% !important;
         border: 0.15em  outset rgba(60, 5, 59, 1);!important;
    }
-}
-      
-        
+              
     .navbar-custom{
-        display: flex; 
+        display: flex !important;  
         align-items: left !important; 
      }
 }
