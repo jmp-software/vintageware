@@ -96,7 +96,7 @@ nav {
     background-color: rgba(122, 0, 122, 1) !important; 
 
 }    
-
+/*
 .main-menu::before {
     content: '' !important;  
     position: absolute !important;  
@@ -110,6 +110,7 @@ nav {
     opacity: .85 !important;  
     z-index: 0 !important;   
 }
+ */
 
 nav ul {
     position: relative !important; 
@@ -140,10 +141,12 @@ nav li a {
    
 }
     
-
+/*
 nav.main-menu li a {
     box-shadow: 0 0 .5rem rgba(5, 5, 5, 1);
 }
+   
+*/
 
 
 /* Intento de "biselado" para los botones del menú principal */

@@ -1,3 +1,19 @@
+
+/*
+// Ajustar ancho de la línea divisoria del menú
+function ajustarLargo() {
+    const navBarSize = document.getElementById('navbarTogglerDemo03');
+    const lineSize = document.getElementByClass('navbar-brand');
+    lineSize .style.height = `${navBarSize.offsetHeight}px`; 
+}
+
+// Ajustar el ancho al cargar la página
+window.addEventListener('load', ajustarLargo);
+
+// Ajustar el ancho al redimensionar la ventana
+window.addEventListener('resize', ajustarLargo);
+*/
+
 // Chequea si viene de la página index.html
 if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html') {
      // Incluye el menú de '/pages/menu-1.html' para "index.html"
