@@ -315,14 +315,14 @@ p {
 
 /* Define la caja para el grid "global" */
 .grid-container {
-    width: auto !important;   
-    height: auto !important;  
-    max-width: 100vw! important;  
-      padding: 1rem 1rem !important;   
-    background-color: rgba(122, 0, 122, 1) !important;  
-    border: 4px solid rgba(0, 122, 122, 1) !important;   
-    text-align: center !important;  
-    box-sizing: border-box !important;  
+    width: auto;   
+    height: auto;  
+    max-width: 100vw;  
+      padding: 1rem 1rem;
+    background-color: rgba(122, 0, 122, 1);
+    border: 4px solid rgba(0, 122, 122, 1);
+    text-align: centerM
+    box-sizing: border-box;
 }
 
 /* Para texto de "derechos de autor" */
