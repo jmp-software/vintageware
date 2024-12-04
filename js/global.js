@@ -1,6 +1,6 @@
 // Check if the page being called is "index.html"
 
-if (window.location.pathname == '/index.html') {
+if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/') {
     // Include the menu from '/pages/menu-1.html' for "index.html"
     fetch('./pages/menu-1.html')  
     .then(response => response.text())
