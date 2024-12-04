@@ -12,6 +12,11 @@
     margin-top: -10 !important; 
 }
 
+.custom-search-input {
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-weight: bold; 
+}
+
 .custom-search-btn {
     border-color: rgb(19, 150, 150) !important; 
     color: white !important; 
