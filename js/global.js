@@ -10,7 +10,7 @@ if (window.location.pathname == '/index.html') {
     .catch(error => console.error('Error fetching menu:', error));
 } else {
     // Include the menu from '/pages/menu-2.html' for the rest of the pages
-    fetch('./menu-2.html')
+    fetch('./pages/menu-2.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
