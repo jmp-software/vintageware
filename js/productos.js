@@ -31,10 +31,10 @@
         price: '63.650',
         image: '../assets/photos/photo-4.jpg',
         subtitle: 'Paint Shop Pro'
-    }
+     }
 ];
 
-// Función para generar las "cards" de los productos
+// Función para generar las "cards" de los productos cualquier a sea el tamaño del  vector
 function generateProductCards() {
     const productCardsContainer = document.getElementById('product-cards');
     products.forEach(product => {

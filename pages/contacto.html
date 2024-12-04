@@ -11,26 +11,25 @@
     <link rel="icon" type="image/png" href="../favicon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../css/global.css"> 
  
+    <link rel="stylesheet" href="../css/global.css"> 
+    
+    <link rel="stylesheet" href="../css/menú.css"> 
+    
     <link rel="stylesheet" href="../css/contacto.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </head>
 
 <body style="background-color: black; color: white;">
     <header>
         <img src="../assets/art/header.png" alt="Header Image">
-        <nav class="main-menu">
-            <ul>
-                <li><a href="../index.html#target-section">Inicio</a></li>
-                <li><a href="../pages/productos.html#target-section">Productos</a></li>
-                <li><a href="../pages/reseñas.html#target-section">Reseñas</a></li>
-                <li><a href="../pages/contacto.html#target-section">Contacto</a></li>
-                <li><a href="../pages/redes.html#target-section">Redes</a></li>
-                <li><a href="../pages/ubicacion.html#target-section">Ubicación</a></li>
-            </ul>
-        </nav>
+        <div id="navbar-placeholder"></div>
     </header>
 
     <main>
@@ -38,61 +37,65 @@
             <h1>CONTACTO</h1>
         </section>
         <form action="https://formspree.io/f/meoqaeaz" method="POST">
+          
             <div class="grid-container" id="product-p-form">
-                       <div class="grid">
-                            <div class="grid-item-p">
-                                 <input type="hidden" name="usuario" id="usuario" value="Mensaje nuevo">
-                            </div>           
-                           
-                            <div class="grid-item-p" id="product-name" >
-                               <label for="amount" class="amount">¡INGRESÁ TUS DATOS Y ESCRIBINOS!</label>
-                            </div>
-                            
-                            <div class="grid-item-p">
-                                 <label for="name">Nombres</label>
-                                 <input type="text" name="name" required
-                                 pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                                 placeholder="Juan Alejandro">
-                            </div>
-                       
-                            <div class="grid-item-p">
-                                 <label for="surname">Apellidos</label>
-                                 <input type="text" name="surname" required
-                                 pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                                 placeholder="Perez García">
-                            </div>
-    
-                            <div class="grid-item-p">
-                                 <label for="email">Correo-e</label>
-                                 <input type="email" name="email" required
-                                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                 placeholder="usuario@ejemplo.com.ar">
-                            </div>
-                           
-                            <div class="grid-item-p">
-                                <label for="mensaje">Mensaje</label>
-                                <textarea name="mensaje" required rows="4" placeholder="Hola, ..."></textarea>
-                            </div>
-                       </div>
-                  </div>
-                  <div class="p-buttons">
-                    <nav class="message-buttons">
-                         <ul>
-                             <li class="grid-item-p-button">
-                                 <button type="submit" class="p-button">ENVIAR</button>
-                             </li>
-                             <li class="grid-item-p-button">
-                                 <input class="delete-button" type="reset" value="BORRAR">   
-                             </li>
-                         </ul>
-                     </nav>
-                     </div>
+                <div class="grid">
+                  
+                    <div class="grid-item-p">
+                        <input type="hidden" name="usuario" id="usuario" value="Mensaje nuevo">
+                   </div>           
+                  
+                   <div class="grid-item-p" id="product-name" >
+                    <label for="amount" class="amount">¡INGRESÁ TUS DATOS Y ESCRIBINOS!</label>
+                 </div>
+                 
+                 <div class="grid-item-p">
+                    <label for="name">Nombres</label>
+                    <input type="text" name="name" required
+                    pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
+                    placeholder="Juan Alejandro">
+                 </div>
+
+                 <div class="grid-item-p">
+                    <label for="surname">Apellidos</label>
+                    <input type="text" name="surname" required
+                    pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
+                    placeholder="Perez García">
+               </div>
+
+               <div class="grid-item-p">
+                    <label for="email">Correo-e</label>
+                    <input type="email" name="email" required
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    placeholder="usuario@ejemplo.com.ar">
+               </div>
+               
+               <div class="grid-item-p">
+                   <label for="mensaje">Mensaje</label>
+                   <textarea name="mensaje" required rows="4" placeholder="Hola, ..."></textarea>
+               </div>
+                </div>
             </div>
+            <div class="p-buttons">
+                <nav class="message-buttons">
+                     <ul>
+                         <li class="grid-item-p-button">
+                             <button class="p-button" type="submit" >ENVIAR</button>
+                         </li>
+                         <li class="grid-item-p-button">
+                             <input class="delete-button" type="reset" value="BORRAR">   
+                         </li>
+                     </ul>
+                 </nav>
+                 </div>      
         </form>
     </main>
 
     <footer>
         <p class="footer-text">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="../js/global.js" defer></script>    
+
 </body>
 </html>

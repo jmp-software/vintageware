@@ -1,0 +1,34 @@
+#results {
+     margin: 1rem;
+}
+
+.volver {
+    font-family:  "Arcade Rounded Extended";
+    font-size: 1rem;
+    margin: 0.5rem;   
+    margin-top: 1.65rem;               
+    animation: sizeChange .5s infinite;
+    display: block;            
+    padding: .5rem;
+    background-color: rgb(165, 0, 165); 
+    border: 4px solid rgb(0, 165, 165); 
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease; 
+    width: 12rem; 
+    text-align: auto;  
+    /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);*/
+}
+
+
+.volver:hover {
+    animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
+}
+
+/* Animación cuando posa el puntero sobre el item del menú */
+@keyframes colorCycle {
+    0% { background-color: rgba(165, 0, 165, 1); }
+    50% { background-color: rgba(55, 0, 55, 1); }
+    100% { background-color: rgba(165, 0, 165, 1); }
+}

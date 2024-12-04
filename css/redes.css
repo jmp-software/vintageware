@@ -1,31 +1,31 @@
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr));
-    column-gap: 2.3vw; 
-    width: 80vw; 
-    max-width: 55rem; 
-    margin: auto auto; 
-    justify-items: center; 
-    justify-content: center;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)) !important;
+    column-gap: 2.3vw !important;
+    width: 80vw !important; 
+    max-width: 55rem !important;
+    margin: auto auto !important;
+    justify-items: center !important;
+    justify-content: center !important;
 }
 
 .grid-item {
-    display: flex;
-    flex-direction: column; 
-    flex: 1 0 20;
-    justify-content: center; 
-    align-items: center; 
-    height: 10rem; 
-    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 0 20 !important;
+    justify-content: center !important; 
+    align-items: center !important; 
+    height: 10rem !important; 
+    overflow: hidden !important;
  }
 
 
 .grid-item img {
-    max-width: 100%; 
-   align-items: center; 
+    max-width: 100% !important; 
+   align-items: center !important; 
 }
 
 .grid-item:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1) !important; 
 }

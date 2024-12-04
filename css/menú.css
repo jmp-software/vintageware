@@ -1,0 +1,246 @@
+
+.navbar-nav {
+    display: flex !important; 
+    align-items: center !important; 
+
+}
+
+/*
+.navbar-nav {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: nowrap; 
+    width: 100%;
+}
+*/
+
+.nav-item {
+    margin: 2; /* Remove default margin if needed */
+    margin-top: -10 !important; 
+}
+
+.custom-search-btn {
+    border-color: rgb(19, 150, 150) !important; 
+    color: white !important; 
+    background-color: rgb(19, 150, 150)!important;
+}
+
+.custom-search-btn:hover {
+    background-color: rgb(12, 100, 100)!important;
+}
+    
+.custom-search-input:focus {
+    background-color: #e0f7fa !important;
+    border-color: rgba(12, 100, 100, 1) !important;
+    color: #000!important; 
+}
+
+/*
+.navbar-brand {
+
+    border-color: rgba(12, 100, 100, .5)  !important;
+    padding: 1.25rem;
+
+}
+
+.navbar-toggler {
+    border-color: rgba(12, 100, 100, .5)  !important;
+
+}
+*/
+
+/* Ensure dropdown items have a visible separation with black thick lines */
+/*
+@media (max-width: 48em) {
+
+    .nav-item {
+        border-bottom: 0.1rem dashed  rgba(0, 0, 0, 1) ;
+        justify-content: center !important;
+        width:95% !important;
+      }
+
+      .nav-link {
+        justify-content: center !important;
+        width:95% !important;
+   
+    }
+    .navbar-nav .nav-item:first-child {
+        border-top: .11rem dashed black;
+    }
+
+}
+*/
+
+/* Resolución para celu 1 */
+/*
+@media (max-width: 48em) {
+    
+    .nav-item {
+        border-bottom: 0.1rem dashed  rgba(0, 0, 0, 1) ;
+        justify-content: center !important;
+        width:95% !important; 
+    }
+
+      .nav-link {
+        justify-content: center !important;
+        width:55% !important;
+    }
+
+    .navbar-nav .nav-item:first-child {
+        border-top: .11rem dashed black;
+    }
+    
+}
+
+@media (min-width: 770px) and (max-width: 1379px) { 
+      
+    .nav-item {
+        border-bottom: 0.1rem dashed  rgba(0, 0, 0, 1) ;
+        justify-content: center !important;
+        width:95% !important;
+     }
+
+     .nav-link {
+        justify-content: center !important;
+        width: 55% !important;
+    }
+
+    .navbar-nav .nav-item:first-child {
+        border-top: .11rem dashed black;
+    }
+    
+}
+*/
+
+/* Resolución para celulares */
+@media (max-width: 48eem) {
+    
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around; /* Align items horizontally with equal spacing */
+        flex-wrap: nowrap; /* Prevent wrapping on large screens */
+        width: 100%;
+    }
+
+    .nav-item {
+        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        display: flex; /* Use flexbox to align the content of each nav item */
+        justify-content: center;
+        width: 100%; /* Full width to make it fit on small screens */
+    }
+
+    .nav-link {
+        display: block; /* Ensure the link takes up the full width */
+        text-align: center;
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .navbar-nav .nav-item:first-child {
+        border-top: 0.11rem dashed black;
+    }
+
+    .form-inline-custom{
+        justify-content: center !important;
+     }
+
+ }
+
+ /* Resolución para celu 2 */
+@media (max-width: 30em) { 
+    
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around; /* Align items horizontally with equal spacing */
+        flex-wrap: nowrap; /* Prevent wrapping on large screens */
+        width: 100%;
+    }
+
+    .nav-item {
+        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        display: flex; /* Use flexbox to align the content of each nav item */
+        justify-content: center;
+        width: 100%; /* Full width to make it fit on small screens */
+    }
+
+    .nav-link {
+        display: block; /* Ensure the link takes up the full width */
+        text-align: center;
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .navbar-nav .nav-item:first-child {
+        border-top: 0.11rem dashed black;
+    }
+
+    .form-inline-custom{
+        justify-content: center !important;
+     }
+
+ }
+
+/* Resolución para dispositivos medianos */
+@media (min-width: 770px) and (max-width: 1379px) {
+    
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around; /* Align items horizontally with equal spacing */
+        flex-wrap: nowrap; /* Prevent wrapping on large screens */
+        width: 100%;
+    }
+
+    .nav-item {
+        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        display: flex; /* Flex to ensure items align horizontally */
+        justify-content: center;
+        width: 100%; /* Adjust width for better spacing on medium screens */
+    }
+
+    .nav-link {
+        display: block;
+        text-align: center;
+        width: 55%; /* Adjust width for better responsiveness */
+    }
+    
+    .navbar-nav .nav-item:first-child {
+        border-top: 0.11rem dashed black;
+    }
+
+    .form-inline-custom{
+        justify-content: center !important;
+     }
+
+}
+
+/* Default styles for larger screens */
+
+@media (min-width: 1379px) {
+    
+    /*
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around; 
+        flex-wrap: nowrap; 
+        width: 100%;
+    }
+
+    .navbar-nav {
+        display: flex; 
+        justify-content: space-evenly; 
+        width: 100%;
+    }
+
+    .nav-item {
+        border-bottom: 0.1rem dashed rgba(0, 0, 0, 1);
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-link {
+        display: inline-block;
+        text-align: center;
+        padding: 10px 15px; 
+    }
+    */
+
+}
+
