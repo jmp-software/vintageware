@@ -16,6 +16,9 @@
     border-color: rgb(19, 150, 150) !important; 
     color: white !important; 
     background-color: rgb(19, 150, 150)!important;
+    margin-top: .5rem !important;
+    margin-bottom: .5rem !important;
+    animation: sizeChange .5s infinite;
 }
 
 .custom-search-btn:hover {
@@ -188,7 +191,7 @@
  }
 
    /* Resolución para celu 3 */
-@media (max-width: 990px) { 
+@media (max-width: 991px) { 
     
     .navbar-brand {
         font-size: 150%;
@@ -229,7 +232,7 @@
 }
 
 /* Resolución para dispositivos medianos */
-@media (min-width: 991px) and (max-width: 1379px) {
+@media (min-width: 992px) and (max-width: 1379px) {
     .navbar-brand {
         padding: .25em !important;
         font-size: 150% !important;
@@ -289,5 +292,27 @@
         border-bottom: 0.15em  solid  rgb(10, 122, 122) !important; 
         */
      }
+}
+
+@keyframes sizeChange {
+    0%, 100% {
+        transform: scale(1)  
+    }
+    50% {
+        transform: scale(1.015) ;  
+    }
+}
+
+/* Delay para animaciones */
+.delay-1 {
+    animation-delay: 0s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+.delay-3 {
+    animation-delay: 2;
 }
 

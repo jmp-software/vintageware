@@ -325,13 +325,13 @@ p {
       padding: 1rem 1rem;
     background-color: rgba(122, 0, 122, 1);
     border: 4px solid rgba(0, 122, 122, 1);
-    text-align: centerM
+    /*text-align: center;*/
     box-sizing: border-box;
 }
 
 /* Para texto de "derechos de autor" */
 footer {
-    padding-top: 1rem;
+    padding-top: 1rem
     text-align: center;
    
 }
