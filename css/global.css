@@ -85,14 +85,13 @@ nav {
     position: relative  !important;
     padding: .25rem   !important;
     overflow: hidden  !important;
-    
 }
     
 
 .navbar-custom {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
-    background-color: rgb(165, 0, 165)  !important; 
+    background-color: rgba(122, 0, 122, 1) !important; 
 
 }    
 
@@ -203,7 +202,7 @@ a, a:visited, a:active, a:hover {
 
 .navbar-nav {
     display: flex !important; 
-    align-items: center !important; 
+    align-items: left !important; 
 }
 
 .nav-item {
