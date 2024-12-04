@@ -188,7 +188,7 @@
  }
 
    /* Resolución para celu 3 */
-@media (max-width: 932px) { 
+@media (max-width: 990px) { 
     
     .navbar-brand {
         font-size: 150%;
@@ -229,7 +229,7 @@
 }
 
 /* Resolución para dispositivos medianos */
-@media (min-width: 933px) and (max-width: 1379px) {
+@media (min-width: 991px) and (max-width: 1379px) {
     .navbar-brand {
         padding: .25em !important;
         font-size: 150% !important;
