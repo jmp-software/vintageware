@@ -184,6 +184,7 @@ function hideWidget() {
                     }
                 }
             } else {
+
                 console.log(`El producto ${a} está en 0`);
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
@@ -193,7 +194,6 @@ function hideWidget() {
                 widgetId.style.margin = `0px`;
                 buttonSubstractId.style.opacity = `1`;
                 widgetId.style.opacity = `1`;
-
             }
         }
     }
