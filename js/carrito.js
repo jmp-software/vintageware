@@ -267,11 +267,13 @@ function updateProductUnitDisplay() {
 console.log(`\n\n`);
 
 // Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
+/*
 document.addEventListener("DOMContentLoaded", updateProductUnitDisplay);
 window.addEventListener('load', updateProductUnitDisplay);
 window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);
-/*
+*/
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateProductUnitDisplay();
@@ -282,7 +284,7 @@ if (document.readyState === 'loading') {
     window.addEventListener('resize', updateProductUnitDisplay);
     window.addEventListener('click', updateProductUnitDisplay);
 }
-*/
+
 
 // Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito 
 
