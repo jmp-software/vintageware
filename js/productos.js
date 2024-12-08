@@ -36,24 +36,23 @@ const products = [
 ];
 */
 
-let products = []; // Initialize idProduct as an empty array
-
-fetch('../json/products.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        products = data; // Now 'idProduct' is expected to be an array of objects
-        console.log(products); // Log the data to verify its structure
-        generateProductCards(); // Call the function to generate product cards after data is loaded
-    })
-    .catch(error => {
-        console.log('There was a problem with the fetch operation:');
-    });
-
+if (typeof products == 'undefined') {
+    fetch('../json/products.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            products = data; // Now 'products' is expected to be an array of objects
+            console.log(products); // Log the data to verify its structure
+            generateProductCards(); // Call the function to generate product cards after data is loaded
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
 let cartProduct = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
 let priceProduct = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
@@ -97,7 +96,7 @@ function generateProductCards() {
     }
 
     // Check if idProduct is an array
-    if (Array.isArray(products)) {
+    if (typeof products != 'undefined') {
         console.log('products si es un arreglo', (products));
         products.forEach((product, index) => {
             const cardHTML = `
@@ -122,88 +121,87 @@ function generateProductCards() {
     }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
+if (typeof products != 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+        generateProductCards();
+    });
     generateProductCards();
-});
-
-generateProductCards();
+}
 
 function hideWidget() {
-    console.log(`\nEjecuta widgetCount`);
-    for (let a = 0; a < products.length; a++) {
-        const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
-        const productId = document.getElementById(`product-count-${a}`);
+    if (typeof products != 'undefined') {
+        for (let a = 0; a < products.length; a++) {
+            const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
+            const productId = document.getElementById(`product-count-${a}`);
 
-        // Check if productId is found
-        if (!productId) {
-            console.error(`Element with ID product-count-${a} not found.`);
-            continue; // Skip to the next iteration if the element is not found
-        }
+            // Check if productId is found
+            if (!productId) {
+                console.error(`Element with ID product-count-${a} not found.`);
+                continue; // Skip to the next iteration if the element is not found
+            }
 
-        const widgetCount = productId.innerHTML; // Access innerHTML directly from productId
-        console.log(`\nwidgetCount: ${widgetCount}`);
-        if (widgetCount == 0) {
-            // console.log(`\nIngresó al primer if de widgetCount`);
-            const widgetId = document.getElementById(`product-count-${a}`);
+            const widgetCount = productId.innerHTML; // Access innerHTML directly from productId
+            console.log(`\nwidgetCount: ${widgetCount}`);
+            if (widgetCount == 0) {
+                // console.log(`\nIngresó al primer if de widgetCount`);
+                const widgetId = document.getElementById(`product-count-${a}`);
 
-            if (widgetId) {
-              
+                if (widgetId) {
+
+                    const buttonAddId = document.getElementById(`add-to-cart-${a}`);
+                    console.log(`\nIngresó al segundo if de widgetCount`);
+
+                    // Obtiene valor de margin
+                    const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
+                    const computedOpacity = window.getComputedStyle(buttonSubstractId).opacity; // obtiene la opacidad del botón de "-"
+
+                    // Remueve la unidad 'px' y lo convierte a coma flotante
+                    const marginValue = parseFloat(computedMargin);
+                    const opacityValue = parseFloat(computedOpacity);
+
+                    console.log(`Current margin value: ${marginValue}`);
+
+                    // substrae 0.01 del valor del margen
+                    const newMargin = marginValue - 5;
+                    const newOpacity = opacityValue - (1 / 6);
+                    console.log(`newMargin  = ${newMargin}`);
+
+                    buttonAddId.style.padding = `0px`;
+                    // Apply the new margin value if it's greater than -32px (this will ensure it doesn't go too low)
+
+
+                    if (newMargin > -40) {
+                        console.log(`\nIngresó al tercer if de widgetCount`);
+                        widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
+                        widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
+                        buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
+                        // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
+                    } else {
+                        buttonAddId.style.paddingLeft = `4px`;
+                        buttonAddId.style.paddingRight = `9px`;
+                        buttonAddId.style.width = `25px`;
+
+                    }
+                }
+            } else {
+                console.log(`El producto ${a} está en 0`);
+                const widgetId = document.getElementById(`product-count-${a}`);
+                const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-                console.log(`\nIngresó al segundo if de widgetCount`);
-
-                // Obtiene valor de margin
-                const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
-                const computedOpacity = window.getComputedStyle(buttonSubstractId).opacity; // obtiene la opacidad del botón de "-"
-
-                // Remueve la unidad 'px' y lo convierte a coma flotante
-                const marginValue = parseFloat(computedMargin);
-                const opacityValue = parseFloat(computedOpacity);
-
-                console.log(`Current margin value: ${marginValue}`);
-
-                // substrae 0.01 del valor del margen
-                const newMargin = marginValue -5;
-                const newOpacity = opacityValue - (1 / 6);
-                console.log(`newMargin  = ${newMargin}`);
 
                 buttonAddId.style.padding = `0px`;
-                // Apply the new margin value if it's greater than -32px (this will ensure it doesn't go too low)
+                widgetId.style.margin = `0px`;
+                buttonSubstractId.style.opacity = `1`;
+                widgetId.style.opacity = `1`;
 
-               
-                if (newMargin > -40) {
-                    console.log(`\nIngresó al tercer if de widgetCount`);
-                    widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
-                    widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
-                    buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
-                    // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
-                } else {
-                    buttonAddId.style.paddingLeft = `4px`;
-                    buttonAddId.style.paddingRight = `9px`;
-                    buttonAddId.style.width = `25px`;
-
-                }
             }
-        } else {
-            console.log(`El producto ${a} está en 0`);
-            const widgetId = document.getElementById(`product-count-${a}`);
-            const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
-            const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-
-            buttonAddId.style.padding = `0px`;
-            widgetId.style.margin = `0px`;
-            buttonSubstractId.style.opacity = `1`;
-            widgetId.style.opacity = `1`;
-
         }
     }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     hideWidget();
     setInterval(hideWidget, 30);
 });
-
 
 
 /*
