@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Vintageware</title>
-    
+
     <link rel="icon" type="image/png" href="../favicon.png">
-    
-    <link rel="stylesheet" href="../css/global.css"> 
-    
-    <link rel="stylesheet" href="../css/pago.css"> 
-    
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link rel="stylesheet" href="../css/pago.css">
+
 </head>
 
 <body style="background-color: black; color: white;">
@@ -36,86 +36,83 @@
             <a class="foto-enlace" href="" target="_blank">
                 <img class="product-p-photo" src="" alt="Photo">
             </a>
-            <div class="items-container" id="product-descripción">
-                <div class="item-descripcion">
-                    <label  class="nombre-producto"  id="nombre-label"></label >    
-                </div>
-                <div class="item-descripcion">
-                    <label class="sistema-producto"  id="sistema-label"></label >    
-                </div>
-                <div class="item-descripcion">
-                    <label class="formato-producto"  id="formato-label"></label >    
-                </div>
-               <div class="item-descripcion">
-                <label class="precio-producto" id="precio-label"></label >   
-           </div>
+            <div class="items-container" id="product-descripción"></div>
+            <div class="item-descripcion">
+                <label class="nombre-producto" id="nombre-label"></label>
+            </div>
+            <div class="item-descripcion">
+                <label class="sistema-producto" id="sistema-label"></label>
+            </div>
+            <div class="item-descripcion">
+                <label class="formato-producto" id="formato-label"></label>
+            </div>
+            <div class="item-descripcion">
+                <label class="precio-producto" id="precio-label"></label>
             </div>
         </div>
-       
-        <form action="https://formspree.io/f/xldegyly" method="POST"  id="form">
-        <div class="grid-container" id="product-p-form">
-                   <div class="grid">
-      
-                      <div class="grid-item-p">
-                          <input type="hidden" name="product" id="producto" value="">
-                       </div>           
+        </div>
 
-                        <div class="grid-item-p">
-                             <input type="hidden" name="value" id="valor" value="">
-                        </div>           
-                                  
-                        <div class="grid-item-p">
-                            <input type="hidden" name="format" id="formato" value="">
-                         </div>           
-                       
-                        <div class="grid-item-p" id="product-name" >
-                           <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
-                        </div>
-                        
-                        <div class="grid-item-p">
-                             <label for="name">Nombres</label>
-                             <input type="text" name="name" required
-                             pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                             placeholder="Juan Alejandro">
-                        </div>
-                   
-                        <div class="grid-item-p">
-                             <label for="surname">Apellidos</label>
-                             <input type="text" name="surname" required
-                             pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                             placeholder="Perez García">
-                        </div>
+        <form action="https://formspree.io/f/xldegyly" method="POST" id="form">
+            <div class="grid-container" id="product-p-form">
+                <div class="grid">
 
-                        <div class="grid-item-p">
-                             <label for="email">Correo-e</label>
-                             <input type="email" name="email" required
-                             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                             placeholder="usuario@ejemplo.com.ar">
-                        </div>
-                       
-                        <div class="grid-item-p">
-                            <label for="numero2">Nº de tarjeta</label>
-                             <input type="text" name="number2" required
-                             pattern="(\d{4}-){3}\d{4}" 
-                             placeholder="9999-9999-9999-9999">
-                        </div>
-                   </div>
-              </div>
-              <div class="p-buttons">
+                    <div class="grid-item-p">
+                        <input type="hidden" name="product" id="producto" value="">
+                    </div>
+
+                    <div class="grid-item-p">
+                        <input type="hidden" name="value" id="valor" value="">
+                    </div>
+
+                    <div class="grid-item-p">
+                        <input type="hidden" name="format" id="formato" value="">
+                    </div>
+
+                    <div class="grid-item-p" id="product-name">
+                        <label for="amount" class="amount">INGRESE SUS DATOS Y MEDIO DE PAGO</label>
+                    </div>
+
+                    <div class="grid-item-p">
+                        <label for="name">Nombres</label>
+                        <input type="text" name="name" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" placeholder="Juan Alejandro">
+                    </div>
+
+                    <div class="grid-item-p">
+                        <label for="surname">Apellidos</label>
+                        <input type="text" name="surname" required
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" placeholder="Perez García">
+                    </div>
+
+                    <div class="grid-item-p">
+                        <label for="email">Correo-e</label>
+                        <input type="email" name="email" required
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            placeholder="usuario@ejemplo.com.ar">
+                    </div>
+
+                    <div class="grid-item-p">
+                        <label for="numero2">Nº de tarjeta</label>
+                        <input type="text" name="number2" required pattern="(\d{4}-){3}\d{4}"
+                            placeholder="9999-9999-9999-9999">
+                    </div>
+                </div>
+            </div>
+            <div class="p-buttons">
                 <nav>
-                   <ul>
-                      <li class="grid-item-p-button">
-                          <button type="submit" class="p-button">PAGAR</button>
-                      </li>
-                      <li class="grid-item-p-button">
-                          <input class="erase-button" type="reset" value="BORRAR">   
-                      </li>
-                      <li class="grid-item-p-button">
-                          <a class="exit-button" href="../pages/productos.html#target-section">VOLVER</a>
-                      </li>
-                   </ul>
+                    <ul>
+                        <li class="grid-item-p-button">
+                            <button type="submit" class="p-button">PAGAR</button>
+                        </li>
+                        <li class="grid-item-p-button">
+                            <input class="erase-button" type="reset" value="BORRAR">
+                        </li>
+                        <li class="grid-item-p-button">
+                            <a class="exit-button" href="../pages/productos.html#target-section">VOLVER</a>
+                        </li>
+                    </ul>
                 </nav>
-           </div>
+            </div>
             </div>
         </form>
     </main>
@@ -124,8 +121,7 @@
         <p class="footer-text">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../js/pago.js"></script>    
+    <script src="../js/pago.js"></script>
 </body>
+
 </html>
-
-
