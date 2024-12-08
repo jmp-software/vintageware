@@ -57,24 +57,6 @@ function updateCartDisplay() {
     document.getElementById('cart-count-recuadro').innerHTML = cartUnits || '';
 }
 
-// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
-function updateProductUnitDisplay() {
-    cart.forEach((carts) => {
-
-        console.log(`\ncarts.id = ${carts.id}`);
-
-        // Verifica que elemento con esa "id" existe
-        const productCountElement = document.getElementById(`${carts.id}`);
-        if (productCountElement) {
-            productCountElement.innerHTML = carts.units;
-            console.log(`\nIngresó al if the updateProductUnitDisplay`);
-            console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
-        } else {
-            console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
-        }
-    });
-}
-
 //  Actualiza  precio
 /*
 function upadetProductUnitNumber() {
@@ -192,16 +174,40 @@ function generateCartProductiList() {
     }
    
 }
+// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
+function updateProductUnitDisplay() {
+    cart.forEach((carts) => {
+
+        console.log(`\ncarts.id = ${carts.id}`);
+
+        // Verifica que elemento con esa "id" existe
+        const productCountElement = document.getElementById(`${carts.id}`);
+        if (productCountElement) {
+            productCountElement.innerHTML = carts.units;
+            console.log(`\nIngresó al if the updateProductUnitDisplay`);
+            console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
+        } else {
+            console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
+        }
+    });
+}
 
 //<span id="product-count-${index}">0</span>
 
 console.log(`\n\n`);
 
 // Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
-document.addEventListener("DOMContentLoaded", updateProductUnitDisplay);
-window.addEventListener('load', updateProductUnitDisplay);
-window.addEventListener('resize', updateProductUnitDisplay);
-window.addEventListener('click', updateProductUnitDisplay);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateProductUnitDisplay();
+        setInterval(updateProductUnitDisplay, 100);
+    });
+} else {
+    // Document is already loaded
+    window.addEventListener('resize', updateProductUnitDisplay);
+    window.addEventListener('click', updateProductUnitDisplay);
+}
+
 
 // Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito 
 document.addEventListener("'OMContentLoaded", cartOpacity);

@@ -101,7 +101,14 @@ function generateProductCards() {
         products.forEach((product, index) => {
             const cardHTML = `
                 <div class="card-item">
-                    <img src="${product.image}" alt="${product.subtitle}">
+                    <img src="${product.image}" alt="$document.addEventListener('DOMContentLoaded', () => {
+    updateProductUnitDisplay();
+    setInterval(updateProductUnitDisplay, 100);
+});
+
+window.addEventListener('load', updateProductUnitDisplay);
+window.addEventListener('resize', updateProductUnitDisplay);
+window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
                     <span class="add-substract-widget" id="widget-${index}">
                         <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
@@ -119,13 +126,15 @@ function generateProductCards() {
     } else {
         console.log('products no es un arreglo', (products));
     }
+    generateProductCard();
 }
 
 if (typeof products != 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
-        generateProductCards();
+        generateProductCard();
+        
+        setInterval(generateProductCards, 100);
     });
-    generateProductCards();
 }
 
 function hideWidget() {
@@ -198,12 +207,18 @@ function hideWidget() {
         }
     }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     hideWidget();
     setInterval(hideWidget, 30);
 });
 
 
+/*
+window.addEventListener('load', updateProductUnitDisplay);
+window.addEventListener('resize', updateProductUnitDisplay);
+window.addEventListener('click', updateProductUnitDisplay);
+*/
 /*
 window.addEventListener('resize', hideWidget);
 window.addEventListener('click', hideWidget);
