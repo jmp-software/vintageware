@@ -110,11 +110,15 @@ window.addEventListener('load', updateProductUnitDisplay);
 window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
                     <span class="add-substract-widget" id="widget-${index}">
+                        <!--
                         <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
                         <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
-                        
-                        </span>
+                        -->
+                        <input type="button" value="  -  "  class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
+                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
+                        <input type="button" value="  +  "  class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
+                    </span>
                     
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
                     <p class="subtitle2" id="total-price">$${product.price}</p>
@@ -126,7 +130,7 @@ window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
     } else {
         console.log('products no es un arreglo', (products));
     }
-    //generateProductCard();
+    generateProductCard();
 }
 
 if (typeof products != 'undefined') {
@@ -192,11 +196,11 @@ function hideWidget() {
                     }
                 }
             } else {
-                //console.log(`\nEl producto ${a} está en 0`);
+                console.log(`\nEl producto ${a} está en 0`);
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-
+                  //buttonSubstractId.style.width = `20px`;
                 buttonAddId.style.padding = `0px`;
                 widgetId.style.margin = `0px`;
                 buttonSubstractId.style.opacity = `1`;

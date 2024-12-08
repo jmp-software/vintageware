@@ -202,8 +202,39 @@ p.subtitle3 {
 }
 
 .add-substract-widget:hover {
-    animation: recuadroTitilante 0.65s infinite;
+    /*animation: recuadroTitilante 0.65s infinite;*/
 }
+
+
+
+/* Remove default button styles */
+.substract-button,
+.add-button {
+    border-radius: 0.6rem;
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.substract-button:active {
+    border: none;
+    outline: none;
+}
+
+/* Optional: You can also add custom styles if needed */
+.substract-button,
+.add-button {
+    outline: none;
+}
+
+
+
+.substract-button:hover,
+.add-button:hover {
+    text-decoration: none;
+}
+
 /*
 .shopping-cart {
     opacity: 1;
