@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Microsoft Windows 3.1",
+        "platform": "MS-DOS 6.22",
+        "media": "disquetes de 3½",
+        "price": "30.250",
+        "image": "../assets/photos/photo-1.jpg",
+        "subtitle": "Windows 3.1"
+    },
+    {
+        "name": "Commander Keen 4",
+        "platform": "MS-DOS",
+        "media": "disquetes de 3½",
+        "price": "88.000",
+        "image": "../assets/photos/photo-2.png",
+        "subtitle": "Commander Keen 4"
+    },
+    {
+        "name": "Logo Programming Language",
+        "platform": "Commodore 64",
+        "media": "Cartucho",
+        "price": "56.500",
+        "image": "../assets/photos/photo-3.jpg",
+        "subtitle": "Commodore Logo Programming Language"
+    },
+    {
+        "name": "Paint Shop Pro",
+        "platform": "Windows 3.1 o superior",
+        "media": "disquetes de 3½",
+        "price": "63.650",
+        "image": "../assets/photos/photo-4.jpg",
+        "subtitle": "Paint Shop Pro"
+    }
+]
