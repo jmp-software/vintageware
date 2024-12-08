@@ -200,7 +200,7 @@ console.log(`\n\n`);
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateProductUnitDisplay();
-        setInterval(updateProductUnitDisplay, 100);
+        setInterval(updateProductUnitDisplay, 30);
     });
 } else {
     // Document is already loaded
