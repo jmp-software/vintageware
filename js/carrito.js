@@ -135,7 +135,7 @@ function cartOpacity() {
 // Función para generar la página del carrito con el listado de productos
 function generateCartProductiList() {
     let totalSale = cart.reduce((accumulator, item) => {
-        return accumulator + (item.price * item.units * 1000 || 0);
+        return accumulator + parseInt((item.price * item.units * 1000 || 0));
     }, 0);
     const cartProductList = document.getElementById('productos-carrito-placeholder');
     cartProductList.innerHTML = '';
