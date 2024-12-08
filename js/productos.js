@@ -155,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener('resize', hideWidget);
 window.addEventListener('click', hideWidget);
+window.addEventListener('load', hideWidget);
 
 /*
 window.addEventListener('resize', hideWidget);
