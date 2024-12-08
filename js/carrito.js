@@ -19,7 +19,7 @@ function addToCart(productName, price, id, photo) {
             // Si el producto existe, actualiza la cantidad de unidades
             existingProduct.units++;
         } else {
-            // Si el producto no exite, lo agrega al carrito
+            // Si el producto no existe, lo agrega al carrito
             cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
         }
 
@@ -48,13 +48,15 @@ function addToCart(productName, price, id, photo) {
 
 //  Actualiza  el conteo de productos
 function updateCartDisplay() {
-
     cartUnits = cart.reduce((accumulator, item) => {
         return accumulator + item.units;
     }, 0);
 
-    document.getElementById('cart-count-nav').innerHTML = cartUnits || '';
-    document.getElementById('cart-count-recuadro').innerHTML = cartUnits || '';
+    const cartCountNavId = document.getElementById('cart-count-nav');
+    const cartCountRecuadroId = document.getElementById('cart-count-recuadro');
+
+    if (cartCountNavId) { cartCountNavId.innerHTML = cartUnits || ''; }
+    if (cartCountRecuadroId) { cartCountRecuadroId.innerHTML = cartUnits || '0'; }
 }
 
 //  Actualiza  precio
@@ -75,6 +77,8 @@ function substractUnit(nameOfSubstraction) {
         existingProduct.units--;
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('units', existingProduct.units);
+        //cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
+        
     }
     else {
         console.log(`\n No encontró el producto en minusUnit`);
@@ -93,8 +97,8 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// Esconde el carrito de la esquina de la pantalla si no compró nada 
-// Esconde el carrito de la esquina de la pantalla si no se ha comprado nada
+// Esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
+/*
 function cartOpacity() {
     let totalUnits = cart.reduce((accumulator, item) => {
         return accumulator + (item.units || 0);
@@ -102,21 +106,65 @@ function cartOpacity() {
 
     var shoppingCart = document.getElementById('shopping-cart');
 
-    console.log(`Contador de productos: >${totalUnits}<`);
+    if (shoppingCart) {
+        console.log(`\nContador de productos: >${totalUnits}<`);
+        newOpacity = parseFloat(shoppingCart.style.opacity); // Use parseFloat for opacity
+        if (isNaN(newOpacity)) newOpacity = 1.0; // Corrected NaN check
+        newOpacity = newOpacity - 0.1;
+        console.log('\n Opacidad:', newOpacity);
+    }
+
 
     if (totalUnits === 0) {
-        shoppingCart.style.opacity = '0'; // Esconde el carrito si no hay productos
-        console.log('El contador está en cero, ocultando el carrito.');
+        if (shoppingCart) {
+            if (newOpacity >= 0) {
+
+                shoppingCart.style.opacity = newOpacity;
+                shoppingCart.style.transform = `scale(${newOpacity})`;
+                console.log('\n Opacidad:', (newOpacity));
+            }; // Esconde el carrito si no hay productos
+            console.log('\nEl contador está en cero, ocultando el carrito.');
+        }
+
     } else {
-        shoppingCart.style.opacity = '1'; // Asegura que el carrito se muestra si hay productos
-        console.log('El contador no está en cero, mostrando el carrito.');
+        shoppingCart.style.opacity = '1';
+        shoppingCart.style.transform = 'scale(1)';
+        console.log('\nEl contador no está en cero, mostrando el carrito.');
+    }
+}
+*/
+function cartOpacity() {
+    var shoppingCart = document.getElementById('shopping-cart');
+    if (!shoppingCart) {
+        console.error('Shopping cart element not found.');
+        return; // Exit the function if the element is not found
+    }
+
+    let totalUnits = cart.reduce((accumulator, item) => {
+        return accumulator + (item.units || 0);
+    }, 0);
+
+    console.log(`\nContador de productos: >${totalUnits}<`);
+    let newOpacity = parseFloat(shoppingCart.style.opacity);
+    if (isNaN(newOpacity)) newOpacity = 1.0;
+
+    if (totalUnits === 0) {
+        if (newOpacity >= 0) {
+            shoppingCart.style.opacity = newOpacity - 0.1;
+            shoppingCart.style.transform = `scale(${newOpacity})`;
+            console.log('\n Opacidad:', (newOpacity));
+        }
+        console.log('\nEl contador está en cero, ocultando el carrito.');
+    } else {
+        shoppingCart.style.opacity = '1';
+        shoppingCart.style.transform = 'scale(1)';
+        console.log('\nEl contador no está en cero, mostrando el carrito.');
     }
 }
 
-
 // Función para generar la página del carrito con el listado de productos
 function generateCartProductiList() {
-    let totalSale =  parseInt(cart.reduce((accumulator, item) => {
+    let totalSale = parseInt(cart.reduce((accumulator, item) => {
         return accumulator + parseInt((item.price * item.units * 1000 || 0));
     }, 0));
     const cartProductList = document.getElementById('productos-carrito-placeholder');
@@ -172,8 +220,30 @@ function generateCartProductiList() {
             </div >
      `; cartProductList.innerHTML += productHTML;
     }
-   
 }
+
+// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
+function updateProductUnitDisplay() {
+    cart.forEach((carts) => {
+
+        //console.log(`\ncarts.id = ${carts.id}`);
+
+        // Verifica que elemento con esa "id" existe
+        const productCountElement = document.getElementById(`${carts.id}`);
+        if (productCountElement) {
+            productCountElement.innerHTML = carts.units;
+            //console.log(`\nIngresó al if the updateProductUnitDisplay`);
+            //console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
+        } else {
+            //console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
+        }
+    });
+}
+
+//<span id="product-count-${index}">0</span>
+
+console.log(`\n\n`);
+
 // Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
 function updateProductUnitDisplay() {
     cart.forEach((carts) => {
@@ -197,6 +267,11 @@ function updateProductUnitDisplay() {
 console.log(`\n\n`);
 
 // Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
+document.addEventListener("DOMContentLoaded", updateProductUnitDisplay);
+window.addEventListener('load', updateProductUnitDisplay);
+window.addEventListener('resize', updateProductUnitDisplay);
+window.addEventListener('click', updateProductUnitDisplay);
+/*
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateProductUnitDisplay();
@@ -207,28 +282,76 @@ if (document.readyState === 'loading') {
     window.addEventListener('resize', updateProductUnitDisplay);
     window.addEventListener('click', updateProductUnitDisplay);
 }
-
+*/
 
 // Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito 
-document.addEventListener("'OMContentLoaded", cartOpacity);
-window.addEventListener('load', cartOpacity);
-window.addEventListener('resize', cartOpacity);
-window.addEventListener('click', cartOpacity);
 
-// Eventos en los cuales actualiza la imagen del carrito en la esquina de la pantalla con el número de productos
-document.addEventListener("DOMContentLoaded", updateCartDisplay);
-window.addEventListener('load', updateCartDisplay);
-window.addEventListener('resize', updateCartDisplay);
-window.addEventListener('click', updateCartDisplay);
+//document.addEventListener("'OMContentLoaded", cartOpacity);
 
-// Eventos en los genera la lista de procutos en la página del carito
+document.addEventListener('DOMContentLoaded', () => {
+    function updateCartOpacity() {
+        cartOpacity();
+        requestAnimationFrame(updateCartOpacity);  // Continue calling cartOpacity on each frame
+    }
+
+    updateCartOpacity();  // Start the loop once the DOM is loaded
+});
+
+
+
+// Eventos en los cuales actualiza la muestra en pantalla de la cantidad de unidades puestas en el carrito
+/*i
+f(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartDisplay();
+        setInterval(updateCartDisplay, 30);
+    });
+} else {
+    // Document is already loaded
+    window.addEventListener('resize', updateCartDisplay);
+    window.addEventListener('click', updateCartDisplay);
+}
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    function updateUpdateCartDisplay() {
+        updateCartDisplay();
+        requestAnimationFrame(updateUpdateCartDisplay);  // Continue calling cartOpacity on each frame
+    }
+
+    updateUpdateCartDisplay();  // Start the loop once the DOM is loaded
+});
+
+// Eventos en los genera la lista de procutos en la página del carrito
 document.addEventListener("DOMContentLoaded", generateCartProductiList);
 window.addEventListener('load', generateCartProductiList);
 window.addEventListener('resize', generateCartProductiList);
 window.addEventListener('click', generateCartProductiList);
 
+/*
+document.addEventListener('DOMContentLoaded', () => {
+    function updateGenerateCartProductiList() {
+        generateCartProductiList();
+        requestAnimationFrame(updateGenerateCartProductiList);  // Continue calling cartOpacity on each frame
+    }
+
+    updateGenerateCartProductiList();  // Start the loop once the DOM is loaded
+});
+*/
+/*
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        updateCartDisplay();
+        setInterval(generateCartProductiList, 50);
+    });
+} else {
+    // El documento ya está cargado
+    window.addEventListener('resize', generateCartProductiList);
+    window.addEventListener('click', generateCartProductiList);
+}
+*/
 // Eventos en los que ejecuta la función para permitir restar productos del carrito
+
 document.addEventListener("DOMContentLoaded", substractUnit);
-window.addEventListener('click', substractUnit);
-
-
+window.addEventListener('load', generateCartProductiList);
+window.addEventListener('resize', generateCartProductiList);
+window.addEventListener('click', generateCartProductiList);

@@ -126,7 +126,7 @@ window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
     } else {
         console.log('products no es un arreglo', (products));
     }
-    generateProductCard();
+    //generateProductCard();
 }
 
 if (typeof products != 'undefined') {
@@ -145,12 +145,12 @@ function hideWidget() {
 
             // Check if productId is found
             if (!productId) {
-                console.error(`Element with ID product-count-${a} not found.`);
+                //console.error(`\nElement with ID product-count-${a} not found.`);
                 continue; // Skip to the next iteration if the element is not found
             }
 
             const widgetCount = productId.innerHTML; // Access innerHTML directly from productId
-            console.log(`\nwidgetCount: ${widgetCount}`);
+            //console.log(`\nwidgetCount: ${widgetCount}`);
             if (widgetCount == 0) {
                 // console.log(`\nIngresó al primer if de widgetCount`);
                 const widgetId = document.getElementById(`product-count-${a}`);
@@ -158,7 +158,7 @@ function hideWidget() {
                 if (widgetId) {
 
                     const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-                    console.log(`\nIngresó al segundo if de widgetCount`);
+                    //console.log(`\nIngresó al segundo if de widgetCount`);
 
                     // Obtiene valor de margin
                     const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
@@ -168,19 +168,19 @@ function hideWidget() {
                     const marginValue = parseFloat(computedMargin);
                     const opacityValue = parseFloat(computedOpacity);
 
-                    console.log(`Current margin value: ${marginValue}`);
+                   // console.log(`\nCurrent margin value: ${marginValue}`);
 
                     // substrae 0.01 del valor del margen
                     const newMargin = marginValue - 5;
                     const newOpacity = opacityValue - (1 / 6);
-                    console.log(`newMargin  = ${newMargin}`);
+                    //console.log(`\nnewMargin  = ${newMargin}`);
 
                     buttonAddId.style.padding = `0px`;
                     // Apply the new margin value if it's greater than -32px (this will ensure it doesn't go too low)
 
 
                     if (newMargin > -40) {
-                        console.log(`\nIngresó al tercer if de widgetCount`);
+                        //console.log(`\nIngresó al tercer if de widgetCount`);
                         widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
                         widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
@@ -189,12 +189,10 @@ function hideWidget() {
                         buttonAddId.style.paddingLeft = `4px`;
                         buttonAddId.style.paddingRight = `9px`;
                         buttonAddId.style.width = `25px`;
-
                     }
                 }
             } else {
-
-                console.log(`El producto ${a} está en 0`);
+                //console.log(`\nEl producto ${a} está en 0`);
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);

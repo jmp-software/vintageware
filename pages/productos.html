@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,11 +66,9 @@
         <p class="footer-text">&copy; 2024 Vintageware. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../js/global.js"></script>
-    <script src="../js/carrito.js"></script>
-    <script src="../js/productos.js"></script>
-
-
+        <script src="../js/global.js"></script>
+        <script src="../js/productos.js"></script>
+        <script src="../js/carrito.js"></script>
 </body>
 
 </html>

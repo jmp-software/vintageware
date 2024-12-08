@@ -84,6 +84,7 @@ a:active {
 }
 
 
+
 .grid-item img {
     display:grid; 
     max-width: 100%; 
@@ -203,8 +204,11 @@ p.subtitle3 {
 .add-substract-widget:hover {
     animation: recuadroTitilante 0.65s infinite;
 }
-
-
+/*
+.shopping-cart {
+    opacity: 1;
+}
+*/
 @keyframes colorCycleSymbols {
     0% {
         filter: brightness(1);
