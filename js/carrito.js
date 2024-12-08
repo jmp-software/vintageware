@@ -89,6 +89,7 @@ function substractUnit(nameOfSubstraction) {
 }
 
 // Si hace click, verifica si es para agrega algún producto al carrito
+
 document.addEventListener("click", function (event) {
     if (event.target.matches("a.add-to-cart")) {
         const productName = event.target.dataset.productId;
@@ -96,6 +97,7 @@ document.addEventListener("click", function (event) {
         addToCart(productName, price);
     }
 });
+
 
 // Esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
 /*
@@ -244,8 +246,8 @@ function updateProductUnitDisplay() {
 
 console.log(`\n\n`);
 
-// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
-function updateProductUnitDisplay() {
+// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en carrito.html
+function updateProductUnitDisplayCarrito() {
     cart.forEach((carts) => {
 
         console.log(`\ncarts.id = ${carts.id}`);
@@ -254,16 +256,73 @@ function updateProductUnitDisplay() {
         const productCountElement = document.getElementById(`${carts.id}`);
         if (productCountElement) {
             productCountElement.innerHTML = carts.units;
-            console.log(`\nIngresó al if the updateProductUnitDisplay`);
+            console.log(`\nIngresó al if the updateProductUnitDisplayCarrito`);
             console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
         } else {
             console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
         }
     });
 }
+// Función para generar la página del carrito con el listado de productos
+function generateCartProductiList() {
+    let totalSale = parseInt(cart.reduce((accumulator, item) => {
+        return accumulator + parseInt((item.price * item.units * 1000 || 0));
+    }, 0));
+    const cartProductList = document.getElementById('productos-carrito-placeholder');
+    cartProductList.innerHTML = '';
+    //let precioTotal = 0;
+    let emptyCarts = true;
+    if (cartProductList) {
+        cart.forEach((carts, index) => {
+            //console.log(`\n URL de la foto de la página del carrito: ${carts.photo}`);
+            //precioTotal += parseInt(carts.units * carts.price * 1000);
+            // Crear el HTML de cada producto en el carrito
+            if (carts.units > 0) {
+                emptyCarts = false;
+                const productHTML = `
+                    <div class="product" id="${carts.id}">
+                          <img class="product-p-photo" src="${carts.photo}" alt="Photo">
+                          <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${carts.name}'); event.preventDefault();">
+                               <span class="substract-widget" id="widget-${index}">
+                               <span>-</span> 
+                               <span class="cart-counter" id="product-count-${index}">${carts.units}</span>
+                         </a>
+                    </div >
+              
+                `; cartProductList.innerHTML += productHTML;
+            }
+        });
+        cartProductList.innerHTML = `<div class="grid-container-products" id="product-p-photo">` + cartProductList.innerHTML + `</div>`;
+        cartProductList.innerHTML += `
+             <div class="total-price">
+                <p class="total-pesos">$${totalSale}</p>
+             </div >
+        `;
+        cartProductList.innerHTML += `
+             <div class="buy-button-div">
+                <button  class="buy-button" id="comprar">
+                   <p class="texto-comprar">¡COMPRAR!</p>
+                   <img class="imagen-compra" src="../assets/art/thumb.png" alt="Photo">
+                </button>
+             </div >
+        `;
 
-//<span id="product-count-${index}">0</span>
+    } else {
+        console.log(`\nNo entró al if para generar la página del carrito`);
+    }
+    if (emptyCarts) {
+        cartProductList.innerHTML = ""
+        const productHTML = `
+            <div class="grid-container-empty" id="product-empty"
+                 <div class="product" id="empty-product">
+                       <img class="turle-photo" src="../favicon.png" alt="Photo">
+                       <label id="no-product">Carrito vacío :(</label>
+                    </div >
+            </div >
+     `; cartProductList.innerHTML += productHTML;
+    }
 
+}
 console.log(`\n\n`);
 
 // Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
@@ -284,12 +343,17 @@ if (document.readyState === 'loading') {
     window.addEventListener('resize', updateProductUnitDisplay);
     window.addEventListener('click', updateProductUnitDisplay);
 }
+/*
+document.addEventListener('DOMContentLoaded', () => {
+    function updateUpdateProductUnitDisplay() {
+        updateProductUnitDisplay();
+        requestAnimationFrame(updateUpdateProductUnitDisplay);  // Continue calling cartOpacity on each frame
+    }
 
-
+    updateUpdateProductUnitDisplay();  // Start the loop once the DOM is loaded
+});
+*/
 // Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito 
-
-//document.addEventListener("'OMContentLoaded", cartOpacity);
-
 document.addEventListener('DOMContentLoaded', () => {
     function updateCartOpacity() {
         cartOpacity();
@@ -298,8 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCartOpacity();  // Start the loop once the DOM is loaded
 });
-
-
 
 // Eventos en los cuales actualiza la muestra en pantalla de la cantidad de unidades puestas en el carrito
 /*i
@@ -328,7 +390,6 @@ document.addEventListener("DOMContentLoaded", generateCartProductiList);
 window.addEventListener('load', generateCartProductiList);
 window.addEventListener('resize', generateCartProductiList);
 window.addEventListener('click', generateCartProductiList);
-
 /*
 document.addEventListener('DOMContentLoaded', () => {
     function updateGenerateCartProductiList() {
@@ -339,21 +400,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGenerateCartProductiList();  // Start the loop once the DOM is loaded
 });
 */
-/*
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        updateCartDisplay();
-        setInterval(generateCartProductiList, 50);
-    });
-} else {
-    // El documento ya está cargado
-    window.addEventListener('resize', generateCartProductiList);
-    window.addEventListener('click', generateCartProductiList);
-}
-*/
-// Eventos en los que ejecuta la función para permitir restar productos del carrito
 
+// Eventos en los que ejecuta la función para permitir restar productos del carrito
 document.addEventListener("DOMContentLoaded", substractUnit);
-window.addEventListener('load', generateCartProductiList);
-window.addEventListener('resize', generateCartProductiList);
-window.addEventListener('click', generateCartProductiList);
+window.addEventListener('load', substractUnit);
+window.addEventListener('resize', substractUnit);
+window.addEventListener('click', substractUnit);
