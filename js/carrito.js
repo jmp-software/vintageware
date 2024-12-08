@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Eventos en los cuales actualiza la muestra en pantalla de la cantidad de unidades puestas en el carrito
-
+/*
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateCartDisplay();
@@ -374,7 +374,43 @@ if (document.readyState === 'loading') {
     // Document is already loaded
     window.addEventListener('resize', updateCartDisplay);
     window.addEventListener('click', updateCartDisplay);
+}*/
+
+// Ejecutar la función tan pronto como sea posible, dependiendo del estado de carga
+function initializeCart() {
+    // Ejecutar inmediatamente si el DOM está listo
+    updateCartDisplay();
+
+    // Usar requestAnimationFrame en lugar de setInterval para una actualización más fluida
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Usar requestAnimationFrame para actualizaciones suaves
+            function updateLoop() {
+                updateCartDisplay();
+                requestAnimationFrame(updateLoop);  // Repetir en el siguiente cuadro de animación
+            }
+            requestAnimationFrame(updateLoop);
+
+            // Agregar los eventos para resize y click
+            window.addEventListener('resize', updateCartDisplay);
+            window.addEventListener('click', updateCartDisplay);
+        });
+    } else {
+        // Si ya está cargado, solo agregar los eventos
+        function updateLoop() {
+            updateCartDisplay();
+            requestAnimationFrame(updateLoop);  // Repetir en el siguiente cuadro de animación
+        }
+        requestAnimationFrame(updateLoop);
+
+        window.addEventListener('resize', updateCartDisplay);
+        window.addEventListener('click', updateCartDisplay);
+    }
 }
+
+// Llamar a initializeCart para iniciar
+initializeCart();
+
 
 /*
 document.addEventListener('DOMContentLoaded', () => {
