@@ -364,8 +364,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Eventos en los cuales actualiza la muestra en pantalla de la cantidad de unidades puestas en el carrito
-/*i
-f(document.readyState === 'loading') {
+
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateCartDisplay();
         setInterval(updateCartDisplay, 30);
@@ -375,7 +375,8 @@ f(document.readyState === 'loading') {
     window.addEventListener('resize', updateCartDisplay);
     window.addEventListener('click', updateCartDisplay);
 }
-*/
+
+/*
 document.addEventListener('DOMContentLoaded', () => {
     function updateUpdateCartDisplay() {
         updateCartDisplay();
@@ -384,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateUpdateCartDisplay();  // Start the loop once the DOM is loaded
 });
+*/
 
 // Eventos en los genera la lista de procutos en la página del carrito
 document.addEventListener("DOMContentLoaded", generateCartProductiList);
