@@ -61,13 +61,13 @@ window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
                     <span class="add-substract-widget" id="widget-${index}">
                         <!--
-                        <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
+                        <a href="#" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
                         <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
                         -->
-                        <input type="button" value="-"  class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
+                        <input type="button" value="-"  class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <input type="button" value="+"  class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
+                        <input type="button" value="+"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
                     </span>
                     
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
@@ -175,8 +175,8 @@ function hideWidget() {
                     // console.log(`\nCurrent margin value: ${marginValue}`);
 
                     // substrae 0.01 del valor del margen
-                    const newMargin = marginValue - 2.5;
-                    const newOpacity = opacityValue - (1 / 12);
+                    const newMargin = marginValue - 5;
+                    const newOpacity = opacityValue - (1 / 6);
                     //console.log(`\nnewMargin  = ${newMargin}`);
 
                     buttonAddId.style.padding = `0px`;
@@ -188,11 +188,12 @@ function hideWidget() {
                         widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
                         widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
+                        buttonSubstractId.display = `none`
                         // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
-                        buttonAddId.style.paddingLeft = `6px`;
-                        buttonAddId.style.paddingRight = `8px`;
-                        buttonAddId.style.width = `20px`;
+                        buttonAddId.style.paddingLeft = `1rem`;
+                        buttonAddId.style.paddingRight = `1.9rem`;
+                        /*buttonAddId.style.width = `20px`;*/
                     }
                 }
             } else {
@@ -200,8 +201,10 @@ function hideWidget() {
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
+                buttonAddId.style.paddingLeft = `0rem`;
+                buttonAddId.style.paddingRight = `0rem`;
                 //buttonSubstractId.style.width = `20px`;
-                buttonAddId.style.padding = `0px`;
+                //buttonAddId.style.padding = `0px`;
                 widgetId.style.margin = `0px`;
                 buttonSubstractId.style.opacity = `1`;
                 widgetId.style.opacity = `1`;
@@ -209,18 +212,34 @@ function hideWidget() {
         }
     }
 }
-/*
+
 document.addEventListener('DOMContentLoaded', () => {
     hideWidget();
     setInterval(hideWidget, 30);
 });
+
+/*
+window.addEventListener('load', updateProductUnitDisplay);
+window.addEventListener('resize', updateProductUnitDisplay);
+window.addEventListener('click', updateProductUnitDisplay);
+*/
+/*
+window.addEventListener('resize', hideWidget);
+window.addEventListener('click', hideWidget);
+window.addEventListener('load', hideWidget);
+*/
+/*
+window.addEventListener('resize', hideWidget);
+window.addEventListener('click', hideWidget);
 */
 
-document.addEventListener('DOMContentLoaded', () => {
-    function updateHideWidget() {
-        hideWidget();
-        requestAnimationFrame(updateHideWidget);  // Continue calling cartOpacity on each frame
-    }
+/*
+const grid1 = document.getElementById('product-p-form');
+const grid2 = document.getElementById('product-p-photo');
+grid2.style.width = `${grid1.offsetWidth}px`;
+*/
 
-    updateHideWidget();  // Start the loop once the DOM is loaded
-});
+
+//<span id="product-count-${index}">0</span>
+// Función para generar las "cards" de cada producto
+

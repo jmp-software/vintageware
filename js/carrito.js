@@ -99,42 +99,7 @@ document.addEventListener("click", function (event) {
 });
 
 
-// Esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
-/*
-function cartOpacity() {
-    let totalUnits = cart.reduce((accumulator, item) => {
-        return accumulator + (item.units || 0);
-    }, 0);
-
-    var shoppingCart = document.getElementById('shopping-cart');
-
-    if (shoppingCart) {
-        console.log(`\nContador de productos: >${totalUnits}<`);
-        newOpacity = parseFloat(shoppingCart.style.opacity); // Use parseFloat for opacity
-        if (isNaN(newOpacity)) newOpacity = 1.0; // Corrected NaN check
-        newOpacity = newOpacity - 0.1;
-        console.log('\n Opacidad:', newOpacity);
-    }
-
-
-    if (totalUnits === 0) {
-        if (shoppingCart) {
-            if (newOpacity >= 0) {
-
-                shoppingCart.style.opacity = newOpacity;
-                shoppingCart.style.transform = `scale(${newOpacity})`;
-                console.log('\n Opacidad:', (newOpacity));
-            }; // Esconde el carrito si no hay productos
-            console.log('\nEl contador está en cero, ocultando el carrito.');
-        }
-
-    } else {
-        shoppingCart.style.opacity = '1';
-        shoppingCart.style.transform = 'scale(1)';
-        console.log('\nEl contador no está en cero, mostrando el carrito.');
-    }
-}
-*/
+// Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
 function cartOpacity() {
     let shoppingCart = document.getElementById('shopping-cart');
     if (!shoppingCart) {

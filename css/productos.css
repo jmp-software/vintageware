@@ -223,31 +223,37 @@ p.subtitle3 {
 
 }
 
-
 .add-substract-widget {
-    font-size: 1.25rem;
+    font-size: 1rem;
     background-color: rgba(0, 122, 122, 1);
-    padding: .25rem;
+    padding-top: .35rem;
+    padding-bottom: .2rem;
     border-radius: 0.6rem;
     /* border: solid .25rem;*/
 }
+
 
 .add-substract-widget:hover {
     animation: recuadroTitilanteWidget 0.65s infinite;
 }
 
 /* Remove default button styles */
-.substract-button,
-.add-button {
-    border-radius: 0.6rem;
-    height: rem;
-    all: unset;
+.product-state-button {
+    font-size: 1.2rem;
+    border-radius: 10em;
+    width: 1.5rem;
+    /*all: unset;*/
     display: inline-block;
+    text-align: center;
     outline: none;
-    font: inherit;
     cursor: pointer;
     background-color: transparent;
-    padding: 0;
+    color: white;
+    /*transparent;*/
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: bold;
+    border: none;
 }
 
 /*
@@ -258,19 +264,15 @@ p.subtitle3 {
 */
 
 /* Optional: You can also add custom styles if needed */
-.substract-button,
 .add-button {
-    border: none;
-    outline: none;
+    /*transform: translateY(.05rem);*/
 }
 
+.substract-button {
+    /*transform: translateY(-.15rem);*/
+    transform: translateY(-.05rem);
 
-
-.substract-button:hover,
-.add-button:hover {
-    text-decoration: none;
 }
-
 /*
 .shopping-cart {
     opacity: 1;
