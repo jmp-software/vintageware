@@ -201,9 +201,6 @@ p.subtitle3 {
     /* border: solid .25rem;*/
 }
 
-.add-substract-widget:hover {}
-
-
 
 /* Remove default button styles */
 .substract-button,
@@ -265,6 +262,26 @@ p.subtitle3 {
         filter: brightness(1);
     }
 }
+
+/* Resolución para celu 1 */
+@media (max-width: 48em) {
+.add-substract-widget {
+        font-size: 1.20rem;
+        background-color: rgba(0, 122, 122, 1);
+        padding: .1rem;
+        border-radius: 0.6rem;
+        /* border: solid .25rem;*/
+    }
+ 
+}
+
+/* Resolución para celu 2 */
+/*
+@media (max-width: 30em) {
+
+  
+}
+*/
 
 /*
 .subtitle2 .subtitle3 {
