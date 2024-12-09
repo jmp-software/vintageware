@@ -64,11 +64,14 @@ window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
                         <a href="#" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
                         <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
+                        <input type="image" src="../assets/art/substract.png"  class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
+                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
+                        <input  type="image" src="../assets/art/add.png"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
                         -->
                         <input type="button" value="-"  class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
                         <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <input type="button" value="+"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
-                    </span>
+                        <input  type="button" value="+"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
+                        </span>
                     
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
                     <p class="subtitle2" id="total-price">$${product.price}</p>
@@ -175,7 +178,7 @@ function hideWidget() {
                     // console.log(`\nCurrent margin value: ${marginValue}`);
 
                     // substrae 0.01 del valor del margen
-                    const newMargin = marginValue - 5;
+                    const newMargin = marginValue - 4;
                     const newOpacity = opacityValue - (1 / 6);
                     //console.log(`\nnewMargin  = ${newMargin}`);
 
@@ -183,29 +186,50 @@ function hideWidget() {
                     // Apply the new margin value if it's greater than -32px (this will ensure it doesn't go too low)
 
 
-                    if (newMargin > -40) {
+                    if (newMargin > -28) {
                         //console.log(`\nIngresó al tercer if de widgetCount`);
                         widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
                         widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
-                        buttonSubstractId.display = `none`
+                        buttonSubstractId.display = `none`;
+                        buttonAddId.style.padding = `0`;
+                        //buttonSubsctractId.style.padding = `0`;
+                         //buttonAddId.style.transform = `scale(1)`;
                         // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
-                        buttonAddId.style.paddingLeft = `1rem`;
+                        
+                        buttonAddId.style.marginLeft = `-.25rem`;
+                        buttonAddId.style.marginRight = `.5rem`;
+                        //buttonAddId.style.width = `1.5rem`;
+                        //buttonAddId.style.zIndex = `1000`;
+
+                        buttonAddId.style.paddingLeft = `.4rem`;
                         buttonAddId.style.paddingRight = `1.9rem`;
-                        /*buttonAddId.style.width = `20px`;*/
+                        //buttonAddId.style.width = `20px`;*/
                     }
                 }
             } else {
+         
                 console.log(`\nEl producto ${a} está en 0`);
+                
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-                buttonAddId.style.paddingLeft = `0rem`;
-                buttonAddId.style.paddingRight = `0rem`;
-                //buttonSubstractId.style.width = `20px`;
-                //buttonAddId.style.padding = `0px`;
+
                 widgetId.style.margin = `0px`;
+     
+                buttonSubstractId.style.width = ` 1.5rem`;
+                buttonAddId.style.width = ` 1.5rem`;
+             
+                buttonSubstractId.style.padding = `.25rem`;
+                buttonAddId.style.padding = ` .25rem`;
+             
+                buttonSubstractId.style.margin = `.15rem`;
+                buttonAddId.style.margin = ` .15rem`;
+             
+                buttonSubstractId.style.transformScale = `scale(.75)`;
+                buttonAddId.style.transformScale = `scale(.75)`;
+                
                 buttonSubstractId.style.opacity = `1`;
                 widgetId.style.opacity = `1`;
             }

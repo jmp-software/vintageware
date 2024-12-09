@@ -1,5 +1,8 @@
-/* Animación cuando posa el puntero sobre el item del menú */
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Animación cuando posa el puntero sobre el item del menú */
 @keyframes recuadroTitilante {
     0% {
         border-color: rgba(122, 255, 255, 1);
@@ -151,7 +154,7 @@ a:active {
     min-height: 14rem !important;
     width: 19rem !important;
     justify-content: center !important;
-    justify-itens: center !important;
+    /*justify-items: center !important;*/
     align-items: center !important;
 
 }
@@ -224,60 +227,50 @@ p.subtitle3 {
 }
 
 .add-substract-widget {
-    font-size: 1rem;
+    font-size: 2rem;
+    line-height: normal;
+    font-family: Poppins, sans-serif;
+    font-weight: 900;
     background-color: rgba(0, 122, 122, 1);
-    padding-top: .35rem;
-    padding-bottom: .2rem;
-    border-radius: 0.6rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    border-radius: 6rem;
     /* border: solid .25rem;*/
 }
-
 
 .add-substract-widget:hover {
     animation: recuadroTitilanteWidget 0.65s infinite;
 }
 
-/* Remove default button styles */
 .product-state-button {
-    font-size: 1.2rem;
     border-radius: 10em;
     width: 1.5rem;
-    /*all: unset;*/
-    display: inline-block;
-    text-align: center;
+    display: inline-flex;
+    align-items: center;
     outline: none;
-    cursor: pointer;
     background-color: transparent;
-    color: white;
-    /*transparent;*/
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
+    filter: invert(1);
     font-style: bold;
     border: none;
+    transform: scale(.75);
+    padding: .25rem;
+    margin: .15rem;
 }
 
-/*
-.substract-button:hover .add-substract-widget,
-.add-button:hover .add-substract-widget {
-    animation: recuadroTitilante 0.65s infinite;
-}
-*/
+box-sizing: border-box;
 
-/* Optional: You can also add custom styles if needed */
+
+.product-counter {
+    font-family: Poppins, sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+}
+
 .add-button {
-    /*transform: translateY(.05rem);*/
-}
-
-.substract-button {
-    /*transform: translateY(-.15rem);*/
-    transform: translateY(-.05rem);
+    z-index: 1000;
 
 }
-/*
-.shopping-cart {
-    opacity: 1;
-}
-*/
+
 @keyframes colorCycleSymbols {
     0% {
         filter: brightness(1);
@@ -295,17 +288,18 @@ p.subtitle3 {
 
 /* Resolución para celu 1 */
 @media (max-width: 991px) {
+    /*
     .add-substract-widget {
-        font-size: 1.20rem;
-        background-color: rgba(0, 122, 122, 1);
-        padding-top: .25rem;
-        padding-bottom: .25rem;
-        padding-right: .1rem;
-        padding-left: .1rem;
-        border-radius: 0.6rem;
-        /* border: solid .25rem;*/
-    }
-
+            font-size: 1.20rem;
+            background-color: rgba(0, 122, 122, 1);
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+            padding-right: .1rem;
+            padding-left: .1rem;
+            border-radius: 0.6rem;
+             
+        }
+        */
 }
 
 /* Resolución para celu 2 */

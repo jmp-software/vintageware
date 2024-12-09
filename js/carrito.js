@@ -78,7 +78,7 @@ function substractUnit(nameOfSubstraction) {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('units', existingProduct.units);
         //cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
-        
+
     }
     else {
         console.log(`\n No encontró el producto en minusUnit`);
@@ -150,7 +150,7 @@ function generateCartProductiList() {
                           <img class="product-p-photo" src="${carts.photo}" alt="Photo">
                           <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${carts.name}'); event.preventDefault();">
                                <span class="substract-widget" id="widget-${index}">
-                               <span>-</span> 
+                                 <input type="button" value="-"  class="substract-product-cart">    
                                <span class="cart-counter" id="product-count-${index}">${carts.units}</span>
                          </a>
                     </div >
@@ -229,6 +229,7 @@ function updateProductUnitDisplayCarrito() {
     });
 }
 // Función para generar la página del carrito con el listado de productos
+/*
 function generateCartProductiList() {
     let totalSale = parseInt(cart.reduce((accumulator, item) => {
         return accumulator + parseInt((item.price * item.units * 1000 || 0));
@@ -275,7 +276,7 @@ function generateCartProductiList() {
     } else {
         console.log(`\nNo entró al if para generar la página del carrito`);
     }
-    if (emptyCarts && cartProductList) { 
+    if (emptyCarts && cartProductList) {
         cartProductList.innerHTML = ""
         const productHTML = `
             <div class="grid-container-empty" id="product-empty"
@@ -288,6 +289,7 @@ function generateCartProductiList() {
     }
 
 }
+*/
 console.log(`\n\n`);
 
 // Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
