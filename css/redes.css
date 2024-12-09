@@ -1,13 +1,13 @@
 .grid {
     display: flex !important;
-    flex-wrap: wrap !important;
-    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)) !important;
-    column-gap: 2.3vw !important;
-    width: 80vw !important; 
-    max-width: 55rem !important;
-    margin: auto auto !important;
-    justify-items: center !important;
-    justify-content: center !important;
+        flex-wrap: wrap !important;
+        grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)) !important;
+        column-gap: 2.3vw !important;
+        width: 80vw !important;
+        max-width: 55rem !important;
+        margin: auto auto !important;
+        justify-items: center !important;
+        justify-content: center !important;
 }
 
 .grid-item {
@@ -22,10 +22,10 @@
 
 
 .grid-item img {
-    max-width: 100% !important; 
-   align-items: center !important; 
+    max-width: 100% !important;
+    align-items: center !important;
 }
 
 .grid-item:hover {
-    transform: scale(1.1) !important; 
+    transform: scale(1.1) !important;
 }
