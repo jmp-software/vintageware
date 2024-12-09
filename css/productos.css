@@ -264,7 +264,7 @@ p.subtitle3 {
 }
 
 /* Resolución para celu 1 */
-@media (max-width: 48em) {
+@media (max-width: 991px)) {
 .add-substract-widget {
         font-size: 1.20rem;
         background-color: rgba(0, 122, 122, 1);
