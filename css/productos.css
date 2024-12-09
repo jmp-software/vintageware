@@ -268,7 +268,10 @@ p.subtitle3 {
 .add-substract-widget {
         font-size: 1.20rem;
         background-color: rgba(0, 122, 122, 1);
-        padding: .1rem;
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        padding-right: .1rem;
+        padding-left: .1rem;
         border-radius: 0.6rem;
         /* border: solid .25rem;*/
     }
