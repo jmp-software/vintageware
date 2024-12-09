@@ -175,8 +175,8 @@ function hideWidget() {
                     // console.log(`\nCurrent margin value: ${marginValue}`);
 
                     // substrae 0.01 del valor del margen
-                    const newMargin = marginValue - 5;
-                    const newOpacity = opacityValue - (1 / 6);
+                    const newMargin = marginValue - 2.5;
+                    const newOpacity = opacityValue - (1 / 12);
                     //console.log(`\nnewMargin  = ${newMargin}`);
 
                     buttonAddId.style.padding = `0px`;
@@ -190,7 +190,7 @@ function hideWidget() {
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
                         // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
-                        buttonAddId.style.paddingLeft = `4px`;
+                        buttonAddId.style.paddingLeft = `6px`;
                         buttonAddId.style.paddingRight = `8px`;
                         buttonAddId.style.width = `20px`;
                     }
@@ -209,34 +209,18 @@ function hideWidget() {
         }
     }
 }
-
+/*
 document.addEventListener('DOMContentLoaded', () => {
     hideWidget();
     setInterval(hideWidget, 30);
 });
-
-/*
-window.addEventListener('load', updateProductUnitDisplay);
-window.addEventListener('resize', updateProductUnitDisplay);
-window.addEventListener('click', updateProductUnitDisplay);
-*/
-/*
-window.addEventListener('resize', hideWidget);
-window.addEventListener('click', hideWidget);
-window.addEventListener('load', hideWidget);
-*/
-/*
-window.addEventListener('resize', hideWidget);
-window.addEventListener('click', hideWidget);
 */
 
-/*
-const grid1 = document.getElementById('product-p-form');
-const grid2 = document.getElementById('product-p-photo');
-grid2.style.width = `${grid1.offsetWidth}px`;
-*/
+document.addEventListener('DOMContentLoaded', () => {
+    function updateHideWidget() {
+        hideWidget();
+        requestAnimationFrame(updateHideWidget);  // Continue calling cartOpacity on each frame
+    }
 
-
-//<span id="product-count-${index}">0</span>
-// Función para generar las "cards" de cada producto
-
+    updateHideWidget();  // Start the loop once the DOM is loaded
+});

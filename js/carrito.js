@@ -411,7 +411,6 @@ function initializeCart() {
 // Llamar a initializeCart para iniciar
 initializeCart();
 
-
 /*
 document.addEventListener('DOMContentLoaded', () => {
     function updateUpdateCartDisplay() {

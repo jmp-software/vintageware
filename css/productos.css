@@ -27,6 +27,37 @@
 
 }
 
+@keyframes recuadroTitilanteWidget {
+
+    0% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 1);
+    }
+
+    0% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);
+    }
+
+    50% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 0.5);
+    }
+
+    50% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 0.5);
+    }
+
+    100% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 1);
+    }
+
+    100% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);
+
+    }
+
+}
+
+box-shadow: 10px 5px 5px
+
 /* Animación cuando posa el puntero sobre el texto para venta*/
 @keyframes textoTitilante {
     0% {
@@ -201,6 +232,9 @@ p.subtitle3 {
     /* border: solid .25rem;*/
 }
 
+.add-substract-widget:hover {
+    animation: recuadroTitilanteWidget 0.65s infinite;
+}
 
 /* Remove default button styles */
 .substract-button,
