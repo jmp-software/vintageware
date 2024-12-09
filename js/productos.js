@@ -36,6 +36,52 @@ const products = [
 ];
 */
 
+function generateProductCards() {
+    const productCardsContainer = document.getElementById('product-cards'); // Ensure this element exists in your HTML
+
+    // Check if the container exists
+    if (!productCardsContainer) {
+        console.log('product-cards not found in the DOM.');
+        return;
+    }
+
+    // Check if idProduct is an array
+    if (typeof products != 'undefined') {
+        console.log('products si es un arreglo', (products));
+        products.forEach((product, index) => {
+            const cardHTML = `
+                <div class="card-item">
+                    <img src="${product.image}" alt="$document.addEventListener('DOMContentLoaded', () => {
+    updateProductUnitDisplay();
+    setInterval(updateProductUnitDisplay, 100);
+});
+
+window.addEventListener('load', updateProductUnitDisplay);
+window.addEventListener('resize', updateProductUnitDisplay);
+window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
+                    <span class="add-substract-widget" id="widget-${index}">
+                        <!--
+                        <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
+                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
+                        <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
+                        -->
+                        <input type="button" value="-"  class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
+                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
+                        <input type="button" value="+"  class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
+                    </span>
+                    
+                    <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
+                    <p class="subtitle2" id="total-price">$${product.price}</p>
+                    <p class="subtitle3">AGREGAR AL CARRITO</p>
+                </div>
+            `;
+            productCardsContainer.innerHTML += cardHTML;
+        });
+    } else {
+        console.log('products no es un arreglo', (products));
+    }
+}
+
 if (typeof products == 'undefined') {
     fetch('../json/products.json')
         .then(response => {
@@ -48,10 +94,10 @@ if (typeof products == 'undefined') {
             products = data; // Now 'products' is expected to be an array of objects
             console.log(products); // Log the data to verify its structure
             generateProductCards(); // Call the function to generate product cards after data is loaded
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
         });
+    //.catch(error => {
+    //    console.error('There was a problem with the fetch operation:', error);
+    // });
 }
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
 let cartProduct = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
@@ -86,57 +132,10 @@ function generateProductCards() {
 }
 */
 
-function generateProductCards() {
-    const productCardsContainer = document.getElementById('product-cards'); // Ensure this element exists in your HTML
-
-    // Check if the container exists
-    if (!productCardsContainer) {
-        console.log('product-cards not found in the DOM.');
-        return;
-    }
-
-    // Check if idProduct is an array
-    if (typeof products != 'undefined') {
-        console.log('products si es un arreglo', (products));
-        products.forEach((product, index) => {
-            const cardHTML = `
-                <div class="card-item">
-                    <img src="${product.image}" alt="$document.addEventListener('DOMContentLoaded', () => {
-    updateProductUnitDisplay();
-    setInterval(updateProductUnitDisplay, 100);
-});
-
-window.addEventListener('load', updateProductUnitDisplay);
-window.addEventListener('resize', updateProductUnitDisplay);
-window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
-                    <span class="add-substract-widget" id="widget-${index}">
-                        <!--
-                        <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
-                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
-                        -->
-                        <input type="button" value="  -  "  class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
-                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <input type="button" value="  +  "  class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
-                    </span>
-                    
-                    <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
-                    <p class="subtitle2" id="total-price">$${product.price}</p>
-                    <p class="subtitle3">AGREGAR AL CARRITO</p>
-                </div>
-            `;
-            productCardsContainer.innerHTML += cardHTML;
-        });
-    } else {
-        console.log('products no es un arreglo', (products));
-    }
-    generateProductCard();
-}
-
 if (typeof products != 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         generateProductCard();
-        
+
         setInterval(generateProductCards, 100);
     });
 }
@@ -172,7 +171,7 @@ function hideWidget() {
                     const marginValue = parseFloat(computedMargin);
                     const opacityValue = parseFloat(computedOpacity);
 
-                   // console.log(`\nCurrent margin value: ${marginValue}`);
+                    // console.log(`\nCurrent margin value: ${marginValue}`);
 
                     // substrae 0.01 del valor del margen
                     const newMargin = marginValue - 5;
@@ -200,7 +199,7 @@ function hideWidget() {
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-                  //buttonSubstractId.style.width = `20px`;
+                //buttonSubstractId.style.width = `20px`;
                 buttonAddId.style.padding = `0px`;
                 widgetId.style.margin = `0px`;
                 buttonSubstractId.style.opacity = `1`;
@@ -214,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hideWidget();
     setInterval(hideWidget, 30);
 });
-
 
 /*
 window.addEventListener('load', updateProductUnitDisplay);
@@ -238,11 +236,6 @@ grid2.style.width = `${grid1.offsetWidth}px`;
 */
 
 
-
-
-
-
 //<span id="product-count-${index}">0</span>
-
 // Función para generar las "cards" de cada producto
 

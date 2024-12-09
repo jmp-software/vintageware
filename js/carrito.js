@@ -136,9 +136,9 @@ function cartOpacity() {
 }
 */
 function cartOpacity() {
-    var shoppingCart = document.getElementById('shopping-cart');
+    let shoppingCart = document.getElementById('shopping-cart');
     if (!shoppingCart) {
-        console.error('Shopping cart element not found.');
+        console.log('Elemento shopping-cart no encontrado.');
         return; // Exit the function if the element is not found
     }
 
@@ -269,10 +269,10 @@ function generateCartProductiList() {
         return accumulator + parseInt((item.price * item.units * 1000 || 0));
     }, 0));
     const cartProductList = document.getElementById('productos-carrito-placeholder');
-    cartProductList.innerHTML = '';
     //let precioTotal = 0;
     let emptyCarts = true;
     if (cartProductList) {
+        cartProductList.innerHTML = '';
         cart.forEach((carts, index) => {
             //console.log(`\n URL de la foto de la página del carrito: ${carts.photo}`);
             //precioTotal += parseInt(carts.units * carts.price * 1000);
@@ -310,7 +310,7 @@ function generateCartProductiList() {
     } else {
         console.log(`\nNo entró al if para generar la página del carrito`);
     }
-    if (emptyCarts) {
+    if (emptyCarts && cartProductList) { 
         cartProductList.innerHTML = ""
         const productHTML = `
             <div class="grid-container-empty" id="product-empty"

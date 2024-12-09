@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (navbarPlaceholder) {
                     navbarPlaceholder.innerHTML = data;
                 } else {
-                    console.error("Element with ID 'navbar-placeholder' not found.");
+                    console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
-            .catch(error => console.error('Error fetching menu:', error));
+            //.catch(error => console.error('Error fetching menu:', error));
 
         fetch('./pages/carrito-recuadro.html')
             .then(response => response.text())
@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cartPlaceholder) {
                     cartPlaceholder.innerHTML = data;
                 } else {
-                    console.error("Element with ID 'cart-placeholder' not found.");
+                    console.log("Element with ID 'cart-placeholder' not found.");
                 }
             })
-            .catch(error => console.error('Error fetching cart:', error));
+            //.catch(error => console.log('No se puedo hacer fetch con para el carrito',(error)));
 
         console.log('Se ha cargado el menú de index.html y carrito para la página principal.');
     } else {
@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (navbarPlaceholder) {
                     navbarPlaceholder.innerHTML = data;
                 } else {
-                    console.error("Element with ID 'navbar-placeholder' not found.");
+                    console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
-            .catch(error => console.error('Error fetching menu:', error));
+            //.catch(error => console.error('Error fetching menu:', error));
 
         fetch('../pages/carrito-recuadro.html')
             .then(response => response.text())
@@ -90,10 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cartPlaceholder) {
                     cartPlaceholder.innerHTML = data;
                 } else {
-                    console.error("Element with ID 'cart-placeholder' not found.");
+                    console.log("Elemento con ID 'cart-placeholder' no encontrado.");
                 }
             })
-            .catch(error => console.error('Error fetching cart:', error));
+            //.catch(error => console.error('Error fetching cart:', error));
 
         console.log('Se ha cargado el menú de otras páginas y carrito.');
     }

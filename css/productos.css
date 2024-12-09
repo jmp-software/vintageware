@@ -201,9 +201,7 @@ p.subtitle3 {
     /* border: solid .25rem;*/
 }
 
-.add-substract-widget:hover {
-    /*animation: recuadroTitilante 0.65s infinite;*/
-}
+.add-substract-widget:hover {}
 
 
 
@@ -211,10 +209,23 @@ p.subtitle3 {
 .substract-button,
 .add-button {
     border-radius: 0.6rem;
+    height: rem;
     all: unset;
     display: inline-block;
+    outline: none;
+    font: inherit;
     cursor: pointer;
     background-color: transparent;
+    padding: 0;
+}
+/*
+.substract-button:hover .add-substract-widget,
+.add-button:hover .add-substract-widget {
+    animation: recuadroTitilante 0.65s infinite;
+}
+*/
+.animate {
+    animation: recuadroTitilante 0.65s infinite;
 }
 
 .substract-button:active {
