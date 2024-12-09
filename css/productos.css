@@ -215,24 +215,18 @@ p.subtitle3 {
     background-color: transparent;
     padding: 0;
 }
+
 /*
 .substract-button:hover .add-substract-widget,
 .add-button:hover .add-substract-widget {
     animation: recuadroTitilante 0.65s infinite;
 }
 */
-.animate {
-    animation: recuadroTitilante 0.65s infinite;
-}
-
-.substract-button:active {
-    border: none;
-    outline: none;
-}
 
 /* Optional: You can also add custom styles if needed */
 .substract-button,
 .add-button {
+    border: none;
     outline: none;
 }
 
@@ -264,8 +258,8 @@ p.subtitle3 {
 }
 
 /* Resolución para celu 1 */
-@media (max-width: 991px)) {
-.add-substract-widget {
+@media (max-width: 991px) {
+    .add-substract-widget {
         font-size: 1.20rem;
         background-color: rgba(0, 122, 122, 1);
         padding-top: .25rem;
@@ -275,7 +269,7 @@ p.subtitle3 {
         border-radius: 0.6rem;
         /* border: solid .25rem;*/
     }
- 
+
 }
 
 /* Resolución para celu 2 */

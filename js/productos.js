@@ -140,6 +140,7 @@ if (typeof products != 'undefined') {
     });
 }
 
+// Animación del botón para agregar y sacar productos del carrito
 function hideWidget() {
     if (typeof products != 'undefined') {
         for (let a = 0; a < products.length; a++) {
@@ -189,9 +190,9 @@ function hideWidget() {
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
                         // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
-                        buttonAddId.style.paddingLeft = `3px`;
+                        buttonAddId.style.paddingLeft = `4px`;
                         buttonAddId.style.paddingRight = `8px`;
-                        buttonAddId.style.width = `25px`;
+                        buttonAddId.style.width = `20px`;
                     }
                 }
             } else {
