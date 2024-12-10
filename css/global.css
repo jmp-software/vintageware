@@ -44,12 +44,12 @@ h1 {
     text-shadow: -4px 4px 2px rgba(0, 0, 0, 0.7) !important;
     background-color: rgba(122, 0, 122, 1) !important;
     border-radius: 6rem;
-   border: .5rem solid rgba(0, 154, 154, 1);
+    border: .5rem solid rgba(0, 154, 154, 1);
     padding: 1em !important;
     position: relative !important;
     font-size: 1.5rem !important;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 1) !important;
-    
+
 }
 
 /* Intento de "biselado" */
@@ -96,7 +96,7 @@ nav li {
 section {
     margin: 5rem !important;
     margin-bottom: 4rem !important;
-    margin-top: 0rem !important;
+    margin-top: -2rem !important;
     display: flex !important;
     flex-direction: column !important;
     align-content: center !important;
@@ -115,7 +115,7 @@ nav {
     position: relative !important;
     padding: .25rem !important;
     padding-bottom: .25rem !important;
-     overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 
@@ -530,14 +530,31 @@ p {
 }
 
 .banner {
-    background-image: url('../assets/art/nav.jpg');
-    background-size: cover;
+    background-image: url('../assets/art/nav.png');
+    image-rendering: optimizeSpeed;
+        /* Deshabilitar el suavizado */
+        image-rendering: -moz-crisp-edges;
+        /* Firefox                        */
+        image-rendering: -o-crisp-edges;
+        /* Opera                          */
+        image-rendering: -webkit-optimize-contrast;
+        /* Chrome (and eventually Safari) */
+        image-rendering: pixelated;
+        /* Universal support since 2021   */
+        image-rendering: optimize-contrast;
+        /* CSS3   */
+        -ms-interpolation-mode: nearest-neighbor;
+    background-size: repeat;
+    background-position: center;
+    image-rendering: crisp-edges;
     background-position: center;
     width: 100vw;
-    height: 10rem;
+    height: 10em;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /*transform: scale(2)*/
+
 }
