@@ -41,10 +41,13 @@ main {
 h1 {
     text-shadow: -4px 4px 2px rgba(0, 0, 0, 0.7) !important;
     background-color: rgba(122, 0, 122, 1) !important;
-    border: .25rem solid rgba(0, 122, 122, 1);
+    border-radius: 6rem;
+   border: .5rem solid rgba(0, 154, 154, 1);
     padding: 1em !important;
     position: relative !important;
     font-size: 1.5rem !important;
+    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 1) !important;
+    
 }
 
 /* Intento de "biselado" */
@@ -89,8 +92,9 @@ nav li {
 
 /* Contenido de cada página */
 section {
-    margin: 0rem !important;
-    margin-top: -1rem !important;
+    margin: 5rem !important;
+    margin-bottom: 4rem !important;
+    margin-top: 2rem !important;
     display: flex !important;
     flex-direction: column !important;
     align-content: center !important;
@@ -147,8 +151,6 @@ nav ul {
     display: flex !important;
 
 }
-
-
 
 nav li a {
     margin: 1rem;
@@ -522,4 +524,17 @@ footer {
 h4,
 p {
     margin-bottom: 10px;
+}
+
+.banner {
+    background-image: url('../assets/art/nav.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
