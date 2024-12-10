@@ -19,14 +19,15 @@ body {
     padding: 0rem !important;
     margin-bottom: 0rem !important;
     height: 100vh !important;
-
+    margin: 0;
 
 }
 
 header {
+    position: relative;
     text-align: center !important;
-        margin: 0;
-            padding: 0;
+    margin: 0;
+    padding: 0;
     z-index: 1000 !important;
     /*margin-bottom: -1rem !important;*/
     /*padding: 0 !important;*/
@@ -97,8 +98,8 @@ nav li {
 /* Contenido de cada página */
 section {
     margin: 5rem !important;
-    margin-bottom: 4rem!important;
-    padding: 0!important;
+    margin-bottom: 4rem !important;
+    padding: 0 !important;
     margin-top: 0rem !important;
     display: flex !important;
     flex-direction: column !important;
@@ -561,6 +562,6 @@ p {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     /*transform: scale(2)*/
-    margin: 0;
-        padding: 0;
+    margin-top: 0;
+    padding-top: 0
 }
