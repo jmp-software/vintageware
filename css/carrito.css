@@ -426,7 +426,6 @@ nav {
     height: fit-content;
 }
 
-
 .substract-product-cart {
     border-radius: 10em;
     width: 1.5rem;
@@ -442,6 +441,10 @@ nav {
     margin: .15rem;
 }
 
+.substract-widget:hover {
+    animation: recuadroTitilanteWidget 0.65s infinite;
+}
+
 /*
 .substract-product-cart {    border-radius: 10em;
     width: 1.5rem;
@@ -455,6 +458,36 @@ nav {
 
 }
  */
+
+/* Animación cuando posa el puntero sobre el botón para restar producto */
+@keyframes recuadroTitilanteWidget {
+
+    0% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 1);
+    }
+
+    0% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);
+    }
+
+    50% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 0.5);
+    }
+
+    50% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 0.5);
+    }
+
+    100% {
+        box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 1);
+    }
+
+    100% {
+        box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);
+
+    }
+
+}
 
 /* Animación cuando posa el puntero sobre el item del menú */
 @keyframes colorCycle {
