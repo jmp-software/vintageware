@@ -25,6 +25,8 @@ body {
 
 header {
     text-align: center !important;
+        margin: 0;
+            padding: 0;
     z-index: 1000 !important;
     /*margin-bottom: -1rem !important;*/
     /*padding: 0 !important;*/
@@ -95,8 +97,9 @@ nav li {
 /* Contenido de cada página */
 section {
     margin: 5rem !important;
-    margin-bottom: 4rem !important;
-    margin-top: -2rem !important;
+    margin-bottom: 4rem!important;
+    padding: 0!important;
+    margin-top: 0rem !important;
     display: flex !important;
     flex-direction: column !important;
     align-content: center !important;
@@ -114,7 +117,7 @@ nav {
     text-align: center !important;
     position: relative !important;
     padding: .25rem !important;
-    padding-bottom: .25rem !important;
+    margin-bottom: -1rem !important;
     overflow: hidden !important;
 }
 
@@ -531,19 +534,21 @@ p {
 
 .banner {
     background-image: url('../assets/art/nav.png');
+    /* Deshabilitar el suavizado */
     image-rendering: optimizeSpeed;
-        /* Deshabilitar el suavizado */
-        image-rendering: -moz-crisp-edges;
-        /* Firefox                        */
-        image-rendering: -o-crisp-edges;
-        /* Opera                          */
-        image-rendering: -webkit-optimize-contrast;
-        /* Chrome (and eventually Safari) */
-        image-rendering: pixelated;
-        /* Universal support since 2021   */
-        image-rendering: optimize-contrast;
-        /* CSS3   */
-        -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    /* Firefox                        */
+    image-rendering: -o-crisp-edges;
+    /* Opera                          */
+    image-rendering: -webkit-optimize-contrast;
+    /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;
+    /* Universal support since 2021   */
+    image-rendering: optimize-contrast;
+    /* CSS3   */
+    -ms-interpolation-mode: nearest-neighbor;
+    /* General */
+    image-rendering: pixelated;
     background-size: repeat;
     background-position: center;
     image-rendering: crisp-edges;
@@ -556,5 +561,6 @@ p {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     /*transform: scale(2)*/
-
+    margin: 0;
+        padding: 0;
 }
