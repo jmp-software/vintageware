@@ -39,7 +39,8 @@ main {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    margin-bottom: 0rem !important;
+    margin-bottom: rem !important;
+    margin-top: -1rem !important;
 }
 
 /* Título de la página (inicio, producto, contacto y ubicación) */
@@ -97,7 +98,7 @@ nav li {
 
 /* Contenido de cada página */
 section {
-    margin: 5rem !important;
+    margin: 0rem !important;
     margin-bottom: 4rem !important;
     padding: 0 !important;
     margin-top: 0rem !important;
@@ -317,7 +318,6 @@ p {
 /* Animación de cambio de tamaño constante de los item del menú*/
 @keyframes sizeChange {
 
-    0%,
     100% {
         transform: scale(1)
     }
@@ -340,8 +340,31 @@ p {
     animation-delay: 2;
 }
 
-/* Resolución para celu 1 */
-@media (max-width: 48em) {
+/* Resolución para celu 2 */
+@media (max-width: 480px) {
+
+        .banner {
+                background-image: url('../assets/art/nav.png');
+                image-rendering: pixelated;
+                background-size: repeat;
+                background-position: center;
+                background-position: center;
+                width: 100vw;
+                height: 10.65rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+                margin-top: -3.1rem !important;
+            }
+    img {
+        max-width: 90% !important;
+    }
+
+    nav li {
+        margin: 0.5rem 0 !important;
+    }
 
     img {
         max-width: 80% !important;
@@ -359,19 +382,66 @@ p {
     nav li {
         margin: 1rem 0 !important;
     }
+
 }
 
-/* Resolución para celu 2 */
-@media (max-width: 30em) {
-
+/* Resolución para celular 2 */
+@media(min-width: 481px) and (max-width: 768px) {
+    .banner {
+            background-image: url('../assets/art/nav.png');
+            image-rendering: pixelated;
+            background-size: repeat;
+            background-position: center;
+            background-position: center;
+            width: 100vw;
+            height: 10.65rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-top: -3.1rem !important;
+        }
+    
+        */
     img {
-        max-width: 90% !important;
+        max-width: 80% !important;
+    }
+
+    nav {
+        margin: 5vh auto !important;
+    }
+
+    nav ul {
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     nav li {
-        margin: 0.5rem 0 !important;
+        margin: 1rem 0 !important;
     }
+
 }
+
+/* Resolución para celu 3 */
+@media (min-width: 769px) and (max-width: 991px) {}
+
+/* Resolución para dispositivos medianos */
+@media (min-width: 992px) and (max-width: 1378px) {}
+
+/* Default styles for larger screens */
+@media (min-width: 1379px) {}
+
+/* Resolución para celu 1 */
+@media (max-width: 48em) {}
+
+
+
+/*
+#carrito-navbar {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+*/
 
 .footer-container {
     display: flex;
@@ -543,12 +613,30 @@ p {
     image-rendering: pixelated;
     image-rendering: optimize-contrast;
     -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: crisp-edges;
     */
-    /*image-rendering: crisp-edges;*/
     image-rendering: pixelated;
-    background-size: repeat;
+    background-size: contain;
     background-position: center;
-    background-position: center;
+    background-repeat: repeat;
+    width: 100vw;
+    height: 170px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 0;
+    padding-top: 0;
+    
+}
+
+/*
+.banner {
+    background-image: url('../assets/art/nav.png');
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: top left;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 10.65rem;
     display: flex;
@@ -556,7 +644,7 @@ p {
     align-items: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /*transform: scale(2)*/
-    margin-top: 0;
-    padding-top: 0
-}
+    margin: 0;
+    padding: 0;
+
+}*/
