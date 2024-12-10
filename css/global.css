@@ -343,20 +343,21 @@ p {
 /* Resolución para celu 2 */
 @media (max-width: 480px) {
 
-        .banner {
-                background-image: url('../assets/art/nav.png');
-                image-rendering: pixelated;
-                background-size: repeat;
-                background-position: center;
-                width: 100vw;
-                height: 170px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-                margin-top: -3.1rem !important;
-            }
+    .banner {
+        background-image: url('../assets/art/nav.png');
+        image-rendering: auto !important;
+        background-size: cover !important;
+        background-position: center !important;
+        width: 100vw !important;
+        height: 170px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-top: -3.1rem !important;
+    }
+
     img {
         max-width: 90% !important;
     }
@@ -386,24 +387,23 @@ p {
 
 /* Resolución para celular 2 */
 @media(min-width: 481px) and (max-width: 768px) {
-    .banner {
-            background-image: url('../assets/art/nav.png');
-            image-rendering: pixelated;
-            background-size: repeat;
-            background-position: center;
-            background-position: center;
-            width: 100vw;
-                height: 170px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-top: -3.1rem !important;
-        }
     
-        */
-    img {
+    .banner {
+        background-image: url('../assets/art/nav.png');
+        image-rendering: auto !important;
+        background-size: cover !important;
+        background-position: center !important;
+        width: 100vw !important;
+        height: 170px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-top: -3.1rem !important;
+    }
+
+    */ img {
         max-width: 80% !important;
     }
 
@@ -626,7 +626,7 @@ p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     margin-top: 0;
     padding-top: 0;
-    
+
 }
 
 /*
