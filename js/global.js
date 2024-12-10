@@ -159,7 +159,7 @@ function generateFooter() {
             </div>
             <br><br><br>
             <div class="copyright">
-                <p>Copyright © 2024 Vintage Software Inc. Todos los derechos reservados.</p>
+                <p>Copyright © 2024 Vintageware Inc. Todos los derechos reservados.</p>
             </div>
         </footer>
     `;
