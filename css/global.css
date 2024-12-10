@@ -348,9 +348,8 @@ p {
                 image-rendering: pixelated;
                 background-size: repeat;
                 background-position: center;
-                background-position: center;
                 width: 100vw;
-                height: 10.65rem;
+                height: 170px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -394,7 +393,7 @@ p {
             background-position: center;
             background-position: center;
             width: 100vw;
-            height: 10.65rem;
+                height: 170px;
             display: flex;
             justify-content: center;
             align-items: center;
