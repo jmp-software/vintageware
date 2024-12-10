@@ -26,6 +26,8 @@ body {
 header {
     text-align: center !important;
     z-index: 1000 !important;
+    /*margin-bottom: -1rem !important;*/
+    /*padding: 0 !important;*/
 }
 
 main {
@@ -94,7 +96,7 @@ nav li {
 section {
     margin: 5rem !important;
     margin-bottom: 4rem !important;
-    margin-top: 2rem !important;
+    margin-top: 0rem !important;
     display: flex !important;
     flex-direction: column !important;
     align-content: center !important;
@@ -112,7 +114,8 @@ nav {
     text-align: center !important;
     position: relative !important;
     padding: .25rem !important;
-    overflow: hidden !important;
+    padding-bottom: .25rem !important;
+     overflow: hidden !important;
 }
 
 
