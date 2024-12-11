@@ -99,7 +99,7 @@ nav li {
 /* Contenido de cada página */
 section {
     margin: 0rem !important;
-    margin-bottom: 4rem !important;
+    margin-bottom: 3rem !important;
     padding: 0 !important;
     margin-top: 0rem !important;
     display: flex !important;
@@ -346,16 +346,17 @@ p {
     .banner {
         background-image: url('../assets/art/nav.jpg');
         image-rendering: auto !important;
-        background-size: cover !important;
+        /*background-size: cover !important;*/
+        background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
-        height: 185px;
+        height: 187px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        margin-top: -3.1rem !important;
+        margin-top: -2.1rem !important;
     }
 
     img {
@@ -387,21 +388,22 @@ p {
 
 /* Resolución para celular 2 */
 @media(min-width: 481px) and (max-width: 768px) {
-    
+
     .banner {
-            background-image: url('../assets/art/nav.jpg');
-            image-rendering: auto !important;
-            background-size: cover !important;
-            background-position: center !important;
-            width: 100vw !important;
-            height: 370px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-top: -3.1rem !important;
-        }
+        background-image: url('../assets/art/nav.jpg');
+        image-rendering: auto !important;
+       /* background-size: cover !important;*/
+        background-repeat: repeat-x;
+        background-position: center !important;
+        width: 100vw !important;
+        height: 187px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-top: -2.5rem !important;
+    }
 
     img {
         max-width: 80% !important;
@@ -425,38 +427,40 @@ p {
 /* Resolución para celu 3 */
 @media (min-width: 769px) and (max-width: 991px) {
     .banner {
-            background-image: url('../assets/art/nav.jpg');
-            image-rendering: auto !important;
-            background-size: cover !important;
-            background-position: center !important;
-            width: 100vw !important;
-            height: 370px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-top: -3.1rem !important;
-        }
+        background-image: url('../assets/art/nav.jpg');
+        /*image-rendering: auto !important;*/
+        /*background-size: cover !important;*/
+        background-repeat: repeat-x;
+        background-position: center !important;
+        width: 100vw !important;
+        height: 187px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-top: -3.1rem;
+    }
 
 }
 
 /* Resolución para dispositivos medianos */
 @media (min-width: 992px) and (max-width: 1378px) {
     .banner {
-            background-image: url('../assets/art/nav.jpg');
-            image-rendering: auto !important;
-            background-size: cover !important;
-            background-position: center !important;
-            width: 100vw !important;
-            height: 370px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-top: -3.1rem !important;
-        }
+        background-image: url('../assets/art/nav.jpg');
+        image-rendering: auto !important;
+        /*background-size: cover !important;*/
+        background-repeat: repeat-x;
+        background-position: center !important;
+        width: 100vw !important;
+        height: 187px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-top: -3.1rem ;
+    }
 }
 
 /* Default styles for larger screens */
@@ -646,11 +650,12 @@ p {
     image-rendering: crisp-edges;
     */
     /*image-rendering: pixelated;*/
-    background-size: contain;
+    /*z-index: 2000;*/
+    /*    background-size: ;*/
     background-position: center;
     background-repeat: repeat-x;
     width: 100vw;
-    height: 370px;
+    height: 187px;
     justify-content: center;
     align-items: center;
     color: white;
