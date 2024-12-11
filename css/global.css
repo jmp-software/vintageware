@@ -344,12 +344,12 @@ p {
 @media (max-width: 480px) {
 
     .banner {
-        background-image: url('../assets/art/nav.png');
+        background-image: url('../assets/art/nav.jpg');
         image-rendering: auto !important;
         background-size: cover !important;
         background-position: center !important;
         width: 100vw !important;
-        height: 170px;
+        height: 185px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -389,12 +389,12 @@ p {
 @media(min-width: 481px) and (max-width: 768px) {
     
     .banner {
-            background-image: url('../assets/art/nav.png');
+            background-image: url('../assets/art/nav.jpg');
             image-rendering: auto !important;
             background-size: cover !important;
             background-position: center !important;
             width: 100vw !important;
-            height: 170px;
+            height: 370px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -423,17 +423,14 @@ p {
 }
 
 /* Resolución para celu 3 */
-@media (min-width: 769px) and (max-width: 991px) {}
-
-/* Resolución para dispositivos medianos */
-@media (min-width: 992px) and (max-width: 1378px) {
+@media (min-width: 769px) and (max-width: 991px) {
     .banner {
-            background-image: url('../assets/art/nav.png');
+            background-image: url('../assets/art/nav.jpg');
             image-rendering: auto !important;
             background-size: cover !important;
             background-position: center !important;
             width: 100vw !important;
-            height: 170px;
+            height: 370px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -442,6 +439,24 @@ p {
             margin-top: -3.1rem !important;
         }
 
+}
+
+/* Resolución para dispositivos medianos */
+@media (min-width: 992px) and (max-width: 1378px) {
+    .banner {
+            background-image: url('../assets/art/nav.jpg');
+            image-rendering: auto !important;
+            background-size: cover !important;
+            background-position: center !important;
+            width: 100vw !important;
+            height: 370px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-top: -3.1rem !important;
+        }
 }
 
 /* Default styles for larger screens */
@@ -619,7 +634,7 @@ p {
 }
 
 .banner {
-    background-image: url('../assets/art/nav.png');
+    background-image: url('../assets/art/nav.jpg');
     /*
     image-rendering: optimizeSpeed;
     image-rendering: -moz-crisp-edges;
@@ -635,7 +650,7 @@ p {
     background-position: center;
     background-repeat: repeat-x;
     width: 100vw;
-    height: 340px;
+    height: 370px;
     justify-content: center;
     align-items: center;
     color: white;
@@ -647,7 +662,7 @@ p {
 
 /*
 .banner {
-    background-image: url('../assets/art/nav.png');
+    background-image: url('../assets/art/nav.jpg');
     background-size: contain;
     image-rendering: pixelated;
     background-position: top left;
