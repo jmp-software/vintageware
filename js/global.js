@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
-            //.catch(error => console.error('Error fetching menu:', error));
+            //.catch(error => console.error('Error haciendo fetch del menú:', error));
 
         fetch('./pages/carrito-recuadro.html')
             .then(response => response.text())
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Element with ID 'cart-placeholder' not found.");
                 }
             })
-            //.catch(error => console.log('No se puedo hacer fetch con para el carrito',(error)));
+        //.catch(error => console.log('No se puede hacer fetch con para el carrito', error));
 
         console.log('Se ha cargado el menú de index.html y carrito para la página principal.');
     } else {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
-            //.catch(error => console.error('Error fetching menu:', error));
+            //.catch(error => console.error('Error haciendo fetch del menú:', error));
 
         fetch('../pages/carrito-recuadro.html')
             .then(response => response.text())
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log("Elemento con ID 'cart-placeholder' no encontrado.");
                 }
             })
-            //.catch(error => console.error('Error fetching cart:', error));
+            //.catch(error => console.log('No se puede hacer fetch con para el carrito', error));
 
         console.log('Se ha cargado el menú de otras páginas y carrito.');
     }
@@ -66,14 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Crea el footer
 function generateFooter() {
-    const footerPlaceholder = document.getElementById('footer-placeholder'); // Ensure this element exists in your HTML
+    const footerPlaceholder = document.getElementById('footer-placeholder'); // Se asegura que el elemento exista en el código HTML
 
     // Chequea si el container ya existe
     if (!footerPlaceholder) {
-        console.log('footer-placeholder not found in the DOM.');
+        console.log('footer-placeholder no se econtró en el DOM.');
         return;
     }
 
+    // Verifica si es del index.html desde un página del subdirectorio /pages/ 
     let place = ``;
     if (flagIndex) {
         place = `.`;

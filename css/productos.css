@@ -154,7 +154,7 @@ a:active {
     justify-content: center !important;
     /*justify-items: center !important;*/
     align-items: center !important;
-
+    border-radius: .6rem;
 }
 
 /*

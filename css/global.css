@@ -489,6 +489,7 @@ p {
 
 /* Define la caja para el grid "global" */
 .grid-container {
+    border-radius: .6rem;
     width: auto;
     height: auto;
     max-width: 100vw;

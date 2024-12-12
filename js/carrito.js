@@ -7,10 +7,13 @@ let photo = localStorage.getItem('photo') || ''; // Carga la url de la foto  par
 
 // Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades.
 function addToCart(productName, price, id, photo) {
+
+    // Calcula la cantidad total de unidades de todos los productos agregados al carrito
     let cartUnits = cart.reduce((accumulator, item) => {
         return accumulator + item.units;
     }, 0);
 
+    // Pone como tope de comprar 99 unidades en total
     if (cartUnits < 99) {
 
         // Chquea que el producta exista en el carrito
@@ -23,7 +26,7 @@ function addToCart(productName, price, id, photo) {
             cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
         }
 
-        // Calcula el precio
+        // Calcula el precio total sumando todo
         total = units * existingProduct.price; //cart.reduce((acc, item) => acc + (item.price * item.units), 0);
 
         //console.log(`Producto agregado al carrito: ${productName} | Precio: ${price}`);
@@ -70,7 +73,7 @@ function upadetProductUnitNumber() {
 // Función para restar una unidad de un producto
 function substractUnit(nameOfSubstraction) {
     console.log(`\n id en minuts Unit: ${nameOfSubstraction}`);
-    // Chquea que el producta exista en el carrito
+    // Chequea que el producto exista en el carrito
     const existingProduct = cart.find(item => item.name == nameOfSubstraction && item.units > 0);
     if (existingProduct) {
         // Si el producto existe, actualiza la cantidad de unidades
@@ -82,14 +85,10 @@ function substractUnit(nameOfSubstraction) {
     }
     else {
         console.log(`\n No encontró el producto en minusUnit`);
-        // Si el producto no exite, lo agrega al carrito
-
     }
-
 }
 
 // Si hace click, verifica si es para agrega algún producto al carrito
-
 document.addEventListener("click", function (event) {
     if (event.target.matches("a.add-to-cart")) {
         const productName = event.target.dataset.productId;
@@ -98,15 +97,15 @@ document.addEventListener("click", function (event) {
     }
 });
 
-
 // Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
 function cartOpacity() {
     let shoppingCart = document.getElementById('shopping-cart');
     if (!shoppingCart) {
         console.log('Elemento shopping-cart no encontrado.');
-        return; // Exit the function if the element is not found
+        return; // Sale de la función si el elmento no es encontrado
     }
 
+    // Calcula cantidad total de unidaes de productos en el carrito
     let totalUnits = cart.reduce((accumulator, item) => {
         return accumulator + (item.units || 0);
     }, 0);
@@ -115,6 +114,7 @@ function cartOpacity() {
     let newOpacity = parseFloat(shoppingCart.style.opacity);
     if (isNaN(newOpacity)) newOpacity = 1.0;
 
+    // Si la uniades son 0, ejecuta animación
     if (totalUnits === 0) {
         if (newOpacity >= 0) {
             shoppingCart.style.opacity = newOpacity - 0.1;
@@ -142,6 +142,7 @@ function generateCartProductiList() {
         cart.forEach((carts, index) => {
             //console.log(`\n URL de la foto de la página del carrito: ${carts.photo}`);
             //precioTotal += parseInt(carts.units * carts.price * 1000);
+          
             // Crear el HTML de cada producto en el carrito
             if (carts.units > 0) {
                 emptyCarts = false;
@@ -202,12 +203,10 @@ function updateProductUnitDisplay() {
             //console.log(`\nIngresó al if the updateProductUnitDisplay`);
             //console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
         } else {
-            //console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
+            //console.log(`\nNo ingresó al if the updateProductUnitDisplay`);
         }
     });
 }
-
-//<span id="product-count-${index}">0</span>
 
 console.log(`\n\n`);
 
@@ -228,78 +227,17 @@ function updateProductUnitDisplayCarrito() {
         }
     });
 }
-// Función para generar la página del carrito con el listado de productos
-/*
-function generateCartProductiList() {
-    let totalSale = parseInt(cart.reduce((accumulator, item) => {
-        return accumulator + parseInt((item.price * item.units * 1000 || 0));
-    }, 0));
-    const cartProductList = document.getElementById('productos-carrito-placeholder');
-    //let precioTotal = 0;
-    let emptyCarts = true;
-    if (cartProductList) {
-        cartProductList.innerHTML = '';
-        cart.forEach((carts, index) => {
-            //console.log(`\n URL de la foto de la página del carrito: ${carts.photo}`);
-            //precioTotal += parseInt(carts.units * carts.price * 1000);
-            // Crear el HTML de cada producto en el carrito
-            if (carts.units > 0) {
-                emptyCarts = false;
-                const productHTML = `
-                    <div class="product" id="${carts.id}">
-                          <img class="product-p-photo" src="${carts.photo}" alt="Photo">
-                          <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${carts.name}'); event.preventDefault();">
-                               <span class="substract-widget" id="widget-${index}">
-                               <span>-</span> 
-                               <span class="cart-counter" id="product-count-${index}">${carts.units}</span>
-                         </a>
-                    </div >
-              
-                `; cartProductList.innerHTML += productHTML;
-            }
-        });
-        cartProductList.innerHTML = `<div class="grid-container-products" id="product-p-photo">` + cartProductList.innerHTML + `</div>`;
-        cartProductList.innerHTML += `
-             <div class="total-price">
-                <p class="total-pesos">$${totalSale}</p>
-             </div >
-        `;
-        cartProductList.innerHTML += `
-             <div class="buy-button-div">
-                <button  class="buy-button" id="comprar">
-                   <p class="texto-comprar">¡COMPRAR!</p>
-                   <img class="imagen-compra" src="../assets/art/thumb.png" alt="Photo">
-                </button>
-             </div >
-        `;
 
-    } else {
-        console.log(`\nNo entró al if para generar la página del carrito`);
-    }
-    if (emptyCarts && cartProductList) {
-        cartProductList.innerHTML = ""
-        const productHTML = `
-            <div class="grid-container-empty" id="product-empty"
-                 <div class="product" id="empty-product">
-                       <img class="turle-photo" src="../favicon.png" alt="Photo">
-                       <label id="no-product">Carrito vacío :(</label>
-                    </div >
-            </div >
-     `; cartProductList.innerHTML += productHTML;
-    }
-
-}
-*/
 console.log(`\n\n`);
 
-// Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html
+
+// ------------ Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html ------------
 /*
 document.addEventListener("DOMContentLoaded", updateProductUnitDisplay);
 window.addEventListener('load', updateProductUnitDisplay);
 window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);
 */
-
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateProductUnitDisplay();
@@ -320,7 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateUpdateProductUnitDisplay();  // Start the loop once the DOM is loaded
 });
 */
-// Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito 
+
+
+// ------------ Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito ------------
 document.addEventListener('DOMContentLoaded', () => {
     function updateCartOpacity() {
         cartOpacity();
@@ -330,20 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartOpacity();  // Start the loop once the DOM is loaded
 });
 
-// Eventos en los cuales actualiza la muestra en pantalla de la cantidad de unidades puestas en el carrito
-/*
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        updateCartDisplay();
-        setInterval(updateCartDisplay, 30);
-    });
-} else {
-    // Document is already loaded
-    window.addEventListener('resize', updateCartDisplay);
-    window.addEventListener('click', updateCartDisplay);
-}*/
 
-// Ejecutar la función tan pronto como sea posible, dependiendo del estado de carga
+// ------------ Ejecutar la función tan pronto como sea posible, dependiendo del estado de carga ------------
 function initializeCart() {
     // Ejecutar inmediatamente si el DOM está listo
     updateCartDisplay();
@@ -374,10 +302,8 @@ function initializeCart() {
         window.addEventListener('click', updateCartDisplay);
     }
 }
-
 // Llamar a initializeCart para iniciar
 initializeCart();
-
 /*
 document.addEventListener('DOMContentLoaded', () => {
     function updateUpdateCartDisplay() {
@@ -389,7 +315,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 */
 
-// Eventos en los genera la lista de procutos en la página del carrito
+
+// ------------ Eventos en los genera la lista de procutos en la página del carrito ------------
 document.addEventListener("DOMContentLoaded", generateCartProductiList);
 window.addEventListener('load', generateCartProductiList);
 window.addEventListener('resize', generateCartProductiList);
@@ -405,7 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 */
 
-// Eventos en los que ejecuta la función para permitir restar productos del carrito
+
+// ------------Eventos en los que ejecuta la función para permitir restar productos del carrito ------------
 document.addEventListener("DOMContentLoaded", substractUnit);
 window.addEventListener('load', substractUnit);
 window.addEventListener('resize', substractUnit);

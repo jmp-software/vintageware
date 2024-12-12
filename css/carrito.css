@@ -233,6 +233,7 @@ nav {
 }
 
 .grid-container-products {
+        
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -258,6 +259,7 @@ nav {
 }
 
 .product {
+    border-radius: .6rem;
     /*display: flex;*/
     display: flex;
     flex-direction: column;
@@ -315,6 +317,8 @@ nav {
 }
 
 .grid-container-empty {
+    
+    border-radius: .6rem;
     display: flex;
     flex-direction: column;
     background-color: rgba(122, 0, 122, 1);

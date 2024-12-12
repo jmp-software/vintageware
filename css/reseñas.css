@@ -34,6 +34,7 @@
 }
 
 .grid-item {
+    border-radius: .6rem;
     padding: .5rem !important;
     background-color: rgba(122, 0, 122, 1);
     border: .25rem solid rgba(0, 122, 122, 1);

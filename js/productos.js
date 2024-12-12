@@ -37,42 +37,25 @@ const products = [
 */
 
 function generateProductCards() {
-    const productCardsContainer = document.getElementById('product-cards'); // Ensure this element exists in your HTML
+    const productCardsContainer = document.getElementById('product-cards');
 
     // Check if the container exists
     if (!productCardsContainer) {
-        console.log('product-cards not found in the DOM.');
+        console.error('product-cards not found in the DOM.');
         return;
     }
 
-    // Check if idProduct is an array
-    if (typeof products != 'undefined') {
-        console.log('products si es un arreglo', (products));
+    // Check if the 'products' array exists and is not empty
+    if (Array.isArray(products) && products.length > 0) {
         products.forEach((product, index) => {
             const cardHTML = `
                 <div class="card-item">
-                    <img src="${product.image}" alt="$document.addEventListener('DOMContentLoaded', () => {
-    updateProductUnitDisplay();
-    setInterval(updateProductUnitDisplay, 100);
-});
-
-window.addEventListener('load', updateProductUnitDisplay);
-window.addEventListener('resize', updateProductUnitDisplay);
-window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
+                    <img src="${product.image}" alt="${product.subtitle}">
                     <span class="add-substract-widget" id="widget-${index}">
-                        <!--
-                        <a href="#" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
-                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <a href="#" class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">+</a>   
-                        <input type="image" src="../assets/art/substract.png"  class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
-                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <input  type="image" src="../assets/art/add.png"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
-                        -->
-                        <input type="button" value="-"  class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">    
-                        <a href="#"  class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>   
-                        <input  type="button" value="+"  class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');"> 
-                        </span>
-                    
+                        <input type="button" value="-" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">
+                        <a href="#" class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>
+                        <input type="button" value="+" class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');">
+                    </span>
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
                     <p class="subtitle2" id="total-price">$${product.price}</p>
                     <p class="subtitle3">AGREGAR AL CARRITO</p>
@@ -81,10 +64,11 @@ window.addEventListener('click', updateProductUnitDisplay);{product.subtitle}">
             productCardsContainer.innerHTML += cardHTML;
         });
     } else {
-        console.log('products no es un arreglo', (products));
+        console.error('products is not an array or is empty');
     }
 }
 
+// Verifica si ya existe el arreglo products
 if (typeof products == 'undefined') {
     fetch('../json/products.json')
         .then(response => {
@@ -94,12 +78,12 @@ if (typeof products == 'undefined') {
             return response.json();
         })
         .then(data => {
-            products = data; // Now 'products' is expected to be an array of objects
-            console.log(products); // Log the data to verify its structure
-            generateProductCards(); // Call the function to generate product cards after data is loaded
+            products = data.products; // Ahora convierte a "products" en un arreglo the objetos
+            console.log(products); // Imprime en la consola la estructura de datos
+            generateProductCards(); // Llama a la función para generar las "cards"
         });
     //.catch(error => {
-    //    console.error('There was a problem with the fetch operation:', error);
+    //    console.error('No se pudo hacer el fetch:', error);
     // });
 }
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
@@ -109,65 +93,37 @@ let unitsProduct = parseInt(localStorage.getItem('units')) || 0; // Carga la can
 let idProduct = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
 let photoProduct = localStorage.getItem('photo') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
 
-/*
-function generateProductCards() {
-    const productCardsContainer = document.getElementById('product-cards');
-
-    products.forEach((product, index) => {
-        const cardHTML = `
-            
-                <div class="card-item">
-                    <img src="${product.image}" alt="${product.subtitle}">
-                    <span class="add-substract-widget" id="widget-${index}">
-                        <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}'); event.preventDefault();">-</a>    
-                        <span class="product-counter" id="product-count-${index}">0</span>
-                        <a href="#"  class="add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}',${product.price},'product-count-${index}','${product.image}'); event.preventDefault();">+</a>   
-                    </span>
-                    
-                    <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
-                    <p class="subtitle2" id="total-price">$${product.price}</p>
-                    <p class="subtitle3">AGREGAR AL CARRITO<p/>
-                </div>
-              
-        `;
-        productCardsContainer.innerHTML += cardHTML;
-    });
-}
-*/
-
+// Si el arreglo de objetos "products" existe, establece el modo de ejecución de la función para generar las "cards" de los productos
 if (typeof products != 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         generateProductCard();
-
         setInterval(generateProductCards, 100);
     });
 }
 
-// Animación del botón para agregar y sacar productos del carrito
+// Animación del botón para agregar y sacar productos del carrito en la página de "products.html"
 function hideWidget() {
     if (typeof products != 'undefined') {
         for (let a = 0; a < products.length; a++) {
             const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
             const productId = document.getElementById(`product-count-${a}`);
 
-            // Check if productId is found
+            // Chequea existencia del id del producto
             if (!productId) {
-                //console.error(`\nElement with ID product-count-${a} not found.`);
-                continue; // Skip to the next iteration if the element is not found
+                //console.error(`\nElemento con ID product-count-${a} no encontrado.`);
+                continue; // Se saltea la iteración si el producto no es encontrado
             }
 
-            const widgetCount = productId.innerHTML; // Access innerHTML directly from productId
+            const widgetCount = productId.innerHTML; // Accessa innerHTML directament con "productId"
             //console.log(`\nwidgetCount: ${widgetCount}`);
             if (widgetCount == 0) {
                 // console.log(`\nIngresó al primer if de widgetCount`);
                 const widgetId = document.getElementById(`product-count-${a}`);
 
                 if (widgetId) {
-
                     const buttonAddId = document.getElementById(`add-to-cart-${a}`);
                     //console.log(`\nIngresó al segundo if de widgetCount`);
-
-                    // Obtiene valor de margin
+                    // Obtiene valor de margenes
                     const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
                     const computedOpacity = window.getComputedStyle(buttonSubstractId).opacity; // obtiene la opacidad del botón de "-"
 
@@ -175,27 +131,26 @@ function hideWidget() {
                     const marginValue = parseFloat(computedMargin);
                     const opacityValue = parseFloat(computedOpacity);
 
-                    // console.log(`\nCurrent margin value: ${marginValue}`);
+                    // console.log(`\nValor actual del margen: ${marginValue}`);
 
-                    // substrae 0.01 del valor del margen
+                    // Substrae unidades del valor del margen y opacidad (unidades y el "-") 
                     const newMargin = marginValue - 4;
                     const newOpacity = opacityValue - (1 / 6);
                     //console.log(`\nnewMargin  = ${newMargin}`);
 
                     buttonAddId.style.padding = `0px`;
-                    // Apply the new margin value if it's greater than -32px (this will ensure it doesn't go too low)
-
-
+                    
+                    // Aplica el nuevo margen si su valor es mayor a -28
                     if (newMargin > -28) {
                         //console.log(`\nIngresó al tercer if de widgetCount`);
-                        widgetId.style.margin = `${newMargin}px`;  // Apply the new margin with 'px' unit
-                        widgetId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
-                        buttonSubstractId.style.opacity = `${newOpacity}`;  // Apply the new margin with 'px' unit
-                        buttonSubstractId.display = `none`;
-                        buttonAddId.style.padding = `0`;
+                        widgetId.style.margin = `${newMargin}px`;  // Aplica el nuevo margen en píxeles al ide del "widget"
+                        widgetId.style.opacity = `${newOpacity}`;  // Aplica la nueva opacidad al ide del "widget"
+                        buttonSubstractId.style.opacity = `${newOpacity}`;  // Aplica la nueva opacidad al botón "-"
+                        buttonSubstractId.display = `none`;  // Deja el atributo display del botón "-" en "none"
+                        buttonAddId.style.padding = `0`; // Deja el atributo de padding  del botón "-" en "0"
                         //buttonSubsctractId.style.padding = `0`;
-                         //buttonAddId.style.transform = `scale(1)`;
-                        // console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
+                        //buttonAddId.style.transform = `scale(1)`;
+                        //console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
                         
                         buttonAddId.style.marginLeft = `-.25rem`;
@@ -243,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /*
+                
 window.addEventListener('load', updateProductUnitDisplay);
 window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);
@@ -266,4 +222,3 @@ grid2.style.width = `${grid1.offsetWidth}px`;
 
 //<span id="product-count-${index}">0</span>
 // Función para generar las "cards" de cada producto
-

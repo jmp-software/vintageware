@@ -9,7 +9,6 @@ const pages = [
     { title: "Reseñas", url: "reseñas.html" },
     { title: "Contacto", url: "contacto.html" },
     { title: "Redes", url: "redes.html" },
-    { title: "Ubicación", url: "ubicacion.html" }
 ];
 
 // Función para buscar en el contenido de cada página
