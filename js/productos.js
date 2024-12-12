@@ -55,12 +55,12 @@ function generateProductCards() {
                     </span>
                     <span class="add-substract-widget" id="widget-${index}">
                         <input type="button" value="-" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">
-                        <a href="#" class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>
-                        <input type="button" value="+" class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}');">
+                        <a href="#" class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}',  '${product.stock}'); event.preventDefault();">0</a>
+                        <input type="button" value="+" class="product-state-button add-button" id="add-to-cart-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}', '${product.stock}'); event.preventDefault();">
                     </span>
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
                     <p class="subtitle2" id="total-price">$${product.price}</p>
-                    <a href="#" class="add-button-text" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();"><p class="subtitle3">AGREGAR AL CARRITO</p></a>
+                    <a href="#" class="add-button-text" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}', '${product.stock}'); event.preventDefault();"><p class="subtitle3">AGREGAR AL CARRITO</p></a>
                 </div>
             `;
             productCardsContainer.innerHTML += cardHTML;
@@ -94,6 +94,7 @@ let priceProduct = parseInt(localStorage.getItem('price')) || 0; // Carga el pre
 let unitsProduct = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" para localStorage o lo inicializa vacío
 let idProduct = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
 let photoProduct = localStorage.getItem('photo') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
+let stockProduct = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
 
 // Si el arreglo de objetos "products" existe, establece el modo de ejecución de la función para generar las "cards" de los productos
 if (typeof products != 'undefined') {

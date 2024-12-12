@@ -4,17 +4,28 @@ let price = parseInt(localStorage.getItem('price')) || 0; // Carga el precio par
 let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" para localStorage o lo inicializa vacío
 let id = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
 let photo = localStorage.getItem('photo') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
+let stock = localStorage.getItem('stock') ||0; // Carga la url de la foto  para localStorage o lo inicializa vacío
 
 // Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades.
-function addToCart(productName, price, id, photo) {
+function addToCart(productName, price, id, photo, stock) {
 
     // Calcula la cantidad total de unidades de todos los productos agregados al carrito
     let cartUnits = cart.reduce((accumulator, item) => {
         return accumulator + item.units;
     }, 0);
+    
+    const theProduct = cart.find(item => item.name === productName);
+    const productUnits = (theProduct && !isNaN(theProduct.units)) ? theProduct.units : 0;
 
-    // Pone como tope de comprar 99 unidades en total
-    if (cartUnits < 99) {
+    // Check if the product was found and if stock is a valid number
+    //const unitsNumber = theProduct && !isNaN(theProduct.units) ? parseInt(theProduct.units) : null;*/
+    console.log(`Las unidades de este producto son: ${productUnits }`);
+    console.log(`El stock de este producto es: ${stock}`);
+
+
+    
+    // Verifica que no supere el tope del stock de unidades de cad producto
+    if (productUnits < stock)  {
 
         // Chquea que el producta exista en el carrito
         const existingProduct = cart.find(item => item.name === productName);
@@ -23,7 +34,7 @@ function addToCart(productName, price, id, photo) {
             existingProduct.units++;
         } else {
             // Si el producto no existe, lo agrega al carrito
-            cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
+            cart.push({ name: productName, price: price, units: units, id: id, photo: photo, stock: stock });
         }
 
         // Calcula el precio total sumando todo
@@ -37,6 +48,8 @@ function addToCart(productName, price, id, photo) {
         localStorage.setItem('units', existingProduct.units);
         localStorage.setItem('id', id);
         localStorage.setItem('photo', existingProduct.photo);
+        localStorage.setItem('stock', stock);
+        
         console.log(`\nURL de la foto de la página del carrito: ${photo}`);
         console.log(`\nUnidad de este producto: ${existingProduct.units}`);
         console.log(`\nEl precio por unidad es: ${price * 1000}`);
@@ -89,6 +102,7 @@ function substractUnit(nameOfSubstraction) {
 }
 
 // Si hace click, verifica si es para agrega algún producto al carrito
+/*
 document.addEventListener("click", function (event) {
     if (event.target.matches("a.add-to-cart")) {
         const productName = event.target.dataset.productId;
@@ -96,6 +110,7 @@ document.addEventListener("click", function (event) {
         addToCart(productName, price);
     }
 });
+*/
 
 // Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
 function cartOpacity() {
