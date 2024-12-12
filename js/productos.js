@@ -50,7 +50,9 @@ function generateProductCards() {
         products.forEach((product, index) => {
             const cardHTML = `
                 <div class="card-item">
-                    <img src="${product.image}" alt="${product.subtitle}">
+                    <span type="button" onclick="reseñaModal('${product.subtitle3}','${product.subtitle}')">
+                        <img src="${product.image}" alt="${product.subtitle}">
+                    </span>
                     <span class="add-substract-widget" id="widget-${index}">
                         <input type="button" value="-" class="product-state-button substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${product.subtitle}');">
                         <a href="#" class="product-counter" id="product-count-${index}" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();">0</a>
@@ -139,7 +141,7 @@ function hideWidget() {
                     //console.log(`\nnewMargin  = ${newMargin}`);
 
                     buttonAddId.style.padding = `0px`;
-                    
+
                     // Aplica el nuevo margen si su valor es mayor a -28
                     if (newMargin > -28) {
                         //console.log(`\nIngresó al tercer if de widgetCount`);
@@ -152,7 +154,7 @@ function hideWidget() {
                         //buttonAddId.style.transform = `scale(1)`;
                         //console.log(`widgetId.style.margin  = ${widgetId.style.margin}`);
                     } else {
-                        
+
                         buttonAddId.style.marginLeft = `-.25rem`;
                         buttonAddId.style.marginRight = `.5rem`;
                         //buttonAddId.style.width = `1.5rem`;
@@ -164,27 +166,27 @@ function hideWidget() {
                     }
                 }
             } else {
-         
+
                 console.log(`\nEl producto ${a} está en 0`);
-                
+
                 const widgetId = document.getElementById(`product-count-${a}`);
                 const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
                 const buttonAddId = document.getElementById(`add-to-cart-${a}`);
 
                 widgetId.style.margin = `0px`;
-     
+
                 buttonSubstractId.style.width = ` 1.5rem`;
                 buttonAddId.style.width = ` 1.5rem`;
-             
+
                 buttonSubstractId.style.padding = `.25rem`;
                 buttonAddId.style.padding = ` .25rem`;
-             
+
                 buttonSubstractId.style.margin = `.15rem`;
                 buttonAddId.style.margin = ` .15rem`;
-             
+
                 buttonSubstractId.style.transformScale = `scale(.75)`;
                 buttonAddId.style.transformScale = `scale(.75)`;
-                
+
                 buttonSubstractId.style.opacity = `1`;
                 widgetId.style.opacity = `1`;
             }
@@ -197,8 +199,40 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(hideWidget, 30);
 });
 
+function reseñaModal(text, productName) {
+    // Create the modal element
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    // Create the modal content
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    // Add the product name and text to the modal content
+    const modalText = document.createElement('p');
+    modalText.innerHTML = `<br><p class="modal-name">${productName}</p>${text}`; // Add the product name with a <p> element and the text with a <br>
+    modalContent.appendChild(modalText);
+
+    // Add a close button
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close');
+    closeButton.textContent = '×';
+    closeButton.onclick = function () {
+        modal.style.display = 'none';
+    };
+    modalContent.appendChild(closeButton);
+
+    // Add the modal content to the modal element
+    modal.appendChild(modalContent);
+
+    // Add the modal to the document
+    document.body.appendChild(modal);
+
+    // Show the modal
+    modal.style.display = 'block';
+}
+
 /*
-                
 window.addEventListener('load', updateProductUnitDisplay);
 window.addEventListener('resize', updateProductUnitDisplay);
 window.addEventListener('click', updateProductUnitDisplay);
@@ -218,7 +252,6 @@ const grid1 = document.getElementById('product-p-form');
 const grid2 = document.getElementById('product-p-photo');
 grid2.style.width = `${grid1.offsetWidth}px`;
 */
-
 
 //<span id="product-count-${index}">0</span>
 // Función para generar las "cards" de cada producto
