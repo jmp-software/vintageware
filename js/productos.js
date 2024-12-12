@@ -58,7 +58,7 @@ function generateProductCards() {
                     </span>
                     <h2 class="subtitle" id="product-name">${product.subtitle}</h2>
                     <p class="subtitle2" id="total-price">$${product.price}</p>
-                    <p class="subtitle3">AGREGAR AL CARRITO</p>
+                    <a href="#" class="add-button-text" onclick="addToCart('${product.subtitle}', ${product.price}, 'product-count-${index}', '${product.image}'); event.preventDefault();"><p class="subtitle3">AGREGAR AL CARRITO</p></a>
                 </div>
             `;
             productCardsContainer.innerHTML += cardHTML;
