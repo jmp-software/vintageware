@@ -41,7 +41,7 @@ function generateProductCards() {
 
     // Check if the container exists
     if (!productCardsContainer) {
-        console.error('product-cards not found in the DOM.');
+        console.log('product-cards not found in the DOM.');
         return;
     }
 
@@ -50,7 +50,7 @@ function generateProductCards() {
         products.forEach((product, index) => {
             const cardHTML = `
                 <div class="card-item">
-                    <span type="button" onclick="reseñaModal('${product.subtitle3}','${product.subtitle}')">
+                    <span type="button" onclick="reseñaModal('${product.name}','${product.subtitle3}')">
                         <img src="${product.image}" alt="${product.subtitle}">
                     </span>
                     <span class="add-substract-widget" id="widget-${index}">
@@ -66,7 +66,7 @@ function generateProductCards() {
             productCardsContainer.innerHTML += cardHTML;
         });
     } else {
-        console.error('products is not an array or is empty');
+        console.log('El arreglo "roducts" no está vacío');
     }
 }
 
@@ -89,13 +89,17 @@ if (typeof products == 'undefined') {
     // });
 }
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
+/*
 let cartProduct = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
+let nameProduct = localStorage.getItem('name') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let platformProduct = localStorage.getItem('platform') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let mediaProduct = localStorage.getItem('media') || ''; // Carga el precio para localStorage o lo inicializa vacío
 let priceProduct = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
+let photoProduct = localStorage.getItem('image') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
 let unitsProduct = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" para localStorage o lo inicializa vacío
 let idProduct = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
-let photoProduct = localStorage.getItem('photo') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
 let stockProduct = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
-
+*/
 // Si el arreglo de objetos "products" existe, establece el modo de ejecución de la función para generar las "cards" de los productos
 if (typeof products != 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
@@ -200,37 +204,54 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(hideWidget, 30);
 });
 
-function reseñaModal(text, productName) {
-    // Create the modal element
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
+function reseñaModal(productName, text) {
 
-    // Create the modal content
-    const modalContent = document.createElement('div');
-    modalContent.classList.add('modal-content');
+    // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
+    const theProduct = products.find(item => item.name === productName);
+    const productStock = (theProduct && !isNaN(theProduct.stock)) ? theProduct.stock : 0;
+    var productImage = '';
+    if (theProduct) {
+        var productImage = theProduct.image;
+    }
 
-    // Add the product name and text to the modal content
-    const modalText = document.createElement('p');
-    modalText.innerHTML = `<br><p class="modal-name">${productName}</p>${text}`; // Add the product name with a <p> element and the text with a <br>
-    modalContent.appendChild(modalText);
+    if (theProduct) {
+        // Create the modal element
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
 
-    // Add a close button
-    const closeButton = document.createElement('span');
-    closeButton.classList.add('close');
-    closeButton.textContent = '×';
-    closeButton.onclick = function () {
-        modal.style.display = 'none';
-    };
-    modalContent.appendChild(closeButton);
+        // Create the modal content
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
 
-    // Add the modal content to the modal element
-    modal.appendChild(modalContent);
+        // Add the product name and text to the modal content
+        const modalText = document.createElement('p');
+        modalText.innerHTML = `
+    <br>
+    <img class="modal-image" src="${productImage}">
+    <p class="modal-name">${productName}</p>
+    <p class="moda-text">${text}</p>
+    <p class="modal-stock">STOCK: ${productStock}</p>
+    `; // Add text
+        modalContent.appendChild(modalText);
 
-    // Add the modal to the document
-    document.body.appendChild(modal);
+        // Add a close button
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close');
+        closeButton.textContent = '×';
+        closeButton.onclick = function () {
+            modal.style.display = 'none';
+        };
+        modalContent.appendChild(closeButton);
 
-    // Show the modal
-    modal.style.display = 'block';
+        // Add the modal content to the modal element
+        modal.appendChild(modalContent);
+
+        // Add the modal to the document
+        document.body.appendChild(modal);
+
+        // Show the modal
+        modal.style.display = 'block';
+    }
 }
 
 /*

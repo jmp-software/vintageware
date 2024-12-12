@@ -7,7 +7,7 @@
             "price": "30.250",
             "image": "../assets/photos/photo-1.jpg",
             "subtitle": "Windows 3.1",
-            "subtitle3": "Cajas en muy buen estado. En stock un lote de 40 copias directamente importadas desde Estados Unidos.",
+            "subtitle3": "Cajas en muy buen estado. Un lote de copias directamente importadas desde Estados Unidos.",
             "stock": "40"
         },
         {
@@ -17,7 +17,7 @@
             "price": "88.000",
             "image": "../assets/photos/photo-2.png",
             "subtitle": "Commander Keen 4",
-            "subtitle3": "5 unidades en stock, todas con caja y manual original, en muy buenas condiciones.",
+            "subtitle3": "Todas con cajas y con manual original en muy buenas condiciones.",
             "stock": "5"
         },
         {
@@ -27,7 +27,7 @@
             "price": "56.500",
             "image": "../assets/photos/photo-3.jpg",
             "subtitle": "Commodore Logo Programming Language",
-            "subtitle3": "Cartuchos para Commodore 64 en perfecto estado con su caja original. ¡Apenas dos en stock!",
+            "subtitle3": "Cartuchos para Commodore 64 en perfecto estado con su caja original.",
             "stock": "2"
         },
         {
@@ -37,7 +37,7 @@
             "price": "63.650",
             "image": "../assets/photos/photo-4.jpg",
             "subtitle": "Paint Shop Pro",
-            "subtitle3": "Calidad variable de empaque, pero copias perfectamente funcionales. Varios en stock.",
+            "subtitle3": "Calidad variable de empaque, pero copias perfectamente funcionales.",
             "stock": "52"
         }
     ]

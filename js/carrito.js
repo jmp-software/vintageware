@@ -1,13 +1,16 @@
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
-let price = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
+let name = localStorage.getItem('name') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let platform = localStorage.getItem('platform') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let media = localStorage.getItem('media') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let price= parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
+let photo = localStorage.getItem('image') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
 let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" para localStorage o lo inicializa vacío
-let id = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
-let photo = localStorage.getItem('photo') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
-let stock = localStorage.getItem('stock') ||0; // Carga la url de la foto  para localStorage o lo inicializa vacío
+let id= localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
+let stock = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
 
 // Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades.
-function addToCart(productName, price, id, photo, stock) {
+function addToCart(productName, price, id, image, stock) {
 
     // Calcula la cantidad total de unidades de todos los productos agregados al carrito
     let cartUnits = cart.reduce((accumulator, item) => {
@@ -21,7 +24,6 @@ function addToCart(productName, price, id, photo, stock) {
     //const unitsNumber = theProduct && !isNaN(theProduct.units) ? parseInt(theProduct.units) : null;*/
     console.log(`Las unidades de este producto son: ${productUnits }`);
     console.log(`El stock de este producto es: ${stock}`);
-
 
     
     // Verifica que no supere el tope del stock de unidades de cad producto
@@ -47,10 +49,9 @@ function addToCart(productName, price, id, photo, stock) {
         localStorage.setItem('precio', price);
         localStorage.setItem('units', existingProduct.units);
         localStorage.setItem('id', id);
-        localStorage.setItem('photo', existingProduct.photo);
-        localStorage.setItem('stock', stock);
+        /*localStorage.setItem('stock', stock);*/
         
-        console.log(`\nURL de la foto de la página del carrito: ${photo}`);
+        console.log(`\nURL de la foto de la página del carrito: ${image}`);
         console.log(`\nUnidad de este producto: ${existingProduct.units}`);
         console.log(`\nEl precio por unidad es: ${price * 1000}`);
         console.log(`\nCantidad total de productos comprados: ${cartUnits}`);
