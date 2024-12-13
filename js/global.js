@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (navbarPlaceholder) {
                     navbarPlaceholder.innerHTML = data;
                 } else {
-                    console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
+                    //console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
             //.catch(error => console.error('Error haciendo fetch del menú:', error));
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cartPlaceholder) {
                     cartPlaceholder.innerHTML = data;
                 } else {
-                    console.log("Element with ID 'cart-placeholder' not found.");
+                    //console.log("Element with ID 'cart-placeholder' not found.");
                 }
             })
         //.catch(error => console.log('No se puede hacer fetch con para el carrito', error));
 
-        console.log('Se ha cargado el menú de index.html y carrito para la página principal.');
+        //console.log('Se ha cargado el menú de index.html y carrito para la página principal.');
     } else {
         // Incluye el menú de '/pages/menu-2.html' para el resto de las páginas
         fetch('../pages/menú-2.html') // Ajusta la ruta según la estructura de tu servidor
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (navbarPlaceholder) {
                     navbarPlaceholder.innerHTML = data;
                 } else {
-                    console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
+                   // console.log("Elemento con ID 'navbar-placeholder' no encontrado.");
                 }
             })
             //.catch(error => console.error('Error haciendo fetch del menú:', error));
@@ -51,16 +51,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (cartPlaceholder) {
                     cartPlaceholder.innerHTML = data;
                 } else {
-                    console.log("Elemento con ID 'cart-placeholder' no encontrado.");
+                   // console.log("Elemento con ID 'cart-placeholder' no encontrado.");
                 }
             })
             //.catch(error => console.log('No se puede hacer fetch con para el carrito', error));
 
-        console.log('Se ha cargado el menú de otras páginas y carrito.');
+        //console.log('Se ha cargado el menú de otras páginas y carrito.');
     }
 
-    console.log(`\nEsto es el path actual: ${window.location.pathname}`);
-    console.log('\n');
+    //console.log(`\nEsto es el path actual: ${window.location.pathname}`);
+    //console.log('\n');
 });
 
 

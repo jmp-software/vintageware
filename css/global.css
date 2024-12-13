@@ -53,7 +53,7 @@ h1 {
     position: relative !important;
     font-size: 1.5rem !important;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 1) !important;
-
+    
 }
 
 /* Remuevo toda la decoratcíon y precofiguración de las listas */
@@ -262,7 +262,21 @@ a:hover {
     animation-delay: 2;
 }
 
-/* Resolución para celu 2 */
+.banner {
+    background-image: url('../assets/art/nav.jpg');
+    background-position: center;
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 199px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Resolución para celu 1 */
 @media (max-width: 480px) {
 
     .banner {
@@ -271,7 +285,7 @@ a:hover {
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
-        height: 187px;
+        height: 196px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -317,7 +331,7 @@ a:hover {
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
-        height: 187px;
+        height: 196px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -352,7 +366,7 @@ a:hover {
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
-        height: 187px;
+        height: 196px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -370,7 +384,7 @@ a:hover {
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
-        height: 187px;
+        height: 196px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -382,9 +396,6 @@ a:hover {
 
 /* Default styles for larger screens */
 @media (min-width: 1379px) {}
-
-/* Resolución para celu 1 */
-@media (max-width: 48em) {}
 
 .footer-container {
     display: flex;
@@ -522,17 +533,3 @@ p {
     margin-bottom: 10px;
 }
 
-.banner {
-    background-image: url('../assets/art/nav.jpg');
-    background-position: center;
-    background-repeat: repeat-x;
-    width: 100vw;
-    height: 187px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    margin-top: 0;
-    padding-top: 0;
-
-}

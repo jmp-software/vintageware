@@ -262,6 +262,22 @@ nav {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
+.empty-button {
+    margin: 1.65rem;
+    font-family: "Arcade Rounded Extended";
+    font-size: 1rem;
+    animation: sizeChange .5s infinite;
+    padding: .5rem;
+    background-color: rgb(115, 0, 115);
+    border: 0.25rem solid rgb(0, 115, 115);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    text-align: auto;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
 .buy-button-div {
     display: flex;
     justify-content: center;

@@ -1,4 +1,4 @@
-// Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
+// *** Carga valores desde el almacenamiento local o los inicializa si no encuentra nada ***
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
 let name = localStorage.getItem('name') || ''; // Carga el precio para localStorage o lo inicializa vacío
 let platform = localStorage.getItem('platform') || ''; // Carga la plataforma para localStorage o lo inicializa vacío
@@ -11,7 +11,7 @@ let id = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o 
 let stock = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
 
 
-// Carga el carrito desde el archivo JSON en un arreglo para usar con los datos que no varían
+// *** Carga el carrito desde el archivo JSON en un arreglo para usar con los datos que no varían **
 let directoryLevel = '..';
 if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html') {
     directoryLevel = '.';
@@ -19,20 +19,21 @@ if (window.location.pathname == '/index.html' || window.location.pathname == '/v
 
  let cartFixData = [];
 
-// Función para cargar los productos desde el archivo JSON
+// *** Función para cargar los productos desde el archivo JSON **
 async function loadProducts() {
     try {
         const response = await fetch(directoryLevel + '/json/products.json'); // Carga el archivo JSON
         const data = await response.json(); // Convierte la respuesta a JSON
         cartFixData = data.products; // Asigna los productos al carrito
     } catch (error) {
-        console.log('Error al cargar los productos:');
+        //console.log('Error al cargar los productos:');
     }
 }
 
 // Llama a la función para cargar los productos
 loadProducts();
 
+// ***  Función para presentar la ventana modal con el límite de stock ***
 function stockModal(productName, text) {
 
     // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
@@ -86,7 +87,7 @@ function stockModal(productName, text) {
     }
 }
 
-// Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades.
+// *** Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades ***
 function addToCart(productName, price, id, image, stock) {
 
     // Calcula la cantidad total de unidades de todos los productos agregados al carrito
@@ -99,13 +100,13 @@ function addToCart(productName, price, id, image, stock) {
 
     const theProductFix = cartFixData.find(item => item.name === productName);
     const productSubtitle = (isNaN(theProductFix.subtitle)) ? theProductFix.subtitle : '';
-    console.log(`El "subtitle" es: ${productSubtitle}`);
+    //console.log(`El "subtitle" es: ${productSubtitle}`);
 
     stock = parseInt(stock);
 
     // Chequea si el prioducto fue encontrado y si el stock es un número válido
-    console.log(`Las unidades de este producto son: ${productUnits}`);
-    console.log(`El stock de este producto es: ${stock}`);
+    //console.log(`Las unidades de este producto son: ${productUnits}`);
+    //console.log(`El stock de este producto es: ${stock}`);
 
     // Verifica que no supere el tope del stock de unidades de cad producto
     if (productUnits < stock) {
@@ -131,20 +132,20 @@ function addToCart(productName, price, id, image, stock) {
         localStorage.setItem('units', productUnits);
          localStorage.setItem('id', id);
 
-        console.log(`\nURL de la foto de la página del carrito: ${image}`);
-        console.log(`\nUnidad de este producto: ${productUnits}`);
-        console.log(`\nEl precio por unidad es: ${price * 1000}`);
-        console.log(`\nCantidad total de productos comprados: ${cartUnits}`);
+        //console.log(`\nURL de la foto de la página del carrito: ${image}`);
+        //console.log(`\nUnidad de este producto: ${productUnits}`);
+        //console.log(`\nEl precio por unidad es: ${price * 1000}`);
+        //console.log(`\nCantidad total de productos comprados: ${cartUnits}`);
 
         updateCartDisplay();
     } else {
         stockModal(productName, '¡Alcanzó el total en stock!');
-        console.log(`\n${productName} alcanzó el límite del stock (modal). Su stock es ${stock}`);
+        //console.log(`\n${productName} alcanzó el límite del stock (modal). Su stock es ${stock}`);
     }
     updateProductUnitDisplay();
 }
 
-//  Actualiza  el conteo de productos
+// *** Actualiza  el conteo de productos  ***
 function updateCartDisplay() {
     cartUnits = cart.reduce((accumulator, item) => {
         return accumulator + item.units;
@@ -157,9 +158,9 @@ function updateCartDisplay() {
     if (cartCountRecuadroId) { cartCountRecuadroId.innerHTML = cartUnits || '0'; }
 }
 
-// Función para restar una unidad de un producto
+// *** Función para restar una unidad de un producto ***
 function substractUnit(nameOfSubstraction) {
-    console.log(`\n id en minuts Unit: ${nameOfSubstraction}`);
+    //console.log(`\n id en minuts Unit: ${nameOfSubstraction}`);
     // Chequea que el producto exista en el carrito
     const existingProduct = cart.find(item => item.name == nameOfSubstraction && item.units > 0);
     if (existingProduct) {
@@ -169,11 +170,11 @@ function substractUnit(nameOfSubstraction) {
         localStorage.setItem('units', existingProduct.units);
     }
     else {
-        console.log(`\n No encontró el producto en susbstactUnit`);
+        //console.log(`\n No encontró el producto en susbstactUnit`);
     }
 }
 
-// Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
+// *** Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito  ***
 function cartOpacity() {
     let shoppingCart = document.getElementById('shopping-cart');
     if (!shoppingCart) {
@@ -205,7 +206,7 @@ function cartOpacity() {
     }
 }
 
-// Función para generar la página del carrito con el listado de productos
+// *** Función para generar la página del carrito con el listado de productos ***
 function generateCartProductiList() {
     /*loadProducts();*/
     let totalSale = parseInt(cart.reduce((accumulator, item) => {
@@ -248,10 +249,16 @@ function generateCartProductiList() {
                    <img class="imagen-compra" src="../assets/art/thumb.png" alt="Photo">
                 </button>
              </div >
+             <div class="empty-button-div">
+                <label class="empty-button" id="empty" onclick="emptyCart()">
+                   <p class="texto-vaciar">VACIAR CARRITO</p>
+                  <img class="imagen-compra" src="../assets/art/thumb_down.png" alt="Photo">
+               </label>
+             </div>
         `;
 
     } else {
-        console.log(`\nNo entró al if para generar la página del carrito`);
+        //console.log(`\nNo entró al if para generar la página del carrito`);
     }
     if (emptyCarts && cartProductList) {
         cartProductList.innerHTML = ""
@@ -266,7 +273,7 @@ function generateCartProductiList() {
     }
 }
 
-// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid"
+// *** Función Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en cada "card" de la "grid" ***
 function updateProductUnitDisplay() {
     cart.forEach((carts) => {
 
@@ -280,27 +287,33 @@ function updateProductUnitDisplay() {
     });
 }
 
-console.log(`\n\n`);
+//console.log(`\n\n`);
 
-// Actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en carrito.html
+// *** Función que actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en carrito.html ***
 function updateProductUnitDisplayCarrito() {
     cart.forEach((carts) => {
 
-        console.log(`\ncarts.id = ${carts.id}`);
+        //console.log(`\ncarts.id = ${carts.id}`);
 
         // Verifica que elemento con esa "id" existe
         const productCountElement = document.getElementById(`${carts.id}`);
         if (productCountElement) {
             productCountElement.innerHTML = carts.units;
-            console.log(`\nIngresó al if the updateProductUnitDisplayCarrito`);
-            console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
+            //console.log(`\nIngresó al if the updateProductUnitDisplayCarrito`);
+            //console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
         } else {
-            console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
+            //console.log(`\nNO ingresó al if the updateProductUnitDisplay`);
         }
     });
 }
 
 //console.log(`\n\n`);
+
+//
+function emptyCart() {
+    localStorage.clear();
+    location.reload();
+}
 
 
 // ------------ Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html ------------

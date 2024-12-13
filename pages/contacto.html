@@ -37,57 +37,60 @@
             <h1>CONTACTO</h1>
         </section>
         <form action="https://formspree.io/f/meoqaeaz" method="POST">
-          
             <div class="grid-container" id="product-p-form">
                 <div class="grid">
-                  
+                    <!-- Hidden input for 'usuario' -->
                     <div class="grid-item-p">
-                        <input type="hidden" name="usuario" id="usuario" value="Mensaje nuevo">
-                   </div>           
-                  
-                   <div class="grid-item-p" id="product-name" >
-                    <label for="amount" class="amount">¡INGRESÁ TUS DATOS Y ESCRIBINOS!</label>
-                 </div>
-                 
-                 <div class="grid-item-p">
-                    <label for="name">Nombres</label>
-                    <input type="text" name="name" required
-                    pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                    placeholder="Juan Alejandro">
-                 </div>
-
-                 <div class="grid-item-p">
-                    <label for="surname">Apellidos</label>
-                    <input type="text" name="surname" required
-                    pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$" 
-                    placeholder="Perez García">
-               </div>
-
-               <div class="grid-item-p">
-                    <label for="email">Correo-e</label>
-                    <input type="email" name="email" required
-                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                    placeholder="usuario@ejemplo.com.ar">
-               </div>
-               
-               <div class="grid-item-p">
-                   <label for="mensaje">Mensaje</label>
-                   <textarea name="mensaje" required rows="4" placeholder="Hola, ..."></textarea>
-               </div>
+                        <input type="hidden" name="usuario" id="usuario" value="Mensaje nuevo" />
+                    </div>
+        
+                    <!-- Heading section -->
+                    <div class="grid-item-p" id="product-name">
+                        <label for="amount" class="amount">¡INGRESÁ TUS DATOS Y ESCRIBINOS!</label>
+                    </div>
+        
+                    <!-- Name input -->
+                    <div class="grid-item-p">
+                        <label for="name">Nombres</label>
+                        <input type="text" name="name" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$"
+                            placeholder="Juan Alejandro" id="campo-0" />
+                    </div>
+        
+                    <!-- Surname input -->
+                    <div class="grid-item-p">
+                        <label for="surname">Apellidos</label>
+                        <input type="text" name="surname" required pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ]+( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$"
+                            placeholder="Perez García" id="campo-1" />
+                    </div>
+        
+                    <!-- Email input -->
+                    <div class="grid-item-p">
+                        <label for="email">Correo-e</label>
+                        <input type="email" name="email" required"
+                            placeholder="usuario@ejemplo.com.ar" id="campo-2" />
+                    </div>
+        
+                    <!-- Message input -->
+                    <div class="grid-item-p">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea name="mensaje" required rows="4" placeholder="Hola, ..." id="campo-3"></textarea>
+                    </div>
                 </div>
             </div>
+        
+            <!-- Buttons section -->
             <div class="p-buttons">
                 <nav class="message-buttons">
-                     <ul>
-                         <li class="grid-item-p-button">
-                             <button class="p-button" type="submit" >ENVIAR</button>
-                         </li>
-                         <li class="grid-item-p-button">
-                             <input class="delete-button" type="reset" value="BORRAR">   
-                         </li>
-                     </ul>
-                 </nav>
-                 </div>      
+                    <ul>
+                        <li class="grid-item-p-button">
+                            <button class="p-button" type="submit">ENVIAR</button>
+                        </li>
+                        <li class="grid-item-p-button">
+                            <input class="delete-button" type="reset" value="BORRAR" />
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </form>
     </main>
 
@@ -97,6 +100,7 @@
 
     <script src="../js/global.js"></script>    
     <script src="../js/carrito.js"></script>
+    <script src="../js/contacto.js"></script>
 
 </body>
 </html>

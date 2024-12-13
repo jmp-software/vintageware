@@ -3,12 +3,13 @@ function generateProductCards() {
 
     // Check if the container exists
     if (!productCardsContainer) {
-        console.log('product-cards not found in the DOM.');
+        //console.log('product-cards not found in the DOM.');
         return;
     }
 
     // Check if the 'products' array exists and is not empty
     if (Array.isArray(products) && products.length > 0) {
+        console.log(`\nListado de productos:\n\n`)
         products.forEach((product, index) => {
             const cardHTML = `
                 <div class="card-item">
@@ -26,9 +27,10 @@ function generateProductCards() {
                 </div>
             `;
             productCardsContainer.innerHTML += cardHTML;
+            console.log(`Producto ${index + 1}: ${product.subtitle}`)
         });
     } else {
-        console.log('El arreglo "roducts" no está vacío');
+        //console.log('El arreglo "roducts" no está vacío');
     }
 }
 
@@ -43,7 +45,7 @@ if (typeof products == 'undefined') {
         })
         .then(data => {
             products = data.products; // Ahora convierte a "products" en un arreglo the objetos
-            console.log(products); // Imprime en la consola la estructura de datos
+            //console.log(products); // Imprime en la consola la estructura de datos
             generateProductCards(); // Llama a la función para generar las "cards"
         });
     //.catch(error => {
@@ -72,13 +74,13 @@ function hideWidget() {
             }
 
             const widgetCount = productId.innerHTML; // Accessa innerHTML directament con "productId"
-         
+
             if (widgetCount == 0) {
                 const widgetId = document.getElementById(`product-count-${a}`);
 
                 if (widgetId) {
                     const buttonAddId = document.getElementById(`add-to-cart-${a}`);
-                    
+
                     // Obtiene valor de margenes
                     const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
                     const computedOpacity = window.getComputedStyle(buttonSubstractId).opacity; // obtiene la opacidad del botón de "-"
@@ -87,10 +89,10 @@ function hideWidget() {
                     const marginValue = parseFloat(computedMargin);
                     const opacityValue = parseFloat(computedOpacity);
 
-                     // Substrae unidades del valor del margen y opacidad (unidades y el "-") 
+                    // Substrae unidades del valor del margen y opacidad (unidades y el "-") 
                     const newMargin = marginValue - 4;
                     const newOpacity = opacityValue - (1 / 6);
-               
+
                     buttonAddId.style.padding = `0px`;
 
                     // Aplica el nuevo margen si su valor es mayor a -28
