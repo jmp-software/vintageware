@@ -16,7 +16,7 @@ let directoryLevel = '..';
 if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html') {
     directoryLevel = '.';
 }
-    
+
  let cartFixData = [];
 
 // Función para cargar los productos desde el archivo JSON
@@ -26,7 +26,7 @@ async function loadProducts() {
         const data = await response.json(); // Convierte la respuesta a JSON
         cartFixData = data.products; // Asigna los productos al carrito
     } catch (error) {
-        console.logo('Error al cargar los productos:');
+        console.log('Error al cargar los productos:');
     }
 }
 
