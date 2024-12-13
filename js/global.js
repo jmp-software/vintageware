@@ -70,7 +70,7 @@ function generateFooter() {
 
     // Chequea si el container ya existe
     if (!footerPlaceholder) {
-        console.log('footer-placeholder no se econtró en el DOM.');
+        //console.log('footer-placeholder no se econtró en el DOM.');
         return;
     }
 
