@@ -93,11 +93,11 @@ function addToCart(productName, price, id, image, stock) {
 
     const theProduct = cart.find(item => item.name === productName);
     const productUnits = (theProduct && !isNaN(theProduct.units)) ? theProduct.units : 0;
-    
+
     const theProductFix = cartFixData.find(item => item.name === productName);
     const productSubtitle = (isNaN(theProductFix.subtitle)) ? theProductFix.subtitle : '';
     console.log(`El "subtitle" es: ${theProductFix.subtitle}`);
-       
+
     stock = parseInt(stock);
 
     // Chequea si el prioducto fue encontrado y si el stock es un número válido
@@ -213,8 +213,9 @@ function generateCartProductiList() {
     if (cartProductList) {
         cartProductList.innerHTML = '';
         cart.forEach((carts, index) => {
-            const theProduct = cartFixData.find(item => item.name === carts.name);
-            if (theProduct) var productSubtitle = theProduct.subtitle;
+            var theProduct = '';
+            var theProduct = cartFixData.find(item => item.name === carts.name);
+            if (theProduct != '') var productSubtitle = theProduct.subtitle;
 
             // Crear el HTML de cada producto en el carrito
             if (carts.units > 0) {
@@ -273,7 +274,7 @@ function updateProductUnitDisplay() {
         if (productCountElement) {
             productCountElement.innerHTML = carts.units;
         } else {
-           //console.log(`\nNo ingresó al if the updateProductUnitDisplay`);
+            //console.log(`\nNo ingresó al if the updateProductUnitDisplay`);
         }
     });
 }
