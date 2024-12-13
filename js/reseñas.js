@@ -40,10 +40,11 @@ fetch('../json/products.json')
             let resultCount = 0;
 
             products.forEach(product => {
+                const formattedProductName = product.name.replace(/\*/g, '"');
                 resultCount++;
                 const reseñaHTML = `
                     <div class="grid-item" id="item${resultCount}">                        <span type="button" onclick="imageModal('${product.image}')"><img src="${product.image}" alt="Photo ${resultCount}"></span>
-                        <h2 class="subtitle">${product.name}</h2>
+                        <h2 class="subtitle">${formattedProductName}</h2>
                         <p class="subtitle3">${product.subtitle3}</p>
                         <p class="stock-subtitle">STOCK: ${product.stock}</p>
                   </div>                `;

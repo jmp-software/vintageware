@@ -156,18 +156,21 @@ function reseñaModal(productName, text) {
         const modal = document.createElement('div');
         modal.classList.add('modal');
 
-        // Crea el contenido mal
+        // Crea el contenido modal
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
+
+        // Replace asterisks with double quotes in the product name
+        const formattedProductName = productName.replace(/\*/g, '"');
 
         // Agrega imagen y texto 
         const modalText = document.createElement('p');
         modalText.innerHTML = `
-    <br>
-    <img class="modal-image" src="${productImage}">
-    <p class="modal-name">${productName}</p>
-    <p class="moda-text">${text}</p>
-    <p class="modal-stock">STOCK: ${productStock}</p>
+        <br>
+        <img class="modal-image" src="${productImage}">
+        <p class="modal-name">${formattedProductName}</p>
+        <p class="modal-text">${text}</p>
+        <p class="modal-stock">STOCK: ${productStock}</p>
     `; // Add text
         modalContent.appendChild(modalText);
 
@@ -180,7 +183,7 @@ function reseñaModal(productName, text) {
         };
         modalContent.appendChild(closeButton);
 
-        // Agrega el contenido modal al elmento
+        // Agrega el contenido modal al elemento
         modal.appendChild(modalContent);
 
         // Agrega la ventana modal al documento
