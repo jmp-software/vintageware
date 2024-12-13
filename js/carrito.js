@@ -96,14 +96,13 @@ function addToCart(productName, price, id, image, stock) {
 
     const theProductFix = cartFixData.find(item => item.name === productName);
     const productSubtitle = (isNaN(theProductFix.subtitle)) ? theProductFix.subtitle : '';
-    console.log(`El "subtitle" es: ${theProductFix.subtitle}`);
+    console.log(`El "subtitle" es: ${productSubtitle}`);
 
     stock = parseInt(stock);
 
     // Chequea si el prioducto fue encontrado y si el stock es un número válido
     console.log(`Las unidades de este producto son: ${productUnits}`);
     console.log(`El stock de este producto es: ${stock}`);
-
 
     // Verifica que no supere el tope del stock de unidades de cad producto
     if (productUnits < stock) {
@@ -125,8 +124,9 @@ function addToCart(productName, price, id, image, stock) {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('precio', price);
         localStorage.setItem('image', image);
+        localStorage.setItem('subtitle', productSubtitle);
         localStorage.setItem('units', productUnits);
-        localStorage.setItem('id', id);
+         localStorage.setItem('id', id);
 
         console.log(`\nURL de la foto de la página del carrito: ${image}`);
         console.log(`\nUnidad de este producto: ${productUnits}`);
@@ -204,6 +204,7 @@ function cartOpacity() {
 
 // Función para generar la página del carrito con el listado de productos
 function generateCartProductiList() {
+    /*loadProducts();*/
     let totalSale = parseInt(cart.reduce((accumulator, item) => {
         return accumulator + parseInt((item.price * item.units * 1000 || 0));
     }, 0));
@@ -213,17 +214,14 @@ function generateCartProductiList() {
     if (cartProductList) {
         cartProductList.innerHTML = '';
         cart.forEach((carts, index) => {
-            var theProduct = '';
-            var theProduct = cartFixData.find(item => item.name === carts.name);
-            if (theProduct != '') var productSubtitle = theProduct.subtitle;
-
+            
             // Crear el HTML de cada producto en el carrito
             if (carts.units > 0) {
                 emptyCarts = false;
                 const productHTML = `
                     <div class="product" id="${carts.id}">
                           <img class="product-p-photo" src="${carts.image}" alt="Photo">
-                          <p class="product-name">${productSubtitle}</p>
+                          <p class="product-name">${carts.subtitle}</p>
                           <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${carts.name}'); event.preventDefault();">
                                <span class="substract-widget" id="widget-${index}">
                                  <input type="button" value="-"  class="substract-product-cart">    
@@ -362,11 +360,20 @@ initializeCart();
 
 
 // ------------ Eventos en los genera la lista de procutos en la página del carrito ------------
+/*
+document.addEventListener('DOMContentLoaded', () => {
+    generateCartProductiList(); // Ensure it's fired when the DOM is ready
+});
+window.addEventListener('load', generateCartProductiList);
+window.addEventListener('resize', generateCartProductiList);
+window.addEventListener('click', generateCartProductiList);*/
+document.addEventListener('DOMContentLoaded', () => {
+    generateCartProductiList(); // Ensure it's fired when the DOM is ready
+});
 document.addEventListener("DOMContentLoaded", generateCartProductiList);
 window.addEventListener('load', generateCartProductiList);
 window.addEventListener('resize', generateCartProductiList);
 window.addEventListener('click', generateCartProductiList);
-
 
 // ------------Eventos en los que ejecuta la función para permitir restar productos del carrito ------------
 document.addEventListener("DOMContentLoaded", substractUnit);
