@@ -114,7 +114,7 @@ function addToCart(productName, price, id, image, stock) {
             existingProduct.units++;
         } else {
             // Si el producto no existe, lo agrega al carrito
-            cart.push({ name: productName, price: price, units: units, id: id, image: image, subtitle: productSubtitle, stock: stock });
+            cart.push({ name: productName, price: price, units: 0, id: id, image: image, subtitle: productSubtitle, stock: stock });
         }
 
         // Calcula el precio total sumando todo
