@@ -38,10 +38,14 @@ function stockModal(productName, text) {
 
     // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
     const theProduct = products.find(item => item.name === productName);
-    //const productStock = (theProduct && !isNaN(theProduct.stock)) ? theProduct.stock : 0;
+    
     var productImage = '';
     var productStock = 0;
     var productImage = '';
+    
+    // Reemplaza asteriscos con comillas en el nombre largo de producto
+    const formattedProductName = productName.replace(/\*/g, '"');
+
     if (theProduct) {
         var productImage = theProduct.image;
         var productStock = theProduct.stock;
@@ -61,7 +65,7 @@ function stockModal(productName, text) {
         modalText.innerHTML = `
        <br>
        <img class="modal-image" src="${productImage}">
-       <p class="modal-name">${productName}</p>
+       <p class="modal-name">${formattedProductName}</p>
        <p class="moda-text-stock">${text}</p>
        <p class="modal-stock">STOCK: ${productStock}</p>
        `; // Add text

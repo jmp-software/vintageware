@@ -162,7 +162,7 @@ function reseñaModal(productName, text) {
         const modalContent = document.createElement('div');
         modalContent.classList.add('modal-content');
 
-        // Replace asterisks with double quotes in the product name
+        // Reemplaza asteriscos con comillas en el nombre largo de producto
         const formattedProductName = productName.replace(/\*/g, '"');
 
         // Agrega imagen y texto 
