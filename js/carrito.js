@@ -1,13 +1,87 @@
 // Carga valores desde el almacenamiento local o los inicializa si no encuentra nada
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
 let name = localStorage.getItem('name') || ''; // Carga el precio para localStorage o lo inicializa vacío
-let platform = localStorage.getItem('platform') || ''; // Carga el precio para localStorage o lo inicializa vacío
-let media = localStorage.getItem('media') || ''; // Carga el precio para localStorage o lo inicializa vacío
-let price= parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
-let photo = localStorage.getItem('image') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
-let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" para localStorage o lo inicializa vacío
-let id= localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
+let platform = localStorage.getItem('platform') || ''; // Carga la plataforma para localStorage o lo inicializa vacío
+let media = localStorage.getItem('media') || ''; // Carga el medio físico para localStorage o lo inicializa vacío
+let price = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
+let image = localStorage.getItem('image') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
+let subtitle = localStorage.getItem('subtitle') || ''; // Carga el nombre más corto
+let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" del producto (este valor varía) para localStorage o lo inicializa vacío
+let id = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
 let stock = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
+
+
+// Carga el carrito desde el archivo JSON en un arreglo para usar con los datos que no varían
+let cartFixData = [];
+
+// Función para cargar los productos desde el archivo JSON
+async function loadProducts() {
+    try {
+        const response = await fetch('../json/products.json'); // Carga el archivo JSON
+        const data = await response.json(); // Convierte la respuesta a JSON
+        cartFixData = data.products; // Asigna los productos al carrito
+    } catch (error) {
+        console.logo('Error al cargar los productos:');
+    }
+}
+
+// Llama a la función para cargar los productos
+loadProducts();
+
+
+
+function stockModal(productName, text) {
+
+    // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
+    const theProduct = products.find(item => item.name === productName);
+    //const productStock = (theProduct && !isNaN(theProduct.stock)) ? theProduct.stock : 0;
+    var productImage = '';
+    var productStock = 0;
+    var productImage = '';
+    if (theProduct) {
+        var productImage = theProduct.image;
+        var productStock = theProduct.stock;
+    }
+
+    if (theProduct) {
+        // Crea el elemento modal
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        // Crea el contenido mal
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        // Agrega imagen y texto 
+        const modalText = document.createElement('p');
+        modalText.innerHTML = `
+       <br>
+       <img class="modal-image" src="${productImage}">
+       <p class="modal-name">${productName}</p>
+       <p class="moda-text-stock">${text}</p>
+       <p class="modal-stock">STOCK: ${productStock}</p>
+       `; // Add text
+        modalContent.appendChild(modalText);
+
+        // Agrega botón de cierre
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close');
+        closeButton.textContent = '×';
+        closeButton.onclick = function () {
+            modal.style.display = 'none';
+        };
+        modalContent.appendChild(closeButton);
+
+        // Agrega el contenido modal al elmento
+        modal.appendChild(modalContent);
+
+        // Agrega la ventana modal al documento
+        document.body.appendChild(modal);
+
+        // Muestra la ventana modal
+        modal.style.display = 'block';
+    }
+}
 
 // Agrega la compra al almacenamiento local y a las variables correspondientes. El límite de compra son 99 unidades.
 function addToCart(productName, price, id, image, stock) {
@@ -16,18 +90,23 @@ function addToCart(productName, price, id, image, stock) {
     let cartUnits = cart.reduce((accumulator, item) => {
         return accumulator + item.units;
     }, 0);
-    
+
     const theProduct = cart.find(item => item.name === productName);
     const productUnits = (theProduct && !isNaN(theProduct.units)) ? theProduct.units : 0;
+    
+    const theProductFix = cartFixData.find(item => item.name === productName);
+    const productSubtitle = (isNaN(theProductFix.subtitle)) ? theProductFix.subtitle : '';
+    console.log(`El "subtitle" es: ${theProductFix.subtitle}`);
+       
+    stock = parseInt(stock);
 
-    // Check if the product was found and if stock is a valid number
-    //const unitsNumber = theProduct && !isNaN(theProduct.units) ? parseInt(theProduct.units) : null;*/
-    console.log(`Las unidades de este producto son: ${productUnits }`);
+    // Chequea si el prioducto fue encontrado y si el stock es un número válido
+    console.log(`Las unidades de este producto son: ${productUnits}`);
     console.log(`El stock de este producto es: ${stock}`);
 
-    
+
     // Verifica que no supere el tope del stock de unidades de cad producto
-    if (productUnits < stock)  {
+    if (productUnits < stock) {
 
         // Chquea que el producta exista en el carrito
         const existingProduct = cart.find(item => item.name === productName);
@@ -36,29 +115,28 @@ function addToCart(productName, price, id, image, stock) {
             existingProduct.units++;
         } else {
             // Si el producto no existe, lo agrega al carrito
-            cart.push({ name: productName, price: price, units: units, id: id, photo: photo, stock: stock });
+            cart.push({ name: productName, price: price, units: units, id: id, image: image, subtitle: productSubtitle, stock: stock });
         }
 
         // Calcula el precio total sumando todo
-        total = units * existingProduct.price; //cart.reduce((acc, item) => acc + (item.price * item.units), 0);
-
-        //console.log(`Producto agregado al carrito: ${productName} | Precio: ${price}`);
+        total = units * price; //cart.reduce((acc, item) => acc + (item.price * item.units), 0);
 
         // Salva los datos nuevs del almacenaje local
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('precio', price);
-        localStorage.setItem('units', existingProduct.units);
+        localStorage.setItem('image', image);
+        localStorage.setItem('units', productUnits);
         localStorage.setItem('id', id);
-        /*localStorage.setItem('stock', stock);*/
-        
+
         console.log(`\nURL de la foto de la página del carrito: ${image}`);
-        console.log(`\nUnidad de este producto: ${existingProduct.units}`);
+        console.log(`\nUnidad de este producto: ${productUnits}`);
         console.log(`\nEl precio por unidad es: ${price * 1000}`);
         console.log(`\nCantidad total de productos comprados: ${cartUnits}`);
 
         updateCartDisplay();
     } else {
-        console.log(`\n¿cart.length es igual a 99?`);
+        stockModal(productName, '¡Alcanzó el total en stock!');
+        console.log(`\n${productName} alcanzó el límite del stock (modal). Su stock es ${stock}`);
     }
     updateProductUnitDisplay();
 }
@@ -76,14 +154,6 @@ function updateCartDisplay() {
     if (cartCountRecuadroId) { cartCountRecuadroId.innerHTML = cartUnits || '0'; }
 }
 
-//  Actualiza  precio
-/*
-function upadetProductUnitNumber() {
-    localStorage.getItem('cart', JSON.stringify(cart));
-        cart.push({ name: productName, price: price });
- }
-*/
-
 // Función para restar una unidad de un producto
 function substractUnit(nameOfSubstraction) {
     console.log(`\n id en minuts Unit: ${nameOfSubstraction}`);
@@ -94,30 +164,17 @@ function substractUnit(nameOfSubstraction) {
         existingProduct.units--;
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('units', existingProduct.units);
-        //cart.push({ name: productName, price: price, units: units, id: id, photo: photo });
-
     }
     else {
-        console.log(`\n No encontró el producto en minusUnit`);
+        console.log(`\n No encontró el producto en susbstactUnit`);
     }
 }
-
-// Si hace click, verifica si es para agrega algún producto al carrito
-/*
-document.addEventListener("click", function (event) {
-    if (event.target.matches("a.add-to-cart")) {
-        const productName = event.target.dataset.productId;
-        const price = event.target.dataset.price;
-        addToCart(productName, price);
-    }
-});
-*/
 
 // Función que esconde el carrito de la esquina de la pantalla si no se ha incluido nada en el carrito
 function cartOpacity() {
     let shoppingCart = document.getElementById('shopping-cart');
     if (!shoppingCart) {
-        console.log('Elemento shopping-cart no encontrado.');
+        //console.log('Elemento shopping-cart no encontrado.');
         return; // Sale de la función si el elmento no es encontrado
     }
 
@@ -126,7 +183,7 @@ function cartOpacity() {
         return accumulator + (item.units || 0);
     }, 0);
 
-    console.log(`\nContador de productos: >${totalUnits}<`);
+    //console.log(`\nContador de productos: >${totalUnits}<`);
     let newOpacity = parseFloat(shoppingCart.style.opacity);
     if (isNaN(newOpacity)) newOpacity = 1.0;
 
@@ -135,13 +192,13 @@ function cartOpacity() {
         if (newOpacity >= 0) {
             shoppingCart.style.opacity = newOpacity - 0.1;
             shoppingCart.style.transform = `scale(${newOpacity})`;
-            console.log('\n Opacidad:', (newOpacity));
+            //console.log('\n Opacidad:', (newOpacity));
         }
-        console.log('\nEl contador está en cero, ocultando el carrito.');
+        //console.log('\nEl contador está en cero, ocultando el carrito.');
     } else {
         shoppingCart.style.opacity = '1';
         shoppingCart.style.transform = 'scale(1)';
-        console.log('\nEl contador no está en cero, mostrando el carrito.');
+        //console.log('\nEl contador no está en cero, mostrando el carrito.');
     }
 }
 
@@ -151,20 +208,21 @@ function generateCartProductiList() {
         return accumulator + parseInt((item.price * item.units * 1000 || 0));
     }, 0));
     const cartProductList = document.getElementById('productos-carrito-placeholder');
-    cartProductList.innerHTML = '';
-    //let precioTotal = 0;
+
     let emptyCarts = true;
     if (cartProductList) {
+        cartProductList.innerHTML = '';
         cart.forEach((carts, index) => {
-            //console.log(`\n URL de la foto de la página del carrito: ${carts.photo}`);
-            //precioTotal += parseInt(carts.units * carts.price * 1000);
-          
+            const theProduct = cartFixData.find(item => item.name === carts.name);
+            if (theProduct) var productSubtitle = theProduct.subtitle;
+
             // Crear el HTML de cada producto en el carrito
             if (carts.units > 0) {
                 emptyCarts = false;
                 const productHTML = `
                     <div class="product" id="${carts.id}">
-                          <img class="product-p-photo" src="${carts.photo}" alt="Photo">
+                          <img class="product-p-photo" src="${carts.image}" alt="Photo">
+                          <p class="product-name">${productSubtitle}</p>
                           <a href="#" class="substract-button" id="substract-to-cart-${index}" onclick="substractUnit('${carts.name}'); event.preventDefault();">
                                <span class="substract-widget" id="widget-${index}">
                                  <input type="button" value="-"  class="substract-product-cart">    
@@ -193,7 +251,7 @@ function generateCartProductiList() {
     } else {
         console.log(`\nNo entró al if para generar la página del carrito`);
     }
-    if (emptyCarts) {
+    if (emptyCarts && cartProductList) {
         cartProductList.innerHTML = ""
         const productHTML = `
             <div class="grid-container-empty" id="product-empty"
@@ -210,16 +268,12 @@ function generateCartProductiList() {
 function updateProductUnitDisplay() {
     cart.forEach((carts) => {
 
-        //console.log(`\ncarts.id = ${carts.id}`);
-
         // Verifica que elemento con esa "id" existe
         const productCountElement = document.getElementById(`${carts.id}`);
         if (productCountElement) {
             productCountElement.innerHTML = carts.units;
-            //console.log(`\nIngresó al if the updateProductUnitDisplay`);
-            //console.log(`\nIndice 0 de la clase es ${productCountElement.innerHTML}`);
         } else {
-            //console.log(`\nNo ingresó al if the updateProductUnitDisplay`);
+           //console.log(`\nNo ingresó al if the updateProductUnitDisplay`);
         }
     });
 }
@@ -244,46 +298,30 @@ function updateProductUnitDisplayCarrito() {
     });
 }
 
-console.log(`\n\n`);
+//console.log(`\n\n`);
 
 
 // ------------ Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html ------------
-/*
-document.addEventListener("DOMContentLoaded", updateProductUnitDisplay);
-window.addEventListener('load', updateProductUnitDisplay);
-window.addEventListener('resize', updateProductUnitDisplay);
-window.addEventListener('click', updateProductUnitDisplay);
-*/
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         updateProductUnitDisplay();
         setInterval(updateProductUnitDisplay, 30);
     });
 } else {
-    // Document is already loaded
+    // El documento ya está cargado
     window.addEventListener('resize', updateProductUnitDisplay);
     window.addEventListener('click', updateProductUnitDisplay);
 }
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    function updateUpdateProductUnitDisplay() {
-        updateProductUnitDisplay();
-        requestAnimationFrame(updateUpdateProductUnitDisplay);  // Continue calling cartOpacity on each frame
-    }
-
-    updateUpdateProductUnitDisplay();  // Start the loop once the DOM is loaded
-});
-*/
 
 
 // ------------ Eventos en los cuales actualiza la opacidad del carrito en la esquina de la pantalla del carrito ------------
 document.addEventListener('DOMContentLoaded', () => {
     function updateCartOpacity() {
         cartOpacity();
-        requestAnimationFrame(updateCartOpacity);  // Continue calling cartOpacity on each frame
+        requestAnimationFrame(updateCartOpacity);  // Llama a cartOpacity en cada frame
     }
 
-    updateCartOpacity();  // Start the loop once the DOM is loaded
+    updateCartOpacity();  // Comienza el bucle cuando el DOM está ya carago 
 });
 
 
@@ -292,7 +330,7 @@ function initializeCart() {
     // Ejecutar inmediatamente si el DOM está listo
     updateCartDisplay();
 
-    // Usar requestAnimationFrame en lugar de setInterval para una actualización más fluida
+    // Uso "requestAnimationFrame" en vez de "setInterval" porque la actualización se hace más fluida
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             // Usar requestAnimationFrame para actualizaciones suaves
@@ -320,16 +358,6 @@ function initializeCart() {
 }
 // Llamar a initializeCart para iniciar
 initializeCart();
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    function updateUpdateCartDisplay() {
-        updateCartDisplay();
-        requestAnimationFrame(updateUpdateCartDisplay);  // Continue calling cartOpacity on each frame
-    }
-
-    updateUpdateCartDisplay();  // Start the loop once the DOM is loaded
-});
-*/
 
 
 // ------------ Eventos en los genera la lista de procutos en la página del carrito ------------
@@ -337,16 +365,6 @@ document.addEventListener("DOMContentLoaded", generateCartProductiList);
 window.addEventListener('load', generateCartProductiList);
 window.addEventListener('resize', generateCartProductiList);
 window.addEventListener('click', generateCartProductiList);
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    function updateGenerateCartProductiList() {
-        generateCartProductiList();
-        requestAnimationFrame(updateGenerateCartProductiList);  // Continue calling cartOpacity on each frame
-    }
-
-    updateGenerateCartProductiList();  // Start the loop once the DOM is loaded
-});
-*/
 
 
 // ------------Eventos en los que ejecuta la función para permitir restar productos del carrito ------------

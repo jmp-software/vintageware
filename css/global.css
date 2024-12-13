@@ -49,27 +49,12 @@ h1 {
     background-color: rgba(122, 0, 122, 1) !important;
     border-radius: 6rem;
     border: .5rem solid rgba(0, 154, 154, 1);
-    padding: 1em !important;
+    padding: 1rem !important;
     position: relative !important;
     font-size: 1.5rem !important;
     box-shadow: 0px 0px 1rem rgba(0, 0, 0, 1) !important;
 
 }
-
-/* Intento de "biselado" */
-/*
-h1::after {
-    content: '' !important;  
-    position: absolute !important;  
-    top: 0px !important;  
-    bottom: 0px !important;  
-    left: 0px !important;   
-    right: 0px !important;  
-    border-radius: 0px !important;   
-    z-index: 1 !important;  
-    box-shadow: 0 0 4px  rgba(50, 0, 50, 1) !important;  
-}
-*/
 
 /* Remuevo toda la decoratcíon y precofiguración de las listas */
 ul {
@@ -123,29 +108,12 @@ nav {
     overflow: hidden !important;
 }
 
-
 .navbar-custom {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     background-color: rgba(16, 120, 119, 1) !important;
 
 }
-
-/*
-.main-menu::before {
-    content: '' !important;  
-    position: absolute !important;  
-    top: 0 !important;  
-    left: 0 !important;  
-    right: 0 !important;  
-    bottom: 0 !important;  
-    background-image: url('../assets/art/nav.jpg') !important;   
-    background-size: cover !important;   
-    background-position: center 0% !important;   
-    opacity: .85 !important;  
-    z-index: 0 !important;
-}
- */
 
 nav ul {
     position: relative !important;
@@ -187,45 +155,6 @@ nav li a #carrito-navbar {
     color: white;
 }
 
-/*
-nav.main-menu li a {
-    box-shadow: 0 0 .5rem rgba(5, 5, 5, 1);
-}
-   
-*/
-
-
-/* Intento de "biselado" para los botones del menú principal */
-/*
-nav li a::after{
-    content: '';
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px; 
-    right: 0px;
-    border-radius: 0.5rem;
-    z-index: 1;
-    box-shadow: 0 0 4px  rgba(0, 0, 0, .5); 
-}
-*/
-
-
-/* Cuando posa el mouse sobre algún botón del menú principal */
-/*
-nav li a:hover {
-    animation: sizeChange 0.5s infinite, colorCycle 1s infinite;
-}
-*/
-
-/* Animación cuando posa el puntero sobre el item del menú */
-/*
-@keyframes colorCycle {
-    0% { background-color: rgba(165, 0, 165,1); }
-    50% { background-color: rgba(55, 0, 55,1); }
-    100% { background-color: rgba(165, 0, 165,1); }
-}
-*/
 @keyframes colorCycleNav {
     0% {
         background-color: rgba(115, 16, 114, 1);
@@ -249,7 +178,6 @@ a:hover {
     text-decoration: none !important;
     color: rgba(255, 255, 255, 1) !important;
 }
-
 
 .navbar-custom .nav-link {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
@@ -309,12 +237,6 @@ a:hover {
     cursor: pointer;
 }
 
-/*   
-p {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-*/
-
 /* Animación de cambio de tamaño constante de los item del menú*/
 @keyframes sizeChange {
 
@@ -346,7 +268,6 @@ p {
     .banner {
         background-image: url('../assets/art/nav.jpg');
         image-rendering: auto !important;
-        /*background-size: cover !important;*/
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
@@ -392,7 +313,7 @@ p {
     .banner {
         background-image: url('../assets/art/nav.jpg');
         image-rendering: auto !important;
-       /* background-size: cover !important;*/
+        /* background-size: cover !important;*/
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
@@ -428,8 +349,6 @@ p {
 @media (min-width: 769px) and (max-width: 991px) {
     .banner {
         background-image: url('../assets/art/nav.jpg');
-        /*image-rendering: auto !important;*/
-        /*background-size: cover !important;*/
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
@@ -441,7 +360,6 @@ p {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         margin-top: -3.1rem;
     }
-
 }
 
 /* Resolución para dispositivos medianos */
@@ -449,7 +367,6 @@ p {
     .banner {
         background-image: url('../assets/art/nav.jpg');
         image-rendering: auto !important;
-        /*background-size: cover !important;*/
         background-repeat: repeat-x;
         background-position: center !important;
         width: 100vw !important;
@@ -459,7 +376,7 @@ p {
         align-items: center;
         color: white;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        margin-top: -3.1rem ;
+        margin-top: -3.1rem;
     }
 }
 
@@ -468,14 +385,6 @@ p {
 
 /* Resolución para celu 1 */
 @media (max-width: 48em) {}
-
-
-
-/*
-#carrito-navbar {
-    background-color: rgba(0, 0, 0, 0) !important;
-}
-*/
 
 .footer-container {
     display: flex;
@@ -529,11 +438,8 @@ footer {
     position: fixed;
     top: .5rem;
     right: .5rem;
-    /*background-color: white;*/
-    /*border: 1px solid #ccc;*/
     padding: .5rem;
     box-shadow: 0rem 0rem .75rem rgba(0, 0, 0, 1);
-    /*background-color: rgba(0, 122, 122, .5);*/
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
 }
@@ -573,28 +479,6 @@ footer {
 .contacto-a {
     width: fit-content !important;
 }
-
-/*
-.grid-networks {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    column-gap: 0.05rem !important;
-    row-gap: 0.05rem !important;
-    width: 80vw !important;
-    max-width: 55rem !important;
-    margin: auto !important;
-    justify-content: center !important;
-}
-
-.grid-networks>div {
-    margin: 0.1rem!important;
- }
-
-.grid-item-networks img {
-    max-width: 50% !important;
-    align-items: center;
-}
- */
 
 .grid-container-footer.follow-us {
     display: flex;
@@ -640,19 +524,6 @@ p {
 
 .banner {
     background-image: url('../assets/art/nav.jpg');
-    /*
-    image-rendering: optimizeSpeed;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -o-crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: pixelated;
-    image-rendering: optimize-contrast;
-    -ms-interpolation-mode: nearest-neighbor;
-    image-rendering: crisp-edges;
-    */
-    /*image-rendering: pixelated;*/
-    /*z-index: 2000;*/
-    /*    background-size: ;*/
     background-position: center;
     background-repeat: repeat-x;
     width: 100vw;
@@ -665,22 +536,3 @@ p {
     padding-top: 0;
 
 }
-
-/*
-.banner {
-    background-image: url('../assets/art/nav.jpg');
-    background-size: contain;
-    image-rendering: pixelated;
-    background-position: top left;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 10.65rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    margin: 0;
-    padding: 0;
-
-}*/

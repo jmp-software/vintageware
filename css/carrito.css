@@ -2,66 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/*
-#product-p-photo {
-    justify-content: center; 
-    align-items: center;
-    width: auto; 
-    height: auto; 
-    max-width: 100vw;
-}
-*/
-/*
-.nombre-producto {
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
-    box-sizing: border-box;
-
-}
-
-.grid-item-p label {
-    font-size: 1.25rem;
-    display: flex;
-    margin-bottom: .25rem;
-    justify-content: left;
-    align-items: center;
-    width: auto;
-    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7);
-}
-*/
-/*
-.grid-item-p input {
-    font-size: 1.25rem;
-    display: flex;
-    margin-bottom: .75rem;
-    justify-content: center;
-    align-items: center;
-    width: 99%;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: bold;
-    text-shadow: 0px 0px 4px rgba(255, 0, 255, 0.4);
-}
-
-
-.grid-item-p label.amount {
-    font-size: 1.45rem;
-    display: flex;
-    margin-bottom: .25rem;
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    font-family: "Arcade Rounded Extended";
-    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.7);
-}
-
-.grid-item-p-button {
-    font-family: "Arcade Rounded Extended";
-}
-*/
-
 .p-buttons {
     font-family: "Arcade Rounded Extended";
     display: block;
@@ -124,68 +64,6 @@ nav {
     width: 12.35rem;
 }
 
-/*
-.exit-button {
-    width: 13.5rem; 
-    margin-left: 2rem;
-    margin-right: 2rem;
-    
-}
-*/
-
-/*
-.p-button::after, .exit-button::after, .erase-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0; 
-    right: 0;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
-}
-*/
-
-/*
-.erase-button input {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0; 
-    right: 0;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 1);
-}
-*/
-
-/*
-.items-container {
-    margin: 1rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    font-size: 110%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: grid;
-    grid-template-columns: 1fr content 1fr;
-    gap: 20px;
-}
-
-.items-container {
-    border: 0.2rem solid rgba(0, 122, 122, 1);
-    /* Border for the middle column */
-/*
-    margin-left: 5%;
-    margin-right: 5%;*/
-}
-
-*/
-/*
-.foto-enlace {
-    grid-column: 1 / 2; 
-}
-*/
-
 .precio-producto {
     color: yellow;
     font-size: 130%
@@ -220,31 +98,13 @@ nav {
     justify-content: left;
 }
 
-.product-p-photo {
-    max-height: 20rem;
-
-    /*max-width: 100rem;*/
-    /*
-    padding: -5rem;
-    height: fit-content;
-    width: fit-content;
-    text-align: center;
-    */
-}
-
 .grid-container-products {
-        
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
     height: auto;
     max-width: 100vw;
-    /*padding: 1rem;*/
-    /*
-    background-color: rgba(122, 0, 122, 1);
-        border: .25rem solid rgba(0, 122, 122, 1);
-    */
     text-align: center;
     box-sizing: border-box;
     padding-top: 1rem;
@@ -252,20 +112,21 @@ nav {
 }
 
 .product-p-photo {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1rem; 
+    padding-left: 0;
+    padding-right: 0;
     justify-content: center;
     align-items: center;
+    width: 20rem;
+    height: 2rem;
 }
 
 .product {
     border-radius: .6rem;
-    /*display: flex;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*min-width: 25rem;*/
     padding: 1rem;
     margin: 1rem;
     width: 15rem;
@@ -301,23 +162,19 @@ nav {
     font-family: Poppins, sans-serif;
     font-weight: 900;
     line-height: normal;
-    /*font-optical-sizing: auto;*/
     font-style: normal;
     background-color: rgba(0, 122, 122, 1);
     padding-right: 2rem;
     padding-left: 1rem;
     width: max-content;
     border-radius: 6rem;
-    /* border: solid .25rem;*/
 }
 
 .texto-comprar {
     font-size: 2rem;
-
 }
 
 .grid-container-empty {
-    
     border-radius: .6rem;
     display: flex;
     flex-direction: column;
@@ -327,7 +184,6 @@ nav {
     justify-content: center;
     align-items: center;
     height: fit-content;
-    /* Adjust based on your desired height */
     text-align: center;
 }
 
@@ -365,20 +221,6 @@ nav {
         justify-content: center;
     }
 
-
-    /*
-        .grid-container-products {
-            padding: 1rem 1rem !important;
-            background-color: rgba(122, 0, 122, 1);
-            border: 4px solid rgba(0, 122, 122, 1);
-            text-align: center !important;
-            height: auto !important;
-            *max-width: 90vw !important;
-            height: fit-content !important;
-            width: fit-content !important;
-        }
-    */
-
     .product-p-photo {
         width: 50%;
         height: auto;
@@ -388,7 +230,6 @@ nav {
 .item-descripcion label {
     font-weight: bold;
     margin-right: 10px;
-    /* Space between label and text */
 }
 
 .item-descripcion p {
@@ -406,12 +247,10 @@ nav {
 }
 
 .buy-button {
-    /*display: flex;*/
     margin: 1.65rem;
     font-family: "Arcade Rounded Extended";
     font-size: 1rem;
     animation: sizeChange .5s infinite;
-
     padding: .5rem;
     background-color: rgb(165, 0, 165);
     border: 0.25rem solid rgb(0, 165, 165);
@@ -449,19 +288,6 @@ nav {
     animation: recuadroTitilanteWidget 0.65s infinite;
 }
 
-/*
-.substract-product-cart {    border-radius: 10em;
-    width: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    outline: none;
-    background-color: transparent;
-    filter: invert(1);
-    border: none;
-    transform: scale(.75);
-
-}
- */
 
 /* Animación cuando posa el puntero sobre el botón para restar producto */
 @keyframes recuadroTitilanteWidget {
@@ -508,31 +334,3 @@ nav {
     }
 }
 
-div a img {
-    max-height: 11.4rem;
-
-}
-
-/*
-#product-p-photo {
-    margin-bottom: .25rem;
-
-}
-
-
-input:focus:valid {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-input:not(focus):valid {
-    background-color: rgba(255, 255, 255, 1);
-}
-
-input:not(focus):invalid {
-    color: rgba(255, 0, 0, .9);
-
-}
-
-.nombre-producto {
-    margin-bottom: 0rem;
-}
