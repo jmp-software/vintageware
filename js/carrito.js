@@ -12,12 +12,17 @@ let stock = localStorage.getItem('stock') || 0; // Carga la url de la foto  para
 
 
 // Carga el carrito desde el archivo JSON en un arreglo para usar con los datos que no varían
-let cartFixData = [];
+let directoryLevel = '..';
+if (window.location.pathname == '/index.html' || window.location.pathname == '/vintageware/' || window.location.pathname == '/vintageware/index.html') {
+    directoryLevel = '.';
+}
+    
+ let cartFixData = [];
 
 // Función para cargar los productos desde el archivo JSON
 async function loadProducts() {
     try {
-        const response = await fetch('../json/products.json'); // Carga el archivo JSON
+        const response = await fetch(directoryLevel + '/json/products.json'); // Carga el archivo JSON
         const data = await response.json(); // Convierte la respuesta a JSON
         cartFixData = data.products; // Asigna los productos al carrito
     } catch (error) {
@@ -27,8 +32,6 @@ async function loadProducts() {
 
 // Llama a la función para cargar los productos
 loadProducts();
-
-
 
 function stockModal(productName, text) {
 
