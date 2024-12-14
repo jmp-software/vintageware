@@ -77,10 +77,6 @@
         margin: .5rem !important;
         padding: .5rem !important;
     }
-
-    nav li #carrito-navbar-link:hover {
-        animation: colorCycleCart 1s infinite;
-    }
 }
 
 /* Resolución para celular 2 */
@@ -135,9 +131,6 @@
         padding: .5rem !important;
     }
 
-    nav li #carrito-navbar-link:hover {
-        animation: colorCycleCart 1s infinite;
-    }
 }
 
 /* Resolución para celu 3 */
@@ -191,9 +184,6 @@
         padding: .5rem !important;
     }
 
-    nav li #carrito-navbar-link:hover {
-        animation: colorCycleCart 1s infinite;
-    }
 }
 
 /* Resolución para dispositivos medianos */
@@ -216,9 +206,7 @@
         padding: .25rem !important;
     }
 
-    nav li #carrito-navbar-link:hover {
-        animation: colorCycleCart 1s infinite;
-    }
+
 }
 
 /* Default styles for larger screens */
@@ -249,9 +237,7 @@
         width: 25%;
     }
 
-    nav li #carrito-navbar-link:hover {
-        animation: colorCycleCart 1s infinite;
-    }
+
 }
 
 nav li #carrito-navbar-link {
@@ -272,10 +258,11 @@ nav li #carrito-navbar-link {
 #cart-count-nav {
     font-weight: bold !important;
     font-size: 1rem !important;
-    background-color: rgba(122, 0, 122, 1) !important;
+    background-color: rgba(122, 0, 122, 1);
     border-radius: 2rem !important;
     height: fit-content !important;
     align-items: center !important;
+    margin-left: 0.15rem;
     padding: 0 .4rem;
 }
 
@@ -286,7 +273,6 @@ nav li #carrito-navbar-link {
 
     50% {
         filter: brightness(.25);
-
     }
 
     100% {
@@ -294,9 +280,28 @@ nav li #carrito-navbar-link {
     }
 }
 
-nav li #carrito-navbar-link:hover {
-    animation: colorCycleCart 1s infinite;
+@keyframes colorCycleCount {
+    0% {
+        background-color: rgba(122, 0, 122, 1) ;
+    }
 
+    50% {
+        background-color: rgba(42, 0, 42, 1);
+    }
+
+    100% {
+        background-color: rgba(122, 0, 122, 1) ;
+    }
+}
+
+nav li #carrito-navbar-link:hover {
+    #carrito-navbar-img {
+        animation: colorCycleCart 1s infinite;
+    }
+
+    #cart-count-nav {
+         animation: colorCycleCount 1s infinite;
+    }
 }
 
 .navbar-custom .nav-link:hover {
