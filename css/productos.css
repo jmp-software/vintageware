@@ -74,15 +74,14 @@
     }
 }
 
-.card-item:hover {
-    p.subtitle3 {
-        animation: textoTitilante 0.65s infinite;
-    }
+.subtitle3:hover {
+    animation: textoTitilante 0.65s infinite;
+    transform: scale(1.05);
 }
 
 
 .card-item:hover {
-    animation: recuadroTitilante0.65s infinite;
+    animation: recuadroTitilante 0.65s infinite;
     transform: scale(1.05);
 }
 
@@ -242,7 +241,7 @@ p.subtitle3 {
 
 
 .add-substract-widget {
-    
+
     font-size: 2rem;
     line-height: normal;
     font-family: Poppins, sans-serif;
@@ -282,7 +281,6 @@ p.subtitle3 {
 
 .add-button {
     z-index: 1000;
-
 }
 
 .modal {
@@ -321,6 +319,7 @@ p.subtitle3 {
     font-size: 1.5rem;
     color: rgb(215, 0, 0) !important;
 }
+
 .modal-stock {
     font-size: 1.2rem;
 }

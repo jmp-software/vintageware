@@ -300,7 +300,7 @@ nav li #carrito-navbar-link:hover {
     }
 
     #cart-count-nav {
-         animation: colorCycleCount 1s infinite;
+        animation: colorCycleCount 1s infinite;
     }
 }
 
