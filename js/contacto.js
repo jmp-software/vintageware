@@ -1,4 +1,4 @@
-// Función que verifica si los 4 campos tiene una entrada válida
+// *** Función que verifica si los 4 campos tiene una entrada válida ***
 function checkInputs() {
     let inputCounter = 0;
     for (let a = 0; a < 4; a++) {
@@ -15,12 +15,14 @@ function checkInputs() {
     }
 }
 
+
 // ------------ Eventos en los que ejecutan la función ------------ 
 document.addEventListener("DOMContentLoaded", checkInputs);
 window.addEventListener('load', checkInputs);
 window.addEventListener('resize', checkInputs);
 window.addEventListener('click', checkInputs);
 window.addEventListener('keydown', checkInputs);
+
 
 // ------------ Eventos en los que se ejecuta la función validando en "tiempo real" ------------ 
 for (let a = 0; a < 4; a++) {

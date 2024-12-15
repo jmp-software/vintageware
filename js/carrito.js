@@ -22,7 +22,7 @@ if (window.location.pathname == '/index.html' || window.location.pathname == '/v
 // *** Función para cargar los productos desde el archivo JSON **
 async function loadProducts() {
     try {
-        const response = await fetch(directoryLevel + '/json/products.json'); // Carga el archivo JSON
+        const response = await fetch(directoryLevel + '/json/productos.json'); // Carga el archivo JSON
         const data = await response.json(); // Convierte la respuesta a JSON
         cartFixData = data.products; // Asigna los productos al carrito
     } catch (error) {
@@ -114,7 +114,6 @@ function addToCart(productName, price, id, image, stock) {
 
     // Verifica que no supere el tope del stock de unidades de cad producto
     if (productUnits < stock) {
-
         // Chquea que el producta exista en el carrito
         const existingProduct = cart.find(item => item.name === productName);
         if (existingProduct) {
@@ -135,12 +134,6 @@ function addToCart(productName, price, id, image, stock) {
         localStorage.setItem('subtitle', productSubtitle);
         localStorage.setItem('units', productUnits);
          localStorage.setItem('id', id);
-
-        //console.log(`\nURL de la foto de la página del carrito: ${image}`);
-        //console.log(`\nUnidad de este producto: ${productUnits}`);
-        //console.log(`\nEl precio por unidad es: ${price * 1000}`);
-        //console.log(`\nCantidad total de productos comprados: ${cartUnits}`);
-
         updateCartDisplay();
     } else {
         stockModal(productName, '¡Alcanzó el total en stock!');
@@ -291,8 +284,6 @@ function updateProductUnitDisplay() {
     });
 }
 
-//console.log(`\n\n`);
-
 // *** Función que actualiza en "productos.html" la muestra en pantalla de la cantidad de unidades de cada producto en carrito.html ***
 function updateProductUnitDisplayCarrito() {
     cart.forEach((carts) => {
@@ -311,9 +302,7 @@ function updateProductUnitDisplayCarrito() {
     });
 }
 
-//console.log(`\n\n`);
-
-//
+// *** Función que vacía el carrito al presionar el botón en "carrito.html" ***
 function emptyCart() {
     localStorage.clear();
     location.reload();

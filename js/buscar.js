@@ -1,8 +1,8 @@
-// Obtiene el query de búsqueda de la URL 
+// *** Obtiene el query de búsqueda de la URL ***
 const params = new URLSearchParams(window.location.search);
 const query = params.get('query');
 
-// Array con todas las páginas donde tiene que buscar
+// *** Array con todas las páginas donde tiene que buscar ***
 const pages = [
     { title: "Inicio", url: "../index.html" },
     { title: "Productos", url: "productos.html" },
@@ -11,7 +11,7 @@ const pages = [
     { title: "Redes", url: "redes.html" },
 ];
 
-// Función para buscar en el contenido de cada página
+// *** Función para buscar en el contenido de cada página ***
 async function searchInPages() {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // Limpia resultados previos
@@ -38,7 +38,7 @@ async function searchInPages() {
         }
     }
     
-    // Si se encontraron resultados
+    // *** Si se encontraron resultados ***
     if (resultCount > 0) {
         const resultLabel = document.createElement('span');
         if (resultCount == 1) {
@@ -54,5 +54,5 @@ async function searchInPages() {
     }
 }
 
-// Comienza la búsqueda
+// *** Comienza la búsqueda ***
 searchInPages();

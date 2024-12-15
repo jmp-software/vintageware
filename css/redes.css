@@ -1,24 +1,24 @@
 .grid {
     display: flex !important;
-        flex-wrap: wrap !important;
-        grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)) !important;
-        column-gap: 2.3vw !important;
-        width: 80vw !important;
-        max-width: 55rem !important;
-        margin: auto auto !important;
-        justify-items: center !important;
-        justify-content: center !important;
+    flex-wrap: wrap !important;
+    grid-template-columns: repeat(auto-fit, minmax(10vh, 1fr)) !important;
+    column-gap: 2.3vw !important;
+    width: 80vw !important;
+    max-width: 55rem !important;
+    margin: auto auto !important;
+    justify-items: center !important;
+    justify-content: center !important;
 }
 
 .grid-item {
     display: flex !important;
     flex-direction: column !important;
     flex: 1 0 20 !important;
-    justify-content: center !important; 
-    align-items: center !important; 
-    height: 10rem !important; 
+    justify-content: center !important;
+    align-items: center !important;
+    height: 10rem !important;
     overflow: hidden !important;
- }
+}
 
 
 .grid-item img {

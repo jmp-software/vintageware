@@ -312,7 +312,6 @@ nav {
     animation: recuadroTitilanteWidget 0.65s infinite;
 }
 
-
 /* Animación cuando posa el puntero soe el botón para restar producto */
 @keyframes recuadroTitilanteWidget {
 

@@ -1,14 +1,20 @@
+let firstFrame = true;
+
+// *** Función que  genera la hileras de cards de cada producto en "producto.html" ***
 function generateProductCards() {
     const productCardsContainer = document.getElementById('product-cards');
 
-    // Check if the container exists
+    //  Verifica que existe el container
     if (!productCardsContainer) {
-        //console.log('product-cards not found in the DOM.');
+        //console.log('product-cards no encontrado en el DOM.');
         return;
     }
 
-    // Check if the 'products' array exists and is not empty
+    // Verifica si el arreglo "products" existe y está vacío  
     if (Array.isArray(products) && products.length > 0) {
+        let cartProducts = JSON.parse(localStorage.getItem('cart')) || []; //  carga "cartProductos" (el carrito de productos) desde localStorage o lo inicializa vacío
+        let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad de unidades de cada producto en "units" (este valor es el único que varía) desde localStorage o lo inicializa vacío
+
         console.log(`\nListado de productos:\n\n`)
         products.forEach((product, index) => {
             const cardHTML = `
@@ -28,18 +34,25 @@ function generateProductCards() {
             `;
             productCardsContainer.innerHTML += cardHTML;
             console.log(`Producto ${index + 1}: ${product.subtitle}`)
+            /*
+             var productId = document.getElementById(`product-count-${index}`);
+             if (productId) {
+                 const innerHtml = productId.innerHTML;
+                 console.log(`Producto ${index + 1} en unidades: ${innerHtml}`);
+             }
+             */
         });
     } else {
         //console.log('El arreglo "roducts" no está vacío');
     }
 }
 
-// Verifica si ya existe el arreglo products
+//  ***  Verifica si ya existe el arreglo products, de no ser así lo inicializa con datos del archivo json  *** 
 if (typeof products == 'undefined') {
-    fetch('../json/products.json')
+    fetch('../json/productos.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('La red no responde.');
             }
             return response.json();
         })
@@ -53,7 +66,7 @@ if (typeof products == 'undefined') {
     // });
 }
 
-// Si el arreglo de objetos "products" existe, establece el modo de ejecución de la función para generar las "cards" de los productos
+//  ***  Si el arreglo de objetos "products" existe, establece el modo de ejecución de la función para generar las "cards" de los productos *** 
 if (typeof products != 'undefined') {
     document.addEventListener('DOMContentLoaded', () => {
         generateProductCard();
@@ -61,28 +74,31 @@ if (typeof products != 'undefined') {
     });
 }
 
-// Animación del botón para agregar y sacar productos del carrito en la página de "products.html"
+//  ***  Animación del botón para agregar y sacar productos del carrito en la página de "products.html"  *** 
 function hideWidget() {
+
     if (typeof products != 'undefined') {
-        for (let a = 0; a < products.length; a++) {
+
+        for (var a = 0; a < products.length; a++) {
             const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
-            const productId = document.getElementById(`product-count-${a}`);
+            const buttonAddId = document.getElementById(`add-to-cart-${a}`);
+            const buttonCountId = document.getElementById(`product-count-${a}`);
 
             // Chequea existencia del id del producto
-            if (!productId) {
+            if (!buttonCountId) {
                 continue; // Se saltea la iteración si el producto no es encontrado
             }
 
-            const widgetCount = productId.innerHTML; // Accessa innerHTML directament con "productId"
+            const widgetCount = buttonCountId.innerHTML; // Accessa innerHTML directament con "productId"
 
-            if (widgetCount == 0) {
-                const widgetId = document.getElementById(`product-count-${a}`);
+            if (widgetCount == '0') {
+                //const widgetId = document.getElementById(`product-count-${a}`);
 
-                if (widgetId) {
-                    const buttonAddId = document.getElementById(`add-to-cart-${a}`);
+                if (buttonCountId) {
+                    //const buttonAddId = document.getElementById(`add-to-cart-${a}`);
 
                     // Obtiene valor de margenes
-                    const computedMargin = window.getComputedStyle(widgetId).margin; // obtiene el tamaño del marg
+                    const computedMargin = window.getComputedStyle(buttonCountId).margin; // obtiene el tamaño del marg
                     const computedOpacity = window.getComputedStyle(buttonSubstractId).opacity; // obtiene la opacidad del botón de "-"
 
                     // Remueve la unidad 'px' y lo convierte a coma flotante
@@ -97,27 +113,31 @@ function hideWidget() {
 
                     // Aplica el nuevo margen si su valor es mayor a -28
                     if (newMargin > -28) {
-                        widgetId.style.margin = `${newMargin}px`;  // Aplica el nuevo margen en píxeles al ide del "widget"
-                        widgetId.style.opacity = `${newOpacity}`;  // Aplica la nueva opacidad al ide del "widget"
+                        buttonCountId.style.margin = `${newMargin}px`;  // Aplica el nuevo margen en píxeles al ide del "widget"
+                        buttonCountId.style.opacity = `${newOpacity}`;  // Aplica la nueva opacidad al ide del "widget"
                         buttonSubstractId.style.opacity = `${newOpacity}`;  // Aplica la nueva opacidad al botón "-"
                         buttonSubstractId.display = `none`;  // Deja el atributo display del botón "-" en "none"
                         buttonAddId.style.padding = `0`; // Deja el atributo de padding  del botón "-" en "0"
+                        localStorage.setItem(`item_${a}`, JSON.stringify(true));
                     } else {
+
+                        isAddToCartEnabled = false;
                         buttonAddId.style.marginLeft = `-.25rem`;
                         buttonAddId.style.marginRight = `.5rem`;
                         buttonAddId.style.paddingLeft = `.4rem`;
                         buttonAddId.style.paddingRight = `1.9rem`;
+                        buttonAddId.style.witdth = `16rem`;
                     }
                 }
             } else {
 
                 //console.log(`\nEl producto ${a} está en 0`);
 
-                const widgetId = document.getElementById(`product-count-${a}`);
-                const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
-                const buttonAddId = document.getElementById(`add-to-cart-${a}`);
+                //const widgetId = document.getElementById(`product-count-${a}`);
+                //const buttonSubstractId = document.getElementById(`substract-to-cart-${a}`);
+                //const buttonAddId = document.getElementById(`add-to-cart-${a}`);
 
-                widgetId.style.margin = `0px`;
+                buttonCountId.style.margin = `0px`;
 
                 buttonSubstractId.style.width = ` 1.5rem`;
                 buttonAddId.style.width = ` 1.5rem`;
@@ -132,17 +152,17 @@ function hideWidget() {
                 buttonAddId.style.transformScale = `scale(.75)`;
 
                 buttonSubstractId.style.opacity = `1`;
-                widgetId.style.opacity = `1`;
+                buttonCountId.style.opacity = `1`;
             }
+
         }
+
+        // console.groupEnd();
+
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    hideWidget();
-    setInterval(hideWidget, 30);
-});
-
+// *** Función para mostar ventana modal con reseña ***
 function reseñaModal(productName, text) {
 
     // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
@@ -194,4 +214,12 @@ function reseñaModal(productName, text) {
         // Muestra la ventana modal
         modal.style.display = 'block';
     }
+
 }
+
+
+// ------------ Eventos en los cuales verifica si tiene que ejecutar hideWidget ------------
+document.addEventListener('DOMContentLoaded', () => {
+    hideWidget();
+    setInterval(hideWidget, 30);
+});

@@ -29,7 +29,6 @@
 
 /* Resolución para celu 1 */
 @media (max-width: 480px) {
-
     .navbar-brand {
         font-size: 150%;
     }
@@ -81,7 +80,6 @@
 
 /* Resolución para celular 2 */
 @media(min-width: 481px) and (max-width: 768px) {
-
     .navbar-brand {
         font-size: 150%;
     }
@@ -130,12 +128,10 @@
         margin: .5rem !important;
         padding: .5rem !important;
     }
-
 }
 
 /* Resolución para celu 3 */
 @media (min-width: 769px) and (max-width: 991px) {
-
     .navbar-brand {
         font-size: 150%;
     }
@@ -183,7 +179,6 @@
         margin: .5rem !important;
         padding: .5rem !important;
     }
-
 }
 
 /* Resolución para dispositivos medianos */
@@ -205,13 +200,10 @@
         margin-bottom: 10% !important;
         padding: .25rem !important;
     }
-
-
 }
 
 /* Default styles for larger screens */
 @media (min-width: 1379px) {
-
     .navbar-brand {
         padding: .25em !important;
         font-size: 150% !important;
@@ -236,12 +228,9 @@
         margin-top: 10%;
         width: 25%;
     }
-
-
 }
 
 nav li #carrito-navbar-link {
-
     display: flex !important;
     background-color: rgba(0, 0, 0, 0) !important;
     margin: 0rem;
@@ -250,9 +239,7 @@ nav li #carrito-navbar-link {
 }
 
 #carrito-navbar-img {
-
     animation: sizeChange 1s infinite;
-
 }
 
 #cart-count-nav {
