@@ -1,3 +1,36 @@
+@keyframes recuadroTitilanteImage {
+    0% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, 1));
+        /*box-shadow: 0px 0px 0 -3remrgba(122, 255, 255, 1);*/
+    }
+
+    0% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, 1));
+        /*box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);*/
+    }
+
+    50% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, .5));
+        /*box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 0.5);*/
+    }
+
+    50% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, 0.5));
+        /*box-shadow: 0px 0px 1rem rgba(122, 255, 255, 0.5);*/
+    }
+
+    100% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, 1));
+        /*box-shadow: 0px 0px 0 -3rem rgba(122, 255, 255, 1);*/
+    }
+
+    100% {
+        filter: drop-shadow(0 0 .45rem rgba(122, 255, 255, 1));
+        /*box-shadow: 0px 0px 1rem rgba(122, 255, 255, 1);*/
+
+    }
+}
+
 .grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(17.4511rem, auto)) !important;
@@ -49,6 +82,10 @@
     max-height: 10rem !important;
     padding-bottom: 0.5rem !important;
     filter: drop-shadow(0 0 .25rem rgba(0, 0, 0, 1));
+}
+
+.grid-item img:hover {
+    animation: recuadroTitilanteImage 0.65s infinite;
 }
 
 .modal {
