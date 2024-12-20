@@ -318,7 +318,7 @@ function buyModal() {
         <br>
         <p class="modal-text1">Efectuaste tu compra con éxito</p>
         <p class="modal-text2">¡Gracias por tu compra!</p>
-        <p class="modal-text3">Que tengas un buen día.</p>
+        <p class="modal-text3">¡Que tengas un buen día!</p>
 
     `; // Add text
 
