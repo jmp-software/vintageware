@@ -1,14 +1,14 @@
 // *** Carga valores desde el almacenamiento local o los inicializa si no encuentra nada ***
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Carga el carrito para localStorage o lo inicializa vacío
-let name = localStorage.getItem('name') || ''; // Carga el precio para localStorage o lo inicializa vacío
+let name = localStorage.getItem('name') || ''; // Carga el nombre del producto para localStorage o lo inicializa vacío
 let platform = localStorage.getItem('platform') || ''; // Carga la plataforma para localStorage o lo inicializa vacío
 let media = localStorage.getItem('media') || ''; // Carga el medio físico para localStorage o lo inicializa vacío
-let price = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa vacío
+let price = parseInt(localStorage.getItem('price')) || 0; // Carga el precio para localStorage o lo inicializa a cero
 let image = localStorage.getItem('image') || ''; // Carga la url de la foto  para localStorage o lo inicializa vacío
 let subtitle = localStorage.getItem('subtitle') || ''; // Carga el nombre más corto
-let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" del producto (este valor varía) para localStorage o lo inicializa vacío
+let units = parseInt(localStorage.getItem('units')) || 0; // Carga la cantidad "unidades" del producto (este valor varía) para localStorage o lo inicializa a cero
 let id = localStorage.getItem('id') || ''; // Carga el "id" para localStorage o lo inicializa vacío
-let stock = localStorage.getItem('stock') || 0; // Carga la url de la foto  para localStorage o lo inicializa vacío
+let stock = localStorage.getItem('stock') || 0; // Carga el stocl del producto para localStorage o lo inicializa vacío
 
 
 // *** Carga el carrito desde el archivo JSON en un arreglo para usar con los datos que no varían **
