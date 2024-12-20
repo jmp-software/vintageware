@@ -247,7 +247,7 @@ function generateCartProductiList() {
                 </label>
              </div >
              <div class="empty-button-div">
-                <label class="empty-button" id="empty" onclick="emptyCart()">
+                <label class="empty-button" id="empty" onclick="emptyCart('si')">
                    <p class="texto-vaciar">VACIAR CARRITO</p>
                   <img class="imagen-compra" src="../assets/art/thumb_down.png" alt="Photo">
                </label>
@@ -330,7 +330,7 @@ function buyModal() {
     closeButton.textContent = '×';
     closeButton.onclick = function () {
         modal.style.display = 'none';
-        emptyCart();
+        emptyCart('no');
     };
     modalContent.appendChild(closeButton);
 
@@ -348,15 +348,23 @@ function buyModal() {
 // *** Función que pide confirmación para comprar el "carrito.html" ***
 function buyCart() {
 
-    if (confirm("¿Está seguro de que querés realizar la compra?")) {
+    if (confirm("¿Estás seguro de que querés realizar la compra?")) {
         buyModal();
     }
 }
 
 // *** Función para comprar lo que haya en el carrito al presionar el botón  de "comprar" en "carrito.html" ***
-function emptyCart() {
-    localStorage.clear();
-    location.reload();
+function emptyCart(confirmation) {
+    if (confirmation === 'si') {
+        if (confirm("¿Estás seguro de que querés vaciar el carrito?")) {
+            localStorage.clear();
+            location.reload();
+        }
+ 
+    } else {
+        localStorage.clear();
+        location.reload();
+    }
 }
 
 // ------------ Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html ------------
