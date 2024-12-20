@@ -348,7 +348,7 @@ function buyModal() {
 // *** Función que pide confirmación para comprar el "carrito.html" ***
 function buyCart() {
 
-    if (confirm("¿Está seguro de querés realizar la compra?")) {
+    if (confirm("¿Está seguro de que querés realizar la compra?")) {
         buyModal();
     }
 }
