@@ -68,7 +68,7 @@ function stockModal(productName, text) {
        <p class="modal-name">${formattedProductName}</p>
        <p class="moda-text-stock">${text}</p>
        <p class="modal-stock">STOCK: ${productStock}</p>
-       `; // Add text
+       `; // Agrega texto
         modalContent.appendChild(modalText);
 
         // Agrega botón de cierre
@@ -320,7 +320,7 @@ function buyModal() {
         <p class="modal-text2">¡Gracias por comprar en nuestra tienda!</p>
         <p class="modal-text3">¡Que tengas un buen día!</p>
 
-    `; // Add text
+    `; // Agrega texto
 
     modalContent.appendChild(modalText);
 
@@ -347,20 +347,19 @@ function buyModal() {
 
 // *** Función que pide confirmación para comprar el "carrito.html" ***
 function buyCart() {
-
     if (confirm("¿Estás seguro de que querés realizar la compra?")) {
         buyModal();
     }
 }
 
-// *** Función para comprar lo que haya en el carrito al presionar el botón  de "comprar" en "carrito.html" ***
+// *** Función para vaciar el carrito ***
 function emptyCart(confirmation) {
     if (confirmation === 'si') {
         if (confirm("¿Estás seguro de que querés vaciar el carrito?")) {
             localStorage.clear();
             location.reload();
         }
- 
+
     } else {
         localStorage.clear();
         location.reload();
