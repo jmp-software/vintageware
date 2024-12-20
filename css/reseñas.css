@@ -87,7 +87,6 @@
 .grid-item img:hover {
     animation: recuadroTitilanteImage 0.65s infinite;
 }
-
 .modal {
     display: flex;
     justify-content: center !important;

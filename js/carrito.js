@@ -17,7 +17,7 @@ if (window.location.pathname == '/index.html' || window.location.pathname == '/v
     directoryLevel = '.';
 }
 
- let cartFixData = [];
+let cartFixData = [];
 
 // *** Función para cargar los productos desde el archivo JSON **
 async function loadProducts() {
@@ -38,11 +38,11 @@ function stockModal(productName, text) {
 
     // Obtiene cantidad en stock e imagen del producto a través del nombre como referencia
     const theProduct = products.find(item => item.name === productName);
-    
+
     var productImage = '';
     var productStock = 0;
     var productImage = '';
-    
+
     // Reemplaza asteriscos con comillas en el nombre largo de producto
     const formattedProductName = productName.replace(/\*/g, '"');
 
@@ -133,7 +133,7 @@ function addToCart(productName, price, id, image, stock) {
         localStorage.setItem('image', image);
         localStorage.setItem('subtitle', productSubtitle);
         localStorage.setItem('units', productUnits);
-         localStorage.setItem('id', id);
+        localStorage.setItem('id', id);
         updateCartDisplay();
     } else {
         stockModal(productName, '¡Alcanzó el total en stock!');
@@ -215,7 +215,7 @@ function generateCartProductiList() {
     if (cartProductList) {
         cartProductList.innerHTML = '';
         cart.forEach((carts, index) => {
-            
+
             // Crear el HTML de cada producto en el carrito
             if (carts.units > 0) {
                 emptyCarts = false;
@@ -241,10 +241,10 @@ function generateCartProductiList() {
         `;
         cartProductList.innerHTML += `
              <div class="buy-button-div">
-                <button  class="buy-button" id="comprar">
+                <label  class="buy-button"  id="buy" onclick="buyCart()">
                    <p class="texto-comprar">¡COMPRAR!</p>
                    <img class="imagen-compra" src="../assets/art/thumb.png" alt="Photo">
-                </button>
+                </label>
              </div >
              <div class="empty-button-div">
                 <label class="empty-button" id="empty" onclick="emptyCart()">
@@ -302,12 +302,62 @@ function updateProductUnitDisplayCarrito() {
     });
 }
 
-// *** Función que vacía el carrito al presionar el botón en "carrito.html" ***
+// *** Función que muestra ventana modal una vez finalizada la compra ***
+function buyModal() {
+
+    // Crea el elemento modal
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+
+    // Crea el contenido modal
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const modalText = document.createElement('p');
+    modalText.innerHTML = `
+        <br>
+        <p class="modal-text1">Efectuaste tu compra con éxito</p>
+        <p class="modal-text2">¡Gracias por tu compra!</p>
+        <p class="modal-text3">Que tengas un buen día.</p>
+
+    `; // Add text
+
+    modalContent.appendChild(modalText);
+
+    // Agrega botón de cierre
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close');
+    closeButton.textContent = '×';
+    closeButton.onclick = function () {
+        modal.style.display = 'none';
+        emptyCart();
+    };
+    modalContent.appendChild(closeButton);
+
+    // Agrega el contenido modal al elemento
+    modal.appendChild(modalContent);
+
+    // Agrega la ventana modal al documento
+    document.body.appendChild(modal);
+
+    // Muestra la ventana modal
+    modal.style.display = 'block';
+
+}
+
+// *** Función que pide confirmación para comprar el "carrito.html" ***
+function buyCart() {
+    
+    if (confirm("¿Está seguro de queré realizar la compra?")) {
+        buyModal();
+     }
+}
+
+// *** Función para comprar lo que haya en el carrito al presionar el botón  de "comprar" en "carrito.html" ***
 function emptyCart() {
     localStorage.clear();
     location.reload();
 }
-
 
 // ------------ Eventos en los cuales actualiza la cantidad de productos en cada card de la página productos.html ------------
 if (document.readyState === 'loading') {
